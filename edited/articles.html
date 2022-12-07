@@ -1,8 +1,7 @@
-
-
-
 <!doctype html>
+
 <html lang="de-ch">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,17 +32,11 @@
     <!-- dropdown css -->
     <link href="/jquery.multiselect.css" rel="stylesheet" media="all" />
 
-
-
-
-
-
-
-
     <!-- scrolling fix -->
     <script src="/scrollingFix.js" type="module"></script>
 
 </head>
+
 <body>
 
     <div id="overlay" style="display:none;">
@@ -59,134 +52,115 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <!--message box  -->
-            <span class="text-white w-100" style="border:0px solid red; font-style:italic; padding-left:10px;">
+        <span class="text-white w-100" style="border:0px solid red; font-style:italic; padding-left:10px;">
 
             </span>
         <ul class="navbar-nav px-3">
-                <li class="nav-item text-nowrap">
-                    <a class="nav-link" data-bs-toggle="modal" href="#mdLogOut">Esci</a>
-                </li>
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" data-bs-toggle="modal" href="#mdLogOut">Esci</a>
+            </li>
         </ul>
     </header>
     <div class="container-fluid">
         <div class="row">
             <!--navi -->
 
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 mt-4 d-md-block bg-light sidebar collapse navbar-expand" style="border:0px solid red; overflow:auto; ">
 
-
-                    <nav id="sidebarMenu" class="col-md-3 col-lg-2 mt-4 d-md-block bg-light sidebar collapse navbar-expand" style="border:0px solid red; overflow:auto; ">
-
-                            <div class="position-sticky pt-3">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" title="Nascondi navigazione" href="/dashboard?showNavi=false">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" title="Nascondi navigazione" href="/dashboard?showNavi=false">
                                             [x]
                                         </a>
-                                    </li>
-                                    <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard">
-                                                <i class="fas fa-home"></i>
-                                                In redazione
-                                            </a>
-                                    </li>
-                                    <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="#">
-                                                <i class="far fa-list-alt"></i>
-                                                I miei articoli
-                                            </a>
-                                    </li>
-                                    <li class="nav-item">
-                                            <a class="nav-link" href="/articlesRead">
-                                                <i class="fas fa-book"></i>
-                                                Tutti gli articoli
-                                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dashboard">
+                                <i class="fas fa-home"></i> In redazione
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">
+                                <i class="far fa-list-alt"></i> I miei articoli
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/articlesRead">
+                                <i class="fas fa-book"></i> Tutti gli articoli
+                            </a>
 
-                                    </li>
+                        </li>
 
-                                </ul>
+                    </ul>
 
-                                <!--admin navi -->
-                                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                                        <span>Amministrazione</span>
-                                    </h6>
-                                    <ul class="nav flex-column mb-2">
+                    <!--admin navi -->
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                        <span>Amministrazione</span>
+                    </h6>
+                    <ul class="nav flex-column mb-2">
 
-                                        <li class="nav-item">
-                                                <a class="nav-link" href="/articlesAll">
-                                                    <i class="far fa-list-alt"></i>
-                                                    Gestione articoli
-                                                </a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/articlesAll">
+                                <i class="far fa-list-alt"></i> Gestione articoli
+                            </a>
 
-                                        </li>
-                                        <li class="nav-item">
-                                                <a class="nav-link" href="/tags">
-                                                    <i class="fas fa-tags"></i>
-                                                    Tag
-                                                </a>
-                                        </li>
-                                        <li class="nav-item">
-                                                <a class="nav-link" href="/users">
-                                                    <i class="fas fa-users"></i>
-                                                    Utenti
-                                                </a>
-                                        </li>
-                                        <li class="nav-item">
-                                                <a class="nav-link" href="/exports">
-                                                    <i class="fas fa-database"></i>
-                                                    Statistiche
-                                                </a>
-                                        </li>
-                                        <li class="nav-item">
-                                                <a class="nav-link" href="/csvexport">
-                                                    <i class="fas fa-file-export"></i>
-                                                    Export
-                                                </a>
-                                        </li>
-                                        <li class="nav-item">
-                                                <a class="nav-link" href="/areferences">
-                                                    <i class="fas fa-retweet"></i>
-                                                    Rimandi
-                                                </a>
-                                        </li>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/tags">
+                                <i class="fas fa-tags"></i> Tag
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users">
+                                <i class="fas fa-users"></i> Utenti
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/exports">
+                                <i class="fas fa-database"></i> Statistiche
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/csvexport">
+                                <i class="fas fa-file-export"></i> Export
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/areferences">
+                                <i class="fas fa-retweet"></i> Rimandi
+                            </a>
+                        </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link" href="/excel">
+                                <i class="fas fa-file-excel"></i> Gestione Excel
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/modulesAdmin">
+                                <i class="fas fa-th"></i> Gestione moduli
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/modules">
+                                <i class="fas fa-file-code"></i> Gestione stili moduli
+                            </a>
+                        </li>
+                        <li class="nav-item">
 
+                            <a class="nav-link" target="_blank" href="/api.aspx?action=updateonline">
+                                <i class="fas fa-sync"></i> Aggiorna VSI Online
+                            </a>
+                            <br /><br /><br />
+                        </li>
 
-                                        <li class="nav-item">
-                                                <a class="nav-link" href="/excel">
-                                                    <i class="fas fa-file-excel"></i>
-                                                    Gestione Excel
-                                                </a>
-                                        </li>
-                                        <li class="nav-item">
-                                                <a class="nav-link" href="/modulesAdmin">
-                                                    <i class="fas fa-th"></i>
-                                                    Gestione moduli
-                                                </a>
-                                        </li>
-                                        <li class="nav-item">
-                                                <a class="nav-link" href="/modules">
-                                                    <i class="fas fa-file-code"></i>
-                                                    Gestione stili moduli
-                                                </a>
-                                        </li>
-                                        <li class="nav-item">
-
-                                            <a class="nav-link" target="_blank" href="/api.aspx?action=updateonline">
-                                                <i class="fas fa-sync"></i>
-                                                Aggiorna VSI Online
-                                            </a>
-                                            <br /><br /><br />
-                                        </li>
-
-
-                                    </ul>
-                            </div>
-                        <span class="border-top w-100 fixed-bottom" style="max-width:150px;">
+                    </ul>
+                </div>
+                <span class="border-top w-100 fixed-bottom" style="max-width:150px;">
                             &nbsp;&copy; 2022 by VSI
                         </span>
 
-                    </nav>
-
+            </nav>
 
             <!-- content body -->
 
@@ -194,9 +168,6 @@
                 <!-- page error -->
 
                 <!-- page info -->
-
-
-
 
                 <!-- important script for use in pages body -->
                 <!-- Bootstrap 5 Bundle -->
@@ -216,59 +187,52 @@
                 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
                 <!-- finally render page body-->
-                
 
+                <!-- title wiht subline -->
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">
+                        I miei articoli
+                    </h1>
 
-
-
-
-
-<!-- title wiht subline -->
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">
-        I miei articoli
-    </h1>
-
-    <!-- toolbar-->
-    <div class="btn-toolbar mb-2 mb-md-0">
-        <div class="btn-group me-2">
-            <a href="javascript:NewMasterArticle();" data-toggle="tooltip" title="Creare un nuovo articolo" class="btn btn-sm btn-outline-secondary">Nuovo articolo</a>
-                <a id="aPrintPDF" onclick="CreatePrintPDFLink(this);" style="display:none;" target="_blank" href="/pdf.aspx?multiselect=true&amp;editmode=false&amp;workingview=false" data-toggle="tooltip" title="Mostra il PDF nella versione finale di stampa di tutti gli articoli selezionati" class="btn btn-sm btn-outline-secondary">PDF di stampa</a>
-                <a id="aWorkingPDF" onclick="CreatePrintPDFLink(this);" style="display:none;" target="_blank" href="/pdf.aspx?multiselect=true&amp;editmode=false&amp;workingview=true" data-toggle="tooltip" title="Mostra il PDF con tutti i tuoi commenti, markup e metadati di tutti gli articoli selezionati" class="btn btn-sm btn-outline-secondary">PDF di lavoro</a>
-                <a id="aInDesign" onclick="CreatePrintPDFLink(this);" style="display:none;" href="/indesign.aspx?multiselect=true&amp;editmode=false&amp;workingview=false" target="_blank" data-toggle="tooltip" title="Ottieni l'XML di InDesign di tutti gli articoli selezionati" class="btn btn-sm btn-outline-secondary">InDesign XML</a>
-                <a id="aSelectAll" href="javascript:SeletAllArticles();" class="btn btn-sm btn-outline-secondary">Seleziona tutti gli articoli</a>
-                <a id="aDeselectAll" style="display:none;" href="javascript:SeletAllArticles();" class="btn btn-sm btn-outline-secondary">Deselect Tutti gli articoli</a>
-        </div>
-    </div>
-</div>
-
-
-<div class="container-fluid">
-    <!-- filter -->
-            <div class="row">
-                <a href="javascript:ToggleFilter();"><i class="fa fa-expand" aria-hidden="true"></i>&nbsp;Filtro di ricerca</a>
-            </div>
-            <div class="row">
-                <form id="FMFilter"  style="display:none;"  action="/articles" method="post">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="FMFilter_Title">Lemma:</label>
-                                <input type="text" class="form-control" data-toggle="tooltip" title="Enter Title to search. A Wildcard Search will do like myTitle*" placeholder="" id="FMFilter_Title" name="FMFilter_Title">
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="FMFilter_TitleUntil">Fino a lemma:</label>
-                                <input type="text" class="form-control" data-toggle="tooltip" title="If you also enter here a Title or just a Letter, a Range search between these two Titles / Letters will do." placeholder="Inserisci un ultimo titolo o una lettera per la ricerca dell'intervallo" id="FMFilter_TitleUntil" name="FMFilter_TitleUntil">
-                            </div>
+                    <!-- toolbar-->
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group me-2">
+                            <a href="javascript:NewMasterArticle();" data-toggle="tooltip" title="Creare un nuovo articolo" class="btn btn-sm btn-outline-secondary">Nuovo articolo</a>
+                            <a id="aPrintPDF" onclick="CreatePrintPDFLink(this);" style="display:none;" target="_blank" href="/pdf.aspx?multiselect=true&amp;editmode=false&amp;workingview=false" data-toggle="tooltip" title="Mostra il PDF nella versione finale di stampa di tutti gli articoli selezionati" class="btn btn-sm btn-outline-secondary">PDF di stampa</a>
+                            <a id="aWorkingPDF" onclick="CreatePrintPDFLink(this);" style="display:none;" target="_blank" href="/pdf.aspx?multiselect=true&amp;editmode=false&amp;workingview=true" data-toggle="tooltip" title="Mostra il PDF con tutti i tuoi commenti, markup e metadati di tutti gli articoli selezionati" class="btn btn-sm btn-outline-secondary">PDF di lavoro</a>
+                            <a id="aInDesign" onclick="CreatePrintPDFLink(this);" style="display:none;" href="/indesign.aspx?multiselect=true&amp;editmode=false&amp;workingview=false" target="_blank" data-toggle="tooltip" title="Ottieni l'XML di InDesign di tutti gli articoli selezionati" class="btn btn-sm btn-outline-secondary">InDesign XML</a>
+                            <a id="aSelectAll" href="javascript:SeletAllArticles();" class="btn btn-sm btn-outline-secondary">Seleziona tutti gli articoli</a>
+                            <a id="aDeselectAll" style="display:none;" href="javascript:SeletAllArticles();" class="btn btn-sm btn-outline-secondary">Deselect Tutti gli articoli</a>
                         </div>
                     </div>
+                </div>
+
+                <div class="container-fluid">
+                    <!-- filter -->
                     <div class="row">
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="FMFilter_State">Stato:</label>
-                                <select id="FMFilter_State" name="FMFilter_State" class="form-select">
+                        <a href="javascript:ToggleFilter();"><i class="fa fa-expand" aria-hidden="true"></i>&nbsp;Filtro di ricerca</a>
+                    </div>
+                    <div class="row">
+                        <form id="FMFilter" style="display:none;" action="/articles" method="post">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="FMFilter_Title">Lemma:</label>
+                                        <input type="text" class="form-control" data-toggle="tooltip" title="Enter Title to search. A Wildcard Search will do like myTitle*" placeholder="" id="FMFilter_Title" name="FMFilter_Title">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="FMFilter_TitleUntil">Fino a lemma:</label>
+                                        <input type="text" class="form-control" data-toggle="tooltip" title="If you also enter here a Title or just a Letter, a Range search between these two Titles / Letters will do." placeholder="Inserisci un ultimo titolo o una lettera per la ricerca dell'intervallo" id="FMFilter_TitleUntil" name="FMFilter_TitleUntil">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="FMFilter_State">Stato:</label>
+                                        <select id="FMFilter_State" name="FMFilter_State" class="form-select">
                                     <option value="">Seleziona</option>
                                                 <option  value="1">in redazione</option>
                                                 <option  value="2">concluso</option>
@@ -286,12 +250,12 @@
                                                 <option  value="14">vecchio sistema</option>
 
                                 </select>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="FMFilter_Tags">Tag:</label>
-                                <select multiple id="FMFilter_Tags" name="FMFilter_Tags" class="form-control tagsread">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="FMFilter_Tags">Tag:</label>
+                                        <select multiple id="FMFilter_Tags" name="FMFilter_Tags" class="form-control tagsread">
 
 
 
@@ -398,51 +362,48 @@
                                                 <option  value="108">personaggi storici e letterari</option>
 
                                 </select>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                            <div class="row mt-4 border-bottom">
+
+                                <div class="form-check form-switch">
+                                    <input type="checkbox" class="form-check-input" id="chkliteralsearch" name="chkliteralsearch" value="literal" />
+                                    <label class="form-check-label" for="chkliteralsearch">Esegui una ricerca letterale (la ricerca predefinita è ASCII)</label>
+                                </div>
+                                <br />
+                                <button type="submit" class="btn btn-secondary">Aggiorna</button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="row mt-4 border-bottom">
 
-                        <div class="form-check form-switch">
-                            <input type="checkbox"  class="form-check-input" id="chkliteralsearch" name="chkliteralsearch" value="literal" />
-                            <label class="form-check-label" for="chkliteralsearch">Esegui una ricerca letterale (la ricerca predefinita è ASCII)</label>
-                        </div>
-                        <br />
-                        <button type="submit" class="btn btn-secondary">Aggiorna</button>
-                    </div>
-                </form>
-            </div>
-
-
-
-
-
-
-    <div class="row mt-4">
-        <!-- article output table -->
-                <table id="TblArticles" class="table table-striped table-bordered" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Lemma</th>
-                            <th>Data ultima modifica</th>
-                            <th>Stato</th>
-                            <th>Tag</th>
-                            <th><!-- print pdf  --></th>
-                            <th><!-- working pdf --></th>
-                            <th>Funzioni</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                    <div class="row mt-4">
+                        <!-- article output table -->
+                        <table id="TblArticles" class="table table-striped table-bordered" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Lemma</th>
+                                    <th>Data ultima modifica</th>
+                                    <th>Stato</th>
+                                    <th>Tag</th>
+                                    <th>
+                                        <!-- print pdf  -->
+                                    </th>
+                                    <th>
+                                        <!-- working pdf -->
+                                    </th>
+                                    <th>Funzioni</th>
+                                </tr>
+                            </thead>
+                            <tbody>
                                 <tr>
                                     <td>
                                         <input type="checkbox" id="ArtBox_36768" data-articleid="36768" onclick="CheckArtSelection(36768, this)" class="form-check-input" />
                                     </td>
                                     <td data-order="g1g1g1g1" style="font-family:CDE2020;">
 
-
                                         gggg
-
 
                                     </td>
                                     <td data-order='2022-03-22-11:05:37'>
@@ -451,9 +412,7 @@
                                     </td>
                                     <td>
 
-
-
-                                                <select id="ArtikelStatus" onchange="UpdateArtikelStatus(this, 36768);" class="form-select" style="min-width:150px;">
+                                        <select id="ArtikelStatus" onchange="UpdateArtikelStatus(this, 36768);" class="form-select" style="min-width:150px;">
                                                                 <option selected value="1">in redazione</option>
                                                                 <option  value="2">concluso</option>
                                                                 <option  value="3">rivisto 1</option>
@@ -474,8 +433,7 @@
                                     </td>
                                     <td>
 
-
-                                                <select multiple id="ArtikelTags" class="form-control tagschange" style="min-width:200px;" onchange="UpdateArtikelTags(this, 36768);">
+                                        <select multiple id="ArtikelTags" class="form-control tagschange" style="min-width:200px;" onchange="UpdateArtikelTags(this, 36768);">
                                                             <option  value="9">articolo &#232; online</option>
                                                             <option  value="10">cosmo</option>
                                                             <option  value="11">tempo</option>
@@ -579,15 +537,13 @@
 
                                                 </select>
 
+                                    </td>
+                                    <td>
+                                        <a target="_blank" href="/pdf.aspx?artikelid=36768&editmode=false&workingview=false&title=gggg" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="Mostra il PDF nella versione finale di stampa" role="button">PDF di stampa</a>
 
                                     </td>
                                     <td>
-                                                <a target="_blank" href="/pdf.aspx?artikelid=36768&editmode=false&workingview=false&title=gggg" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="Mostra il PDF nella versione finale di stampa" role="button">PDF di stampa</a>
-
-                                    </td>
-                                    <td>
-                                                <a target="_blank" href="/pdf.aspx?artikelid=36768&editmode=false&workingview=true&title=gggg" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="Mostra il PDF con tutti i tuoi commenti, markup e metadati" role="button">PDF di lavoro</a>
-
+                                        <a target="_blank" href="/pdf.aspx?artikelid=36768&editmode=false&workingview=true&title=gggg" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="Mostra il PDF con tutti i tuoi commenti, markup e metadati" role="button">PDF di lavoro</a>
 
                                     </td>
 
@@ -611,9 +567,7 @@
                                     </td>
                                     <td data-order="L1e1m1m1a1" style="font-family:CDE2020;">
 
-
                                         <a class='' data-toggle='tooltip' title='Stai lavorando su questo articolo. Clicca per continuare a modificare ora e inviare le tue modifiche a DB!' style='color:red;' href='/editArticle?articleID=36844'><i class='fas fa-edit'></i>&nbsp;</a>
-
 
                                     </td>
                                     <td data-order='2022-08-10-10:51:06'>
@@ -622,9 +576,7 @@
                                     </td>
                                     <td>
 
-
-
-                                                <select id="ArtikelStatus" onchange="UpdateArtikelStatus(this, 36844);" class="form-select" style="min-width:150px;">
+                                        <select id="ArtikelStatus" onchange="UpdateArtikelStatus(this, 36844);" class="form-select" style="min-width:150px;">
                                                                 <option selected value="1">in redazione</option>
                                                                 <option  value="2">concluso</option>
                                                                 <option  value="3">rivisto 1</option>
@@ -645,8 +597,7 @@
                                     </td>
                                     <td>
 
-
-                                                <select multiple id="ArtikelTags" class="form-control tagschange" style="min-width:200px;" onchange="UpdateArtikelTags(this, 36844);">
+                                        <select multiple id="ArtikelTags" class="form-control tagschange" style="min-width:200px;" onchange="UpdateArtikelTags(this, 36844);">
                                                             <option  value="9">articolo &#232; online</option>
                                                             <option  value="10">cosmo</option>
                                                             <option  value="11">tempo</option>
@@ -750,15 +701,13 @@
 
                                                 </select>
 
+                                    </td>
+                                    <td>
+                                        <a target="_blank" href="/pdf.aspx?artikelid=36844&editmode=false&workingview=false&title=Lemma" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="Mostra il PDF nella versione finale di stampa. Vedrai la versione dal database e non dal tuo stato di lavoro. Invia prima le tue modifiche al DB." role="button">PDF di stampa</a>
 
                                     </td>
                                     <td>
-                                                <a target="_blank" href="/pdf.aspx?artikelid=36844&editmode=false&workingview=false&title=Lemma" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="Mostra il PDF nella versione finale di stampa. Vedrai la versione dal database e non dal tuo stato di lavoro. Invia prima le tue modifiche al DB." role="button">PDF di stampa</a>
-
-                                    </td>
-                                    <td>
-                                                <a target="_blank" href="/pdf.aspx?artikelid=36844&editmode=false&workingview=true&title=Lemma" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="Mostra il PDF con tutti i tuoi commenti, markup e metadati. Vedrai la versione dal database e non dal tuo stato di lavoro. Invia prima le tue modifiche al DB." role="button">PDF di lavoro</a>
-
+                                        <a target="_blank" href="/pdf.aspx?artikelid=36844&editmode=false&workingview=true&title=Lemma" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="Mostra il PDF con tutti i tuoi commenti, markup e metadati. Vedrai la versione dal database e non dal tuo stato di lavoro. Invia prima le tue modifiche al DB." role="button">PDF di lavoro</a>
 
                                     </td>
 
@@ -782,9 +731,7 @@
                                     </td>
                                     <td data-order="L1e1m1m1a1 2" style="font-family:CDE2020;">
 
-
                                         Lemma 2
-
 
                                     </td>
                                     <td data-order='2022-03-17-08:42:43'>
@@ -793,9 +740,7 @@
                                     </td>
                                     <td>
 
-
-
-                                                <select id="ArtikelStatus" onchange="UpdateArtikelStatus(this, 36769);" class="form-select" style="min-width:150px;">
+                                        <select id="ArtikelStatus" onchange="UpdateArtikelStatus(this, 36769);" class="form-select" style="min-width:150px;">
                                                                 <option selected value="1">in redazione</option>
                                                                 <option  value="2">concluso</option>
                                                                 <option  value="3">rivisto 1</option>
@@ -816,8 +761,7 @@
                                     </td>
                                     <td>
 
-
-                                                <select multiple id="ArtikelTags" class="form-control tagschange" style="min-width:200px;" onchange="UpdateArtikelTags(this, 36769);">
+                                        <select multiple id="ArtikelTags" class="form-control tagschange" style="min-width:200px;" onchange="UpdateArtikelTags(this, 36769);">
                                                             <option  value="9">articolo &#232; online</option>
                                                             <option  value="10">cosmo</option>
                                                             <option  value="11">tempo</option>
@@ -921,15 +865,13 @@
 
                                                 </select>
 
+                                    </td>
+                                    <td>
+                                        <a target="_blank" href="/pdf.aspx?artikelid=36769&editmode=false&workingview=false&title=Lemma 2" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="Mostra il PDF nella versione finale di stampa" role="button">PDF di stampa</a>
 
                                     </td>
                                     <td>
-                                                <a target="_blank" href="/pdf.aspx?artikelid=36769&editmode=false&workingview=false&title=Lemma 2" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="Mostra il PDF nella versione finale di stampa" role="button">PDF di stampa</a>
-
-                                    </td>
-                                    <td>
-                                                <a target="_blank" href="/pdf.aspx?artikelid=36769&editmode=false&workingview=true&title=Lemma 2" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="Mostra il PDF con tutti i tuoi commenti, markup e metadati" role="button">PDF di lavoro</a>
-
+                                        <a target="_blank" href="/pdf.aspx?artikelid=36769&editmode=false&workingview=true&title=Lemma 2" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="Mostra il PDF con tutti i tuoi commenti, markup e metadati" role="button">PDF di lavoro</a>
 
                                     </td>
 
@@ -953,9 +895,7 @@
                                     </td>
                                     <td data-order="N1E1S1T1E1D1 M1O1D1U1L1E1S1" style="font-family:CDE2020;">
 
-
                                         <a class='' data-toggle='tooltip' title='Stai lavorando su questo articolo. Clicca per continuare a modificare ora e inviare le tue modifiche a DB!' style='color:red;' href='/editArticle?articleID=36867'><i class='fas fa-edit'></i>&nbsp;NESTED MODULES</a>
-
 
                                     </td>
                                     <td data-order='2022-07-05-09:32:23'>
@@ -964,9 +904,7 @@
                                     </td>
                                     <td>
 
-
-
-                                                <select id="ArtikelStatus" onchange="UpdateArtikelStatus(this, 36867);" class="form-select" style="min-width:150px;">
+                                        <select id="ArtikelStatus" onchange="UpdateArtikelStatus(this, 36867);" class="form-select" style="min-width:150px;">
                                                                 <option selected value="1">in redazione</option>
                                                                 <option  value="2">concluso</option>
                                                                 <option  value="3">rivisto 1</option>
@@ -987,8 +925,7 @@
                                     </td>
                                     <td>
 
-
-                                                <select multiple id="ArtikelTags" class="form-control tagschange" style="min-width:200px;" onchange="UpdateArtikelTags(this, 36867);">
+                                        <select multiple id="ArtikelTags" class="form-control tagschange" style="min-width:200px;" onchange="UpdateArtikelTags(this, 36867);">
                                                             <option  value="9">articolo &#232; online</option>
                                                             <option  value="10">cosmo</option>
                                                             <option  value="11">tempo</option>
@@ -1092,15 +1029,13 @@
 
                                                 </select>
 
+                                    </td>
+                                    <td>
+                                        <a target="_blank" href="/pdf.aspx?artikelid=36867&editmode=false&workingview=false&title=NESTED MODULES" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="Mostra il PDF nella versione finale di stampa. Vedrai la versione dal database e non dal tuo stato di lavoro. Invia prima le tue modifiche al DB." role="button">PDF di stampa</a>
 
                                     </td>
                                     <td>
-                                                <a target="_blank" href="/pdf.aspx?artikelid=36867&editmode=false&workingview=false&title=NESTED MODULES" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="Mostra il PDF nella versione finale di stampa. Vedrai la versione dal database e non dal tuo stato di lavoro. Invia prima le tue modifiche al DB." role="button">PDF di stampa</a>
-
-                                    </td>
-                                    <td>
-                                                <a target="_blank" href="/pdf.aspx?artikelid=36867&editmode=false&workingview=true&title=NESTED MODULES" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="Mostra il PDF con tutti i tuoi commenti, markup e metadati. Vedrai la versione dal database e non dal tuo stato di lavoro. Invia prima le tue modifiche al DB." role="button">PDF di lavoro</a>
-
+                                        <a target="_blank" href="/pdf.aspx?artikelid=36867&editmode=false&workingview=true&title=NESTED MODULES" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="Mostra il PDF con tutti i tuoi commenti, markup e metadati. Vedrai la versione dal database e non dal tuo stato di lavoro. Invia prima le tue modifiche al DB." role="button">PDF di lavoro</a>
 
                                     </td>
 
@@ -1123,7 +1058,6 @@
                                         <input type="checkbox" id="ArtBox_36772" data-articleid="36772" onclick="CheckArtSelection(36772, this)" class="form-check-input" />
                                     </td>
                                     <td data-order="p1r1o1v1a1" style="font-family:CDE2020;">
-
 
                                         <span data-toggle='tooltip' title='david.kocher ha questo articolo in modalità di modifica - non è possibile modificarlo' style='color:red;'>prova<span>
 
@@ -1335,323 +1269,322 @@
             </div>
             <div class="modal-body">
                 Sei sicuro di voler cancellare il <span style="font-weight:bold;" id="spdelartitle"></span> nel database?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Annulla</button>
-                <button type="button" class="btn btn-secondary" onclick="DeleteArticle(this);">Sì</button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Annulla</button>
+                        <button type="button" class="btn btn-secondary" onclick="DeleteArticle(this);">Sì</button>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <!-- import snapshot -->
+    <div class="modal fade" id="mdImportSnapshot" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Importa file zip</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Scegli un file zip valido da importare nell'articolo.
+                    <br /><br />
+                    <b>Nota:</b> Dopo aver importato con successo l'istantanea, l'articolo verrà automaticamente aperto nella vista bozza. Poi si può controllare di nuovo se il file di importazione è ok. Finché l'articolo non viene salvato nel DB, rimane quello vecchio.
+                    <br /><br />
+                    <form id="FMImportSnapshot" action="/articles" method="post" enctype="multipart/form-data">
+                        <input type="hidden" id="articleied" name="articleid" />
+                        <input type="file" name="imzip" id="imzip" class="form-control" />
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Annulla</button>
+                    <button type="button" class="btn btn-secondary" onclick="ImportSnapshot(this);">Importazione ora</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- import snapshot -->
-<div class="modal fade" id="mdImportSnapshot" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Importa file zip</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Scegli un file zip valido da importare nell'articolo.
-                <br /><br />
-                <b>Nota:</b> Dopo aver importato con successo l'istantanea, l'articolo verrà automaticamente aperto nella vista bozza. Poi si può controllare di nuovo se il file di importazione è ok. Finché l'articolo non viene salvato nel DB, rimane quello vecchio.
-                <br /><br />
-                <form id="FMImportSnapshot" action="/articles" method="post" enctype="multipart/form-data">
-                    <input type="hidden" id="articleied" name="articleid" />
-                    <input type="file" name="imzip" id="imzip" class="form-control" />
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Annulla</button>
-                <button type="button" class="btn btn-secondary" onclick="ImportSnapshot(this);">Importazione ora</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    var t_ArticleSeletion = [];
-    var allSelectionWasDone = false;
-
-    $(document).ready(function () {
-        $('#TblArticles').DataTable({
-            "responsive": false,
-            "scrollX": false,
-            "order": [[2, 'desc']],
-            "stateSave": false, // NEVER EVER SET TO TRUE
-            "paging": true,
-            "retrieve": true,
-            "paging": true,
-            "ordering": true,
-            "language": {
-                "lengthMenu": "Visualizza _MENU_ record per pagina",
-                "zeroRecords": "Niente trovato - spiacente",
-                "search": "Cerca:",
-                "paginate": {
-                    "first": "Prima",
-                    "last": "Ultimo",
-                    "next": "Successiva",
-                    "previous": "Precedente"
+    <script>
+        var t_ArticleSeletion = [];
+        var allSelectionWasDone = false;
+    
+        $(document).ready(function () {
+            $('#TblArticles').DataTable({
+                "responsive": false,
+                "scrollX": false,
+                "order": [[2, 'desc']],
+                "stateSave": false, // NEVER EVER SET TO TRUE
+                "paging": true,
+                "retrieve": true,
+                "paging": true,
+                "ordering": true,
+                "language": {
+                    "lengthMenu": "Visualizza _MENU_ record per pagina",
+                    "zeroRecords": "Niente trovato - spiacente",
+                    "search": "Cerca:",
+                    "paginate": {
+                        "first": "Prima",
+                        "last": "Ultimo",
+                        "next": "Successiva",
+                        "previous": "Precedente"
+                    },
+                    "info": "Mostra la pagina _PAGE_ of _PAGES_",
+                    "infoEmpty": "Nessun documento disponibile",
+                    "infoFiltered": "(filtrato da _MAX_ total records)"
                 },
-                "info": "Mostra la pagina _PAGE_ of _PAGES_",
-                "infoEmpty": "Nessun documento disponibile",
-                "infoFiltered": "(filtrato da _MAX_ total records)"
-            },
-            "info": false,
-            "pageLength": 30,
-            "lengthChange": false,
-            "drawCallback": function (settings) {
-                $('.tagschange').multiselect({
-                    columns: 1,
-                    placeholder: "Cambiare Tag"
-                });
-                $('.tagsread').multiselect({
-                    columns: 1,
-                    placeholder: "Seleziona  Tags"
-                });
-            }
-        });
-
-        $('.tagschange').multiselect({
-            columns: 1,
-            placeholder: "Cambiare Tags"
-        });
-        $('.tagsread').multiselect({
-            columns: 1,
-            placeholder: "Seleziona Tags"
-        });
-        $('.ms-options li').css('list-style', 'none');
-
-        // hide columns
-        $("#colvis").html("");
-        $("#TblArticles thead th").each(function (i) {
-            var table = $('#TblArticles').DataTable();
-            var name = table.column(i).header();
-            var spanelt = document.createElement("button");
-            spanelt.innerHTML = name.innerHTML;
-
-            //console.log("found column: " + name.innerHTML);
-            if (name.innerHTML != "" && name.innerHTML.indexOf("<!-") == -1) {
-                $(spanelt).addClass("btn");
-                $(spanelt).addClass("btn-light");
-                $(spanelt).attr("colidx", i);		// store the column idx on the button
-
-                $(spanelt).on('click', function (e) {
-                    e.preventDefault();
-                    // Get the column API object
-                    var column = table.column($(this).attr('colidx'));
-                    // Toggle the visibility
-                    column.visible(!column.visible());
-
-                    // set style
-                    if (!column.visible()) {
-                        $(this).attr("title", $(this).html());
-                        $(this).html("<span style='color:white;'>" + $(this).html() + "</span>");
-                    }
-                    else {
-                        $(this).html($(this).attr("title"));
-                    }
-                });
-                $("#colvis").append($(spanelt));
-            }
-        });
-
-    });
-
-
-    function ImportSnapshot(saveButton) {
-        $(saveButton).html("<i class='fas fa-spinner fa-spin'></i> Aspetta...");
-        $(saveButton).prop("disabled", true);
-        $("#articleied").val(t_artID);
-        $("#FMImportSnapshot").submit();
-    }
-
-
-    function UpdateArtikelTags(drpTags, artid) {
-        
-            $('#overlay').fadeIn();
-        
-
-        $.get("./api.aspx?action=UpdateArtikelTags&tags=" + $(drpTags).val() + "&articleid=" + artid, function (jsonObj) {
-            // reload
-            $('#overlay').fadeOut();
-            $.get("./api_s.aspx?action=UpdateOnlineArtikel&articleid=" + artid, function (jsonObj) {
+                "info": false,
+                "pageLength": 30,
+                "lengthChange": false,
+                "drawCallback": function (settings) {
+                    $('.tagschange').multiselect({
+                        columns: 1,
+                        placeholder: "Cambiare Tag"
+                    });
+                    $('.tagsread').multiselect({
+                        columns: 1,
+                        placeholder: "Seleziona  Tags"
+                    });
+                }
             });
+    
+            $('.tagschange').multiselect({
+                columns: 1,
+                placeholder: "Cambiare Tags"
+            });
+            $('.tagsread').multiselect({
+                columns: 1,
+                placeholder: "Seleziona Tags"
+            });
+            $('.ms-options li').css('list-style', 'none');
+    
+            // hide columns
+            $("#colvis").html("");
+            $("#TblArticles thead th").each(function (i) {
+                var table = $('#TblArticles').DataTable();
+                var name = table.column(i).header();
+                var spanelt = document.createElement("button");
+                spanelt.innerHTML = name.innerHTML;
+    
+                //console.log("found column: " + name.innerHTML);
+                if (name.innerHTML != "" && name.innerHTML.indexOf("<!-") == -1) {
+                    $(spanelt).addClass("btn");
+                    $(spanelt).addClass("btn-light");
+                    $(spanelt).attr("colidx", i);		// store the column idx on the button
+    
+                    $(spanelt).on('click', function (e) {
+                        e.preventDefault();
+                        // Get the column API object
+                        var column = table.column($(this).attr('colidx'));
+                        // Toggle the visibility
+                        column.visible(!column.visible());
+    
+                        // set style
+                        if (!column.visible()) {
+                            $(this).attr("title", $(this).html());
+                            $(this).html("<span style='color:white;'>" + $(this).html() + "</span>");
+                        }
+                        else {
+                            $(this).html($(this).attr("title"));
+                        }
+                    });
+                    $("#colvis").append($(spanelt));
+                }
+            });
+    
         });
-    }
-
-    function UpdateArtikelStatus(drpstatus, artid) {
-        var artids = "";
-        for (var i = 0; i < t_ArticleSeletion.length; i++) {
-            artids += t_ArticleSeletion[i] + ",";
+    
+    
+        function ImportSnapshot(saveButton) {
+            $(saveButton).html("<i class='fas fa-spinner fa-spin'></i> Aspetta...");
+            $(saveButton).prop("disabled", true);
+            $("#articleied").val(t_artID);
+            $("#FMImportSnapshot").submit();
         }
-        artids = artids.substring(0, artids.length - 1);
-
-
-
-        if (t_ArticleSeletion.length > 0) {
-            if (confirm("Volete davvero cambiare lo stato in " + t_ArticleSeletion.length + " Articoli?")) {
-                $.get("./api.aspx?action=UpdateArtikelStatus&statusid=" + $(drpstatus).val() + "&multiselect=true&articleid=" + artids, function (jsonObj) {
+    
+    
+        function UpdateArtikelTags(drpTags, artid) {
+            
+                $('#overlay').fadeIn();
+            
+    
+            $.get("./api.aspx?action=UpdateArtikelTags&tags=" + $(drpTags).val() + "&articleid=" + artid, function (jsonObj) {
+                // reload
+                $('#overlay').fadeOut();
+                $.get("./api_s.aspx?action=UpdateOnlineArtikel&articleid=" + artid, function (jsonObj) {
+                });
+            });
+        }
+    
+        function UpdateArtikelStatus(drpstatus, artid) {
+            var artids = "";
+            for (var i = 0; i < t_ArticleSeletion.length; i++) {
+                artids += t_ArticleSeletion[i] + ",";
+            }
+            artids = artids.substring(0, artids.length - 1);
+    
+    
+    
+            if (t_ArticleSeletion.length > 0) {
+                if (confirm("Volete davvero cambiare lo stato in " + t_ArticleSeletion.length + " Articoli?")) {
+                    $.get("./api.aspx?action=UpdateArtikelStatus&statusid=" + $(drpstatus).val() + "&multiselect=true&articleid=" + artids, function (jsonObj) {
+                        // reload
+                        $("#FMFilter").submit();
+                    });
+                }
+            }
+            else {
+                $.get("./api.aspx?action=UpdateArtikelStatus&statusid=" + $(drpstatus).val() + "&articleid=" + artid, function (jsonObj) {
                     // reload
                     $("#FMFilter").submit();
                 });
             }
         }
-        else {
-            $.get("./api.aspx?action=UpdateArtikelStatus&statusid=" + $(drpstatus).val() + "&articleid=" + artid, function (jsonObj) {
+    
+        function CreatePrintPDFLink(myLink) {
+            var artids = "";
+            for (var i = 0; i < t_ArticleSeletion.length; i++) {
+                artids += t_ArticleSeletion[i] + ",";
+            }
+            artids = artids.substring(0, artids.length - 1);
+            var newLink = $(myLink).attr("href");
+            if (newLink.indexOf("&artikelid") >= 0) {
+                // remove already artikelids
+                newLink = newLink.substring(0, newLink.indexOf("&artikelid"));
+            }
+            newLink += "&artikelid=" + artids + "&allSelectionWasDone=" + allSelectionWasDone;
+            console.log(newLink);
+            $(myLink).attr("href", newLink);
+        }
+    
+        function SeletAllArticles() {
+            if (allSelectionWasDone) {
+                // disable all
+                t_ArticleSeletion = [];
+                $("input:checkbox").each(function (index) {
+                    if ($(this).attr("id").indexOf("ArtBox") >= 0) {
+                        const index = t_ArticleSeletion.indexOf($(this).data("articleid"));
+                        if (index > -1) {
+                            t_ArticleSeletion.splice(index, 1);
+                        }
+    
+                        $(this).prop("checked", false);
+                    }
+                });
+    
+                // switch button
+                $("#aSelectAll").show();
+                $("#aDeselectAll").hide();
+                allSelectionWasDone = false;
+            }
+            else {
+                // select all
+                t_ArticleSeletion = [];
+                $("input:checkbox").each(function (index) {
+                    //console.log($(this).attr("id"));
+                    if ($(this).attr("id").indexOf("ArtBox") >= 0) {
+                        t_ArticleSeletion.push($(this).data("articleid"));
+                        $(this).prop("checked", true);
+                    }
+                });
+    
+                // switch button
+                $("#aDeselectAll").show();
+                $("#aSelectAll").hide();
+                allSelectionWasDone = true;
+            }
+            CheckButtons();
+        }
+    
+        function CheckArtSelection(artID, artBox) {
+            if ($(artBox).prop("checked")) {
+                t_ArticleSeletion.push(artID);
+            }
+            else {
+                const index = t_ArticleSeletion.indexOf(artID);
+                if (index > -1) {
+                    t_ArticleSeletion.splice(index, 1);
+                }
+            }
+            CheckButtons();
+        }
+    
+        function CheckButtons() {
+            if (t_ArticleSeletion.length > 1) {
+                $("#aPrintPDF").show();
+                $("#aWorkingPDF").show();
+                $("#aInDesign").show();
+            }
+            else {
+                $("#aPrintPDF").hide();
+                $("#aWorkingPDF").hide();
+                $("#aInDesign").hide();
+            }
+        }
+    
+        function DeleteArticle() {
+            $.get("./api.aspx?action=DeleteArticle&articleid=" + t_artID, function (jsonObj) {
                 // reload
                 $("#FMFilter").submit();
             });
         }
-    }
-
-    function CreatePrintPDFLink(myLink) {
-        var artids = "";
-        for (var i = 0; i < t_ArticleSeletion.length; i++) {
-            artids += t_ArticleSeletion[i] + ",";
-        }
-        artids = artids.substring(0, artids.length - 1);
-        var newLink = $(myLink).attr("href");
-        if (newLink.indexOf("&artikelid") >= 0) {
-            // remove already artikelids
-            newLink = newLink.substring(0, newLink.indexOf("&artikelid"));
-        }
-        newLink += "&artikelid=" + artids + "&allSelectionWasDone=" + allSelectionWasDone;
-        console.log(newLink);
-        $(myLink).attr("href", newLink);
-    }
-
-    function SeletAllArticles() {
-        if (allSelectionWasDone) {
-            // disable all
-            t_ArticleSeletion = [];
-            $("input:checkbox").each(function (index) {
-                if ($(this).attr("id").indexOf("ArtBox") >= 0) {
-                    const index = t_ArticleSeletion.indexOf($(this).data("articleid"));
-                    if (index > -1) {
-                        t_ArticleSeletion.splice(index, 1);
-                    }
-
-                    $(this).prop("checked", false);
-                }
-            });
-
-            // switch button
-            $("#aSelectAll").show();
-            $("#aDeselectAll").hide();
-            allSelectionWasDone = false;
-        }
-        else {
-            // select all
-            t_ArticleSeletion = [];
-            $("input:checkbox").each(function (index) {
-                //console.log($(this).attr("id"));
-                if ($(this).attr("id").indexOf("ArtBox") >= 0) {
-                    t_ArticleSeletion.push($(this).data("articleid"));
-                    $(this).prop("checked", true);
-                }
-            });
-
-            // switch button
-            $("#aDeselectAll").show();
-            $("#aSelectAll").hide();
-            allSelectionWasDone = true;
-        }
-        CheckButtons();
-    }
-
-    function CheckArtSelection(artID, artBox) {
-        if ($(artBox).prop("checked")) {
-            t_ArticleSeletion.push(artID);
-        }
-        else {
-            const index = t_ArticleSeletion.indexOf(artID);
-            if (index > -1) {
-                t_ArticleSeletion.splice(index, 1);
+    
+        var t_artID;
+        function ArticleFunction(artID, fBox, artTitle) {
+            t_artID = artID;
+            switch ($(fBox).val()) {
+                case "edit":
+                    document.location.href = "/editArticle?articleID=" + artID;
+    
+                    break;
+    
+                case "export":
+                    document.location.href = "/snapshot.aspx?artikelid=" + artID;
+    
+                    break;
+    
+                case "import":
+                    $("#mdImportSnapshot").modal('show');
+    
+                    break;
+    
+                case "delete":
+                    $("#spdelartitle").html(artTitle);
+                    $("#mdDeleteArticle").modal('show');
+    
+                    break;
+    
+                case "indesign":
+                    document.location.href = "/indesign.aspx?artikelid=" + artID + "&editmode=false&workingview=false&title=" + artTitle;
+    
+                    break;
+    
+                default:
+                    $("#mdMore").modal('show');
+    
+                    break;
+    
+                case "none":
+    
+                    break;
             }
+    
+            $(fBox).val("none");
         }
-        CheckButtons();
-    }
-
-    function CheckButtons() {
-        if (t_ArticleSeletion.length > 1) {
-            $("#aPrintPDF").show();
-            $("#aWorkingPDF").show();
-            $("#aInDesign").show();
-        }
-        else {
-            $("#aPrintPDF").hide();
-            $("#aWorkingPDF").hide();
-            $("#aInDesign").hide();
-        }
-    }
-
-    function DeleteArticle() {
-        $.get("./api.aspx?action=DeleteArticle&articleid=" + t_artID, function (jsonObj) {
-            // reload
-            $("#FMFilter").submit();
+    
+    
+    
+        $('body').on('keydown', 'input', function (e) {
+            if (e.keyCode === 13) {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                //Do your stuff...
+                document.forms[0].submit();
+            }
         });
-    }
-
-    var t_artID;
-    function ArticleFunction(artID, fBox, artTitle) {
-        t_artID = artID;
-        switch ($(fBox).val()) {
-            case "edit":
-                document.location.href = "/editArticle?articleID=" + artID;
-
-                break;
-
-            case "export":
-                document.location.href = "/snapshot.aspx?artikelid=" + artID;
-
-                break;
-
-            case "import":
-                $("#mdImportSnapshot").modal('show');
-
-                break;
-
-            case "delete":
-                $("#spdelartitle").html(artTitle);
-                $("#mdDeleteArticle").modal('show');
-
-                break;
-
-            case "indesign":
-                document.location.href = "/indesign.aspx?artikelid=" + artID + "&editmode=false&workingview=false&title=" + artTitle;
-
-                break;
-
-            default:
-                $("#mdMore").modal('show');
-
-                break;
-
-            case "none":
-
-                break;
-        }
-
-        $(fBox).val("none");
-    }
-
-
-
-    $('body').on('keydown', 'input', function (e) {
-        if (e.keyCode === 13) {
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            //Do your stuff...
-            document.forms[0].submit();
-        }
-    });
-</script>
-            </main>
-        </div>
+    </script>
+    </main>
     </div>
-
+    </div>
 
     <!-- modals -->
     <!-- log out -->
@@ -1673,14 +1606,10 @@
         </div>
     </div>
 
-
-
-
     <!-- datatables -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.23/b-1.6.5/b-colvis-1.6.5/b-html5-1.6.5/b-print-1.6.5/fh-3.1.7/r-2.2.6/sp-1.2.2/datatables.min.js"></script>
-
 
     <!-- froala -->
     <!--
@@ -1699,9 +1628,8 @@
     <script src="/html5sortable.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
 
-
-            <script>
-                $(document).ready(function () {
+    <script>
+        $(document).ready(function () {
                     // session checker
                     var teststate = setInterval(function () {
                         $.get("./api.aspx?action=state", function (jsonObj) {
@@ -1713,9 +1641,10 @@
                         });
                     }, 60000);
                 });
-            </script>
+    </script>
 
 </body>
+
 </html>
 <script>
     // main scripts
@@ -1758,6 +1687,4 @@
         //var artorterID = window.prompt("Please enter a OrderID or leave blank.\n\n Administrators can edit OrderID in ManageArticles all the time.", "");
         document.location.href = "/editArticle?new=true&orderID=";
     }
-
-
 </script>
