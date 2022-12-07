@@ -1,0 +1,997 @@
+
+
+
+<!doctype html>
+<html lang="de-ch">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="VSI Redactionsystem">
+    <meta name="author" content="VSI">
+    <meta name="generator" content="edp">
+    <title>VSI Sistema redazionale - Rimandi (193.246.191.126 - ok)</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="main.css" rel="stylesheet">
+
+    <!-- datatables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.23/b-1.6.5/b-colvis-1.6.5/b-html5-1.6.5/b-print-1.6.5/fh-3.1.7/r-2.2.6/sp-1.2.2/datatables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" />
+
+    <!-- font aweseom -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css'>
+
+    <!-- froalala -->
+    <!--
+    <link href='https://cdn.jsdelivr.net/npm/froala-editor@3.2.0/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
+        -->
+    <link href='https://cdn.jsdelivr.net/npm/froala-editor@4.0.1/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
+
+    <!-- dropdown css -->
+    <link href="/jquery.multiselect.css" rel="stylesheet" media="all" />
+
+
+
+
+
+            <style>
+                body.dragging, body.dragging * {
+                    cursor: move !important;
+                }
+
+                .dragged {
+                    position: absolute;
+                    opacity: 0.5;
+                    z-index: 2000;
+                }
+
+                ol.example li.placeholder {
+                    position: relative;
+                    /** More li styles **/
+                }
+
+                    ol.example li.placeholder:before {
+                        position: absolute;
+                        /** Define arrowhead **/
+                    }
+
+                .refClass {
+                    border: 1px solid black;
+                    margin: 5px;
+                    padding: 5px;
+                    list-style-type: none;
+                }
+
+                .refClassHover {
+                    border: 1px solid red;
+                }
+            </style>
+
+
+
+    <!-- scrolling fix -->
+    <script src="/scrollingFix.js" type="module"></script>
+
+</head>
+<body>
+
+    <div id="overlay" style="display:none;">
+        <div class="spinner"></div>
+        <b><span id="spovleraymessage"></span></b>
+    </div>
+
+    <header class="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow" style="background-color:#565294;">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 bg-white" href="/dashboard?showNavi=true">
+            <img alt="Vocabolario dei dialetti della Svizzera italiana" title="Vocabolario dei dialetti della Svizzera italiana" src="/images/logo.jpg" style="width:80%;" />
+        </a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!--message box  -->
+            <span class="text-white w-100" style="border:0px solid red; font-style:italic; padding-left:10px;">
+
+            </span>
+        <ul class="navbar-nav px-3">
+                <li class="nav-item text-nowrap">
+                    <a class="nav-link" data-bs-toggle="modal" href="#mdLogOut">Esci</a>
+                </li>
+        </ul>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <!--navi -->
+
+
+
+                    <nav id="sidebarMenu" class="col-md-3 col-lg-2 mt-4 d-md-block bg-light sidebar collapse navbar-expand" style="border:0px solid red; overflow:auto; ">
+
+                            <div class="position-sticky pt-3">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link" title="Nascondi navigazione" href="/dashboard?showNavi=false">
+                                            [x]
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                            <a class="nav-link" href="/dashboard">
+                                                <i class="fas fa-home"></i>
+                                                In redazione
+                                            </a>
+                                    </li>
+                                    <li class="nav-item">
+                                            <a class="nav-link" href="/articles">
+                                                <i class="far fa-list-alt"></i>
+                                                I miei articoli
+                                            </a>
+                                    </li>
+                                    <li class="nav-item">
+                                            <a class="nav-link" href="/articlesRead">
+                                                <i class="fas fa-book"></i>
+                                                Tutti gli articoli
+                                            </a>
+
+                                    </li>
+
+                                </ul>
+
+                                <!--admin navi -->
+                                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                                        <span>Amministrazione</span>
+                                    </h6>
+                                    <ul class="nav flex-column mb-2">
+
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="/articlesAll">
+                                                    <i class="far fa-list-alt"></i>
+                                                    Gestione articoli
+                                                </a>
+
+                                        </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="/tags">
+                                                    <i class="fas fa-tags"></i>
+                                                    Tag
+                                                </a>
+                                        </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="/users">
+                                                    <i class="fas fa-users"></i>
+                                                    Utenti
+                                                </a>
+                                        </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="/exports">
+                                                    <i class="fas fa-database"></i>
+                                                    Statistiche
+                                                </a>
+                                        </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="/csvexport">
+                                                    <i class="fas fa-file-export"></i>
+                                                    Export
+                                                </a>
+                                        </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link active" aria-current="page" href="#">
+                                                    <i class="fas fa-retweet"></i>
+                                                    Rimandi
+                                                </a>
+                                        </li>
+
+
+
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="/excel">
+                                                    <i class="fas fa-file-excel"></i>
+                                                    Gestione Excel
+                                                </a>
+                                        </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="/modulesAdmin">
+                                                    <i class="fas fa-th"></i>
+                                                    Gestione moduli
+                                                </a>
+                                        </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="/modules">
+                                                    <i class="fas fa-file-code"></i>
+                                                    Gestione stili moduli
+                                                </a>
+                                        </li>
+                                        <li class="nav-item">
+
+                                            <a class="nav-link" target="_blank" href="/api.aspx?action=updateonline">
+                                                <i class="fas fa-sync"></i>
+                                                Aggiorna VSI Online
+                                            </a>
+                                            <br /><br /><br />
+                                        </li>
+
+
+                                    </ul>
+                            </div>
+                        <span class="border-top w-100 fixed-bottom" style="max-width:150px;">
+                            &nbsp;&copy; 2022 by VSI
+                        </span>
+
+                    </nav>
+
+
+            <!-- content body -->
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <!-- page error -->
+
+                <!-- page info -->
+
+
+
+
+                <!-- important script for use in pages body -->
+                <!-- Bootstrap 5 Bundle -->
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+                <script>
+                    const main = document.getElementsByTagName('main')[0];
+
+                    const style = document.createElement('style');
+
+                    style.innerHTML = "html{scroll-behavior:initial !important;}";
+
+                    main.appendChild(style);
+
+                    setTimeout(() => { style.remove(); }, 1000);
+                </script>
+                <!-- jquery 3.5.1 -->
+                <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+                <!-- finally render page body-->
+                
+
+
+
+
+<!-- title wiht subline -->
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">
+        Rimandi
+    </h1>
+
+    <!-- toolbar-->
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group me-2">
+            <a href="javascript:document.location.reload();" data-toggle="tooltip" title="Aggiorna la pagina" class="btn btn-sm btn-outline-secondary">Aggiorna la pagina</a>
+            <a href="javascript:RefreshVerweise();" data-toggle="tooltip" title="Importazione / Aggiornamento di nuovi riferimenti ora" class="btn btn-sm btn-outline-secondary">Importazione / Aggiornamento</a>
+
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+            <div class="row">
+                <p class="lead">
+                    Premere Import / Update per aggiornare o mostrare nuovi riferimenti. Se vuoi cambiare l'ordine dei riferimenti, cambia la vista in Vista ordine.
+                </p>
+                <table id="TblReferences" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Dopo Lemma</th> <!-- bei welchem artikel anzuzeigen sozusagen der schlüssel zum artikel! zuweisung änderbar und kann auch leer sein -->
+                            <th>Da Sottolemma</th>         <!-- referenzfelder aus den artikel. nur anzeige, nicht editierbar -->                 
+                            <th>A Lemma</th> <!-- reines anzeige lemma ,nicht änderbar -->                           
+                            <th>
+                                Funzioni
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody style="font-family:'CDE2020';">
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FER&#201;E2">batferéi</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FER&#201;E2&editmode=false&workingview=false&title=FER&#201;E2">FER&#201;E2</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45137, 'FER&#201;E2', 'batfer&#233;i', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FASTIDI test">capfastidi&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASTIDI test&editmode=false&workingview=false&title=FASTIDI test">FASTIDI test</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45113, 'FASTIDI test', 'capfastidi&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FASTIDI (vecchio)">capfastidi&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASTIDI (vecchio)&editmode=false&workingview=false&title=FASTIDI (vecchio)">FASTIDI (vecchio)</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45098, 'FASTIDI (vecchio)', 'capfastidi&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=F&#200;STA PROVA">cisk</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=F&#200;STA PROVA&editmode=false&workingview=false&title=F&#200;STA PROVA">F&#200;STA PROVA</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45125, 'F&#200;STA PROVA', 'cisk', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=DORM&#205;">dormentá&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=DORM&#205;&editmode=false&workingview=false&title=DORM&#205;">DORM&#205;</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45133, 'DORM&#205;', 'dorment&#225;&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=DORM&#205;">dorménta&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=DORM&#205;&editmode=false&workingview=false&title=DORM&#205;">DORM&#205;</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45134, 'DORM&#205;', 'dorm&#233;nta&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=DORM&#205;">dormentò&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=DORM&#205;&editmode=false&workingview=false&title=DORM&#205;">DORM&#205;</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45135, 'DORM&#205;', 'dorment&#242;&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=DORM&#205;">dormina</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=DORM&#205;&editmode=false&workingview=false&title=DORM&#205;">DORM&#205;</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45136, 'DORM&#205;', 'dormina', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=DONŻ&#201;NA1">dozinant&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=DONŻ&#201;NA1&editmode=false&workingview=false&title=DONŻ&#201;NA1">DONŻ&#201;NA1</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45099, 'DONŻ&#201;NA1', 'dozinant&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=DR&#200;SS">DRÈSCH&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=DR&#200;SS&editmode=false&workingview=false&title=DR&#200;SS">DR&#200;SS</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45120, 'DR&#200;SS', 'DR&#200;SCH&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=DR&#200;SS">dreschètt&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=DR&#200;SS&editmode=false&workingview=false&title=DR&#200;SS">DR&#200;SS</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45121, 'DR&#200;SS', 'dresch&#232;tt&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=DR&#200;SS">dressín&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=DR&#200;SS&editmode=false&workingview=false&title=DR&#200;SS">DR&#200;SS</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45122, 'DR&#200;SS', 'dress&#237;n&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=DR&#200;SS">dressón&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=DR&#200;SS&editmode=false&workingview=false&title=DR&#200;SS">DR&#200;SS</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45123, 'DR&#200;SS', 'dress&#243;n&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FACIL">facilézza&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FACIL&editmode=false&workingview=false&title=FACIL">FACIL</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45127, 'FACIL', 'facil&#233;zza&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FACIL">facilitá&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FACIL&editmode=false&workingview=false&title=FACIL">FACIL</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45128, 'FACIL', 'facilit&#225;&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FAN&#201;TT">FANÍN&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FAN&#201;TT&editmode=false&workingview=false&title=FAN&#201;TT">FAN&#201;TT</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45129, 'FAN&#201;TT', 'FAN&#205;N&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FASTIDI test">fastidiá&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASTIDI test&editmode=false&workingview=false&title=FASTIDI test">FASTIDI test</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45116, 'FASTIDI test', 'fastidi&#225;&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FASTIDI test">fastidiaa&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASTIDI test&editmode=false&workingview=false&title=FASTIDI test">FASTIDI test</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45117, 'FASTIDI test', 'fastidiaa&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FASTIDI test">fastidiós&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASTIDI test&editmode=false&workingview=false&title=FASTIDI test">FASTIDI test</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45118, 'FASTIDI test', 'fastidi&#243;s&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FATT">fatada&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FATT&editmode=false&workingview=false&title=FATT">FATT</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45103, 'FATT', 'fatada&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FATT">fatería&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FATT&editmode=false&workingview=false&title=FATT">FATT</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45105, 'FATT', 'fater&#237;a&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FATT">fatézze&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FATT&editmode=false&workingview=false&title=FATT">FATT</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45106, 'FATT', 'fat&#233;zze&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FATT">fatísc&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FATT&editmode=false&workingview=false&title=FATT">FATT</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45107, 'FATT', 'fat&#237;sc&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FATT">fatögna&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FATT&editmode=false&workingview=false&title=FATT">FATT</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45108, 'FATT', 'fat&#246;gna&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FATT">fatón&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FATT&editmode=false&workingview=false&title=FATT">FATT</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45109, 'FATT', 'fat&#243;n&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FATT">fatözza&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FATT&editmode=false&workingview=false&title=FATT">FATT</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45110, 'FATT', 'fat&#246;zza&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FAZZL (vecchio)">fazzölada&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FAZZL (vecchio)&editmode=false&workingview=false&title=FAZZL (vecchio)">FAZZL (vecchio)</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45111, 'FAZZL (vecchio)', 'fazz&#246;lada&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=zzzprovaFER&#201;E1">fererín</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=zzzprovaFER&#201;E1&editmode=false&workingview=false&title=zzzprovaFER&#201;E1">zzzprovaFER&#201;E1</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45138, 'zzzprovaFER&#201;E1', 'ferer&#237;n', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=Lemma">fererín&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=Lemma&editmode=false&workingview=false&title=Lemma">Lemma</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45139, 'Lemma', 'ferer&#237;n&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FI&#201;LL (vecchio)">fielada&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FI&#201;LL (vecchio)&editmode=false&workingview=false&title=FI&#201;LL (vecchio)">FI&#201;LL (vecchio)</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45124, 'FI&#201;LL (vecchio)', 'fielada&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FACIL">perfacil&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FACIL&editmode=false&workingview=false&title=FACIL">FACIL</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45130, 'FACIL', 'perfacil&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=EP&#205;STOLA ANTEA">pistolari&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=EP&#205;STOLA ANTEA&editmode=false&workingview=false&title=EP&#205;STOLA ANTEA">EP&#205;STOLA ANTEA</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45131, 'EP&#205;STOLA ANTEA', 'pistolari&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FEST&#205;N">scovefestín&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FEST&#205;N&editmode=false&workingview=false&title=FEST&#205;N">FEST&#205;N</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45140, 'FEST&#205;N', 'scovefest&#237;n&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FASTIDI (vecchio)">senzafastidi&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASTIDI (vecchio)&editmode=false&workingview=false&title=FASTIDI (vecchio)">FASTIDI (vecchio)</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45112, 'FASTIDI (vecchio)', 'senzafastidi&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FASTIDI test">senzafastidi&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASTIDI test&editmode=false&workingview=false&title=FASTIDI test">FASTIDI test</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45119, 'FASTIDI test', 'senzafastidi&amp;nbsp;', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=&editmode=false&workingview=false&title="></a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=PROVA">test</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=PROVA&editmode=false&workingview=false&title=PROVA">PROVA</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45141, 'PROVA', 'test', '');">Apri</button>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=cumb&#232;tt&editmode=false&workingview=false&title=cumb&#232;tt">cumb&#232;tt</a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=COMBR&#205;COLA">cumbriculá&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=COMBR&#205;COLA&editmode=false&workingview=false&title=COMBR&#205;COLA">COMBR&#205;COLA</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45126, 'COMBR&#205;COLA', 'cumbricul&#225;&amp;nbsp;', 'cumb&#232;tt');">Apri</button>
+                                                                            <button class="btn btn-secondary" style="font-family:Arial;" onclick="document.location.href='/areferences?changeView=true&dopolemma=cumb&#232;tt';">Ordine di modifica</button>                                            
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASSǗ&editmode=false&workingview=false&title=FASSǗ">FASSǗ</a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FASTIDI (vecchio)">fastidiá&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASTIDI (vecchio)&editmode=false&workingview=false&title=FASTIDI (vecchio)">FASTIDI (vecchio)</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45100, 'FASTIDI (vecchio)', 'fastidi&#225;&amp;nbsp;', 'FASSǗ');">Apri</button>
+                                                                            <button class="btn btn-secondary" style="font-family:Arial;" onclick="document.location.href='/areferences?changeView=true&dopolemma=FASSǗ';">Ordine di modifica</button>                                            
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASSǗ&editmode=false&workingview=false&title=FASSǗ">FASSǗ</a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FASTIDI (vecchio)">fastidiaa&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASTIDI (vecchio)&editmode=false&workingview=false&title=FASTIDI (vecchio)">FASTIDI (vecchio)</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45101, 'FASTIDI (vecchio)', 'fastidiaa&amp;nbsp;', 'FASSǗ');">Apri</button>
+                                                                            <button class="btn btn-secondary" style="font-family:Arial;" onclick="document.location.href='/areferences?changeView=true&dopolemma=FASSǗ';">Ordine di modifica</button>                                            
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASSǗ&editmode=false&workingview=false&title=FASSǗ">FASSǗ</a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FASTIDI (vecchio)">fastidiós&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASTIDI (vecchio)&editmode=false&workingview=false&title=FASTIDI (vecchio)">FASTIDI (vecchio)</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45102, 'FASTIDI (vecchio)', 'fastidi&#243;s&amp;nbsp;', 'FASSǗ');">Apri</button>
+                                                                            <button class="btn btn-secondary" style="font-family:Arial;" onclick="document.location.href='/areferences?changeView=true&dopolemma=FASSǗ';">Ordine di modifica</button>                                            
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASSǗ&editmode=false&workingview=false&title=FASSǗ">FASSǗ</a></td>
+                                    <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FATT">fatasciada&nbsp;</a></td>
+                                    <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FATT&editmode=false&workingview=false&title=FATT">FATT</a></td>
+                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45104, 'FATT', 'fatasciada&amp;nbsp;', 'FASSǗ');">Apri</button>
+                                                                            <button class="btn btn-secondary" style="font-family:Arial;" onclick="document.location.href='/areferences?changeView=true&dopolemma=FASSǗ';">Ordine di modifica</button>                                            
+
+
+
+                                    </td>
+                                </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+
+
+
+</div>
+
+
+<div class="modal fade" id="mdEditLemma" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Ordina il rimando</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <span id="spvwedittext" style="font-weight:bold;"></span>&nbsp;&rarr;&nbsp;<span id="ReferenceLemma" ></span>
+                <br /><br />
+
+                <b>Dopo Lemma</b><br />
+                <input type="text" id="ReferenceLemmaDisplay" class="form-control" placeholder="Dopo Lemma" />
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Annulla</button>
+                <button type="button" class="btn btn-secondary" onclick="SaveReferenceLemma(this);">Salva</button>
+            </div>
+        </div>
+    </div>
+</div>
+        <script>
+            var t_verweisid;
+            function OpenEditReferenc(verweisid, artlemma, verweis, artlemmaAnzeige) {
+                t_verweisid = verweisid;
+                $("#ReferenceLemma").html(artlemma);
+                $("#ReferenceLemmaDisplay").val(artlemmaAnzeige);
+                $("#spvwedittext").html(verweis);
+                $("#mdEditLemma").modal("show");
+            }
+
+            function SaveReferenceLemma() {
+                if ($("#ReferenceLemmaDisplay").val() == "") {
+                    alert("Si prega di selezionare un Dopo Lemma valido.");
+                }
+                else {
+                    $('#overlay').fadeIn();
+                    $.get("./api.aspx?action=saveLemmaReference&verweisid=" + t_verweisid + "&val=" + $("#ReferenceLemma").val() + "&valDisplayed=" + $("#ReferenceLemmaDisplay").val(), function (jsonObj) {
+                        $("#mdEditLemma").modal("hide");
+                        document.location.reload(true);
+                        $('#overlay').fadeOut();
+                    });
+                }
+
+            }
+
+            function RefreshVerweise() {
+                if (confirm("Sei sicuro?")) {
+                    // fade in and got
+                    $('#overlay').fadeIn();
+                    $.get("./api.aspx?action=refreshVerweise", function (jsonObj) {
+                        document.location.reload(true);
+                    });
+                }
+            }
+
+            $(document).ready(function () {
+                // lemma completer
+                $("#ReferenceLemmaDisplay").autocomplete({                   
+                    minChars: 1,
+                    lookupLimit: 10,
+                    autoSelectFirst: true,
+                    onSelect: function (suggestion) {
+                        // $("#ReferenceLemmaDisplay").val(suggestion.data);
+                        //console.log("selected");
+                    },
+                    onSearchComplete: function (query, suggestions) {
+                        //console.log("complete");
+                    },
+                    onHide:function(){
+                        //console.log("hide");
+                        var selection = $(this).autocomplete().selection;
+                        if(selection == null ||selection.value != $(this).val()){
+                            $(this).val("");
+                        }
+                    },
+                    onInvalidateSelection: function () {
+                        //console.log("invalid");
+                        $("#ReferenceLemmaDisplay").val("");
+                    }
+                });
+
+
+
+                // Setup - add a text input to each footer cell
+                $('#TblReferences thead tr')
+                    .clone(true)
+                    .addClass('filters')
+                    .appendTo('#TblReferences thead');
+
+                var table = $('#TblReferences').DataTable({
+                    orderCellsTop: true,
+                    "responsive": false,
+                    "scrollX": false,
+                    "stateSave": false, // NEVER EVER SET TO TRUE
+                    "paging": false,
+                    "retrieve": true,
+                    "paging": false,
+                    "ordering": false,
+                    "info": false,
+                    "pageLength": 150,
+                    "language": {
+                        "lengthMenu": "Visualizza _MENU_ record per pagina",
+                        "zeroRecords": "Niente trovato - spiacente",
+                        "search": "Cerca:",
+                        "paginate": {
+                            "first": "Prima",
+                            "last": "Ultimo",
+                            "next": "Successiva",
+                            "previous": "Precedente"
+                        },
+                        "info": "Mostra la pagina _PAGE_ of _PAGES_",
+                        "infoEmpty": "Nessun disponibile",
+                        "infoFiltered": "(filtrato da _MAX_ total records)"
+                    },
+                    "lengthChange": false,
+                    fixedHeader: true,
+                    initComplete: function () {
+                        var api = this.api();
+
+                        // For each column
+                        api
+                            .columns()
+                            .eq(0)
+                            .each(function (colIdx) {
+                                // Set the header cell to contain the input element
+                                var cell = $('.filters th').eq(
+                                    $(api.column(colIdx).header()).index()
+                                );
+                                var title = $(cell).text();
+                                $(cell).html('<input type="text" placeholder="' + title + '" />');
+
+                                // On every keypress in this input
+                                $(
+                                    'input',
+                                    $('.filters th').eq($(api.column(colIdx).header()).index())
+                                )
+                                    .off('keyup change')
+                                    .on('keyup change', function (e) {
+                                        e.stopPropagation();
+
+                                        // Get the search value
+                                        $(this).attr('title', $(this).val());
+                                        var regexr = '({search})'; //$(this).parents('th').find('select').val();
+
+                                        var cursorPosition = this.selectionStart;
+                                        // Search the column for that value
+                                        api
+                                            .column(colIdx)
+                                            .search(
+                                                this.value != ''
+                                                    ? regexr.replace('{search}', '(((' + this.value + ')))')
+                                                    : '',
+                                                this.value != '',
+                                                this.value == ''
+                                            )
+                                            .draw();
+
+                                        $(this)
+                                            .focus()[0]
+                                            .setSelectionRange(cursorPosition, cursorPosition);
+                                    });
+                            });
+                    },
+                });
+            });
+        </script>
+
+
+            </main>
+        </div>
+    </div>
+
+
+    <!-- modals -->
+    <!-- log out -->
+    <div class="modal fade" id="mdLogOut" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Esci</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Sei sicuro?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Chiudi</button>
+                    <a href="/signout" class="btn btn-secondary" role="button">Sì</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- datatables -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.23/b-1.6.5/b-colvis-1.6.5/b-html5-1.6.5/b-print-1.6.5/fh-3.1.7/r-2.2.6/sp-1.2.2/datatables.min.js"></script>
+
+
+    <!-- froala -->
+    <!--
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@3.2.0/js/froala_editor.pkgd.min.js'></script>
+        -->
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@4.0.1/js/froala_editor.pkgd.min.js'></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/3.2.0/js/plugins/special_characters.min.js"></script>
+
+    <!-- multiselect -->
+    <script src="/jquery.multiselect.js"></script>
+
+    <!-- auto completer -->
+    <script src="/jquery.autocomplete.js"></script>
+
+    <!-- sortable -->
+    <script src="/html5sortable.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+
+
+            <script>
+                $(document).ready(function () {
+                    // session checker
+                    var teststate = setInterval(function () {
+                        $.get("./api.aspx?action=state", function (jsonObj) {
+                            if (!jsonObj.state) {
+                                clearInterval(teststate);
+                                alert("Attenzione: La tua sessione è scaduta.");
+
+                            }
+                        });
+                    }, 60000);
+                });
+            </script>
+
+</body>
+</html>
+<script>
+    // main scripts
+    $(document).ready(function () {
+        $.ajaxSetup({ cache: false });
+
+        document.body.addEventListener('dblclick', function (e) {
+            console.log("double click");
+            e.preventDefault();
+        })
+
+        $('[data-toggle="tooltip"]').tooltip();
+
+
+
+    });
+
+
+    function ToggleFilter() {
+        try {
+            if ($("#FMFilter").is(":visible")) {
+                $("#FMFilter").hide();
+            }
+            else {
+                $("#FMFilter").show();
+            }
+        }
+        catch (e) {
+
+        }
+    }
+
+    function getURLParameter(name) {
+        return decodeURI(
+            (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search) || [, null])[1]
+        );
+    }
+
+    function NewMasterArticle() {
+        //var artorterID = window.prompt("Please enter a OrderID or leave blank.\n\n Administrators can edit OrderID in ManageArticles all the time.", "");
+        document.location.href = "/editArticle?new=true&orderID=";
+    }
+
+
+</script>

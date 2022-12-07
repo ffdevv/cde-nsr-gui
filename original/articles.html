@@ -1,0 +1,1763 @@
+
+
+
+<!doctype html>
+<html lang="de-ch">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="VSI Redactionsystem">
+    <meta name="author" content="VSI">
+    <meta name="generator" content="edp">
+    <title>VSI Sistema redazionale - I miei articoli (193.246.191.126 - ok)</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="main.css" rel="stylesheet">
+
+    <!-- datatables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.23/b-1.6.5/b-colvis-1.6.5/b-html5-1.6.5/b-print-1.6.5/fh-3.1.7/r-2.2.6/sp-1.2.2/datatables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" />
+
+    <!-- font aweseom -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css'>
+
+    <!-- froalala -->
+    <!--
+    <link href='https://cdn.jsdelivr.net/npm/froala-editor@3.2.0/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
+        -->
+    <link href='https://cdn.jsdelivr.net/npm/froala-editor@4.0.1/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
+
+    <!-- dropdown css -->
+    <link href="/jquery.multiselect.css" rel="stylesheet" media="all" />
+
+
+
+
+
+
+
+
+    <!-- scrolling fix -->
+    <script src="/scrollingFix.js" type="module"></script>
+
+</head>
+<body>
+
+    <div id="overlay" style="display:none;">
+        <div class="spinner"></div>
+        <b><span id="spovleraymessage"></span></b>
+    </div>
+
+    <header class="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow" style="background-color:#565294;">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 bg-white" href="/dashboard?showNavi=true">
+            <img alt="Vocabolario dei dialetti della Svizzera italiana" title="Vocabolario dei dialetti della Svizzera italiana" src="/images/logo.jpg" style="width:80%;" />
+        </a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!--message box  -->
+            <span class="text-white w-100" style="border:0px solid red; font-style:italic; padding-left:10px;">
+
+            </span>
+        <ul class="navbar-nav px-3">
+                <li class="nav-item text-nowrap">
+                    <a class="nav-link" data-bs-toggle="modal" href="#mdLogOut">Esci</a>
+                </li>
+        </ul>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <!--navi -->
+
+
+
+                    <nav id="sidebarMenu" class="col-md-3 col-lg-2 mt-4 d-md-block bg-light sidebar collapse navbar-expand" style="border:0px solid red; overflow:auto; ">
+
+                            <div class="position-sticky pt-3">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link" title="Nascondi navigazione" href="/dashboard?showNavi=false">
+                                            [x]
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                            <a class="nav-link" href="/dashboard">
+                                                <i class="fas fa-home"></i>
+                                                In redazione
+                                            </a>
+                                    </li>
+                                    <li class="nav-item">
+                                            <a class="nav-link active" aria-current="page" href="#">
+                                                <i class="far fa-list-alt"></i>
+                                                I miei articoli
+                                            </a>
+                                    </li>
+                                    <li class="nav-item">
+                                            <a class="nav-link" href="/articlesRead">
+                                                <i class="fas fa-book"></i>
+                                                Tutti gli articoli
+                                            </a>
+
+                                    </li>
+
+                                </ul>
+
+                                <!--admin navi -->
+                                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                                        <span>Amministrazione</span>
+                                    </h6>
+                                    <ul class="nav flex-column mb-2">
+
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="/articlesAll">
+                                                    <i class="far fa-list-alt"></i>
+                                                    Gestione articoli
+                                                </a>
+
+                                        </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="/tags">
+                                                    <i class="fas fa-tags"></i>
+                                                    Tag
+                                                </a>
+                                        </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="/users">
+                                                    <i class="fas fa-users"></i>
+                                                    Utenti
+                                                </a>
+                                        </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="/exports">
+                                                    <i class="fas fa-database"></i>
+                                                    Statistiche
+                                                </a>
+                                        </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="/csvexport">
+                                                    <i class="fas fa-file-export"></i>
+                                                    Export
+                                                </a>
+                                        </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="/areferences">
+                                                    <i class="fas fa-retweet"></i>
+                                                    Rimandi
+                                                </a>
+                                        </li>
+
+
+
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="/excel">
+                                                    <i class="fas fa-file-excel"></i>
+                                                    Gestione Excel
+                                                </a>
+                                        </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="/modulesAdmin">
+                                                    <i class="fas fa-th"></i>
+                                                    Gestione moduli
+                                                </a>
+                                        </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="/modules">
+                                                    <i class="fas fa-file-code"></i>
+                                                    Gestione stili moduli
+                                                </a>
+                                        </li>
+                                        <li class="nav-item">
+
+                                            <a class="nav-link" target="_blank" href="/api.aspx?action=updateonline">
+                                                <i class="fas fa-sync"></i>
+                                                Aggiorna VSI Online
+                                            </a>
+                                            <br /><br /><br />
+                                        </li>
+
+
+                                    </ul>
+                            </div>
+                        <span class="border-top w-100 fixed-bottom" style="max-width:150px;">
+                            &nbsp;&copy; 2022 by VSI
+                        </span>
+
+                    </nav>
+
+
+            <!-- content body -->
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <!-- page error -->
+
+                <!-- page info -->
+
+
+
+
+                <!-- important script for use in pages body -->
+                <!-- Bootstrap 5 Bundle -->
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+                <script>
+                    const main = document.getElementsByTagName('main')[0];
+
+                    const style = document.createElement('style');
+
+                    style.innerHTML = "html{scroll-behavior:initial !important;}";
+
+                    main.appendChild(style);
+
+                    setTimeout(() => { style.remove(); }, 1000);
+                </script>
+                <!-- jquery 3.5.1 -->
+                <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+                <!-- finally render page body-->
+                
+
+
+
+
+
+
+<!-- title wiht subline -->
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">
+        I miei articoli
+    </h1>
+
+    <!-- toolbar-->
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group me-2">
+            <a href="javascript:NewMasterArticle();" data-toggle="tooltip" title="Creare un nuovo articolo" class="btn btn-sm btn-outline-secondary">Nuovo articolo</a>
+                <a id="aPrintPDF" onclick="CreatePrintPDFLink(this);" style="display:none;" target="_blank" href="/pdf.aspx?multiselect=true&amp;editmode=false&amp;workingview=false" data-toggle="tooltip" title="Mostra il PDF nella versione finale di stampa di tutti gli articoli selezionati" class="btn btn-sm btn-outline-secondary">PDF di stampa</a>
+                <a id="aWorkingPDF" onclick="CreatePrintPDFLink(this);" style="display:none;" target="_blank" href="/pdf.aspx?multiselect=true&amp;editmode=false&amp;workingview=true" data-toggle="tooltip" title="Mostra il PDF con tutti i tuoi commenti, markup e metadati di tutti gli articoli selezionati" class="btn btn-sm btn-outline-secondary">PDF di lavoro</a>
+                <a id="aInDesign" onclick="CreatePrintPDFLink(this);" style="display:none;" href="/indesign.aspx?multiselect=true&amp;editmode=false&amp;workingview=false" target="_blank" data-toggle="tooltip" title="Ottieni l'XML di InDesign di tutti gli articoli selezionati" class="btn btn-sm btn-outline-secondary">InDesign XML</a>
+                <a id="aSelectAll" href="javascript:SeletAllArticles();" class="btn btn-sm btn-outline-secondary">Seleziona tutti gli articoli</a>
+                <a id="aDeselectAll" style="display:none;" href="javascript:SeletAllArticles();" class="btn btn-sm btn-outline-secondary">Deselect Tutti gli articoli</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid">
+    <!-- filter -->
+            <div class="row">
+                <a href="javascript:ToggleFilter();"><i class="fa fa-expand" aria-hidden="true"></i>&nbsp;Filtro di ricerca</a>
+            </div>
+            <div class="row">
+                <form id="FMFilter"  style="display:none;"  action="/articles" method="post">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="FMFilter_Title">Lemma:</label>
+                                <input type="text" class="form-control" data-toggle="tooltip" title="Enter Title to search. A Wildcard Search will do like myTitle*" placeholder="" id="FMFilter_Title" name="FMFilter_Title">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="FMFilter_TitleUntil">Fino a lemma:</label>
+                                <input type="text" class="form-control" data-toggle="tooltip" title="If you also enter here a Title or just a Letter, a Range search between these two Titles / Letters will do." placeholder="Inserisci un ultimo titolo o una lettera per la ricerca dell'intervallo" id="FMFilter_TitleUntil" name="FMFilter_TitleUntil">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="FMFilter_State">Stato:</label>
+                                <select id="FMFilter_State" name="FMFilter_State" class="form-select">
+                                    <option value="">Seleziona</option>
+                                                <option  value="1">in redazione</option>
+                                                <option  value="2">concluso</option>
+                                                <option  value="3">rivisto 1</option>
+                                                <option  value="4">corretto 1</option>
+                                                <option  value="5">rivisto 2</option>
+                                                <option  value="6">corretto 2</option>
+                                                <option  value="7">pronto per CF</option>
+                                                <option  value="8">pronto per futura CF</option>
+                                                <option  value="9">corretto 3 (CF)</option>
+                                                <option  value="10">in prestampa</option>
+                                                <option  value="11">a stampa</option>
+                                                <option  value="12">per futura stampa</option>
+                                                <option  value="13">da redigere</option>
+                                                <option  value="14">vecchio sistema</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="FMFilter_Tags">Tag:</label>
+                                <select multiple id="FMFilter_Tags" name="FMFilter_Tags" class="form-control tagsread">
+
+
+
+                                    <option  value="useAND">[Utilizzare la condizione AND quando si selezionano più tag]</option>
+                                                <option  value="9">articolo &#232; online</option>
+                                                <option  value="10">cosmo</option>
+                                                <option  value="11">tempo</option>
+                                                <option  value="12">atmosfera e clima</option>
+                                                <option  value="13">acqua</option>
+                                                <option  value="14">fuoco, calore, luce</option>
+                                                <option  value="15">materiali</option>
+                                                <option  value="16">colori</option>
+                                                <option  value="17">flora</option>
+                                                <option  value="18">funghi</option>
+                                                <option  value="19">vegetali medicinali</option>
+                                                <option  value="20">fauna</option>
+                                                <option  value="21">fauna magica</option>
+                                                <option  value="22">territorio</option>
+                                                <option  value="23">trasporto</option>
+                                                <option  value="24">edifici</option>
+                                                <option  value="25">mobili, arredi e suppellettili</option>
+                                                <option  value="26">corpo umano</option>
+                                                <option  value="27">mente e anima</option>
+                                                <option  value="28">anomalie e malattie</option>
+                                                <option  value="29">alimentazione</option>
+                                                <option  value="30">tabacco</option>
+                                                <option  value="31">abbigliamento, accessori, ornamenti</option>
+                                                <option  value="32">nascita e infanzia</option>
+                                                <option  value="33">giovinezza, et&#224; adulta, vecchiaia</option>
+                                                <option  value="34">fidanzamento e matrimonio</option>
+                                                <option  value="35">famiglia</option>
+                                                <option  value="36">morte</option>
+                                                <option  value="37">scuola</option>
+                                                <option  value="38">mestieri</option>
+                                                <option  value="39">cucina</option>
+                                                <option  value="40">bucato e stiratura</option>
+                                                <option  value="41">filatura e tessitura</option>
+                                                <option  value="42">maglieria</option>
+                                                <option  value="43">altre attivit&#224; domestiche</option>
+                                                <option  value="44">cerealicoltura</option>
+                                                <option  value="45">macinazione</option>
+                                                <option  value="46">panificazione</option>
+                                                <option  value="47">orticoltura</option>
+                                                <option  value="48">frutticoltura</option>
+                                                <option  value="49">viticoltura, vinificazione e disitillazione</option>
+                                                <option  value="50">piante per fibre tessili</option>
+                                                <option  value="51">altre attivit&#224; agricole</option>
+                                                <option  value="52">fiori e frutti selvatici</option>
+                                                <option  value="53">strame</option>
+                                                <option  value="54">legno</option>
+                                                <option  value="55">altri prodotti del bosco</option>
+                                                <option  value="56">castanicoltura</option>
+                                                <option  value="57">vacca</option>
+                                                <option  value="58">capra</option>
+                                                <option  value="59">pecora</option>
+                                                <option  value="60">latte e latticini</option>
+                                                <option  value="61">maiale</option>
+                                                <option  value="62">conigli</option>
+                                                <option  value="63">galline e altri volatili</option>
+                                                <option  value="64">altri animali d&#39;allevamento</option>
+                                                <option  value="65">fieno e foraggio</option>
+                                                <option  value="66">apicoltura</option>
+                                                <option  value="67">bachicoltura</option>
+                                                <option  value="68">caccia</option>
+                                                <option  value="69">pesca</option>
+                                                <option  value="70">art. e ind. metalli</option>
+                                                <option  value="71">art. e ind. legno</option>
+                                                <option  value="72">art. e ind. carta</option>
+                                                <option  value="73">art. e ind. pellami</option>
+                                                <option  value="74">art. e ind. alimenti e bevande</option>
+                                                <option  value="75">art. e ind. tabacchi</option>
+                                                <option  value="76">art. e ind. seta</option>
+                                                <option  value="77">art. e ind. paglia</option>
+                                                <option  value="78">art. e ind. abbigliamento e accessori</option>
+                                                <option  value="79">art. e ind. orologi</option>
+                                                <option  value="80">art. e ind. edilizia</option>
+                                                <option  value="81">art. e ind. vetro</option>
+                                                <option  value="82">art. e ind. arredi e suppellettili</option>
+                                                <option  value="83">art. e ind. altri settori</option>
+                                                <option  value="84">medicina e veterinaria</option>
+                                                <option  value="85">comunicazione e trasporti</option>
+                                                <option  value="86">commercio e servizi</option>
+                                                <option  value="87">ristorazione e alloggio</option>
+                                                <option  value="88">lavoro collettivo</option>
+                                                <option  value="89">emigrazione e immigrazione</option>
+                                                <option  value="90">strumenti</option>
+                                                <option  value="91">misure e monete</option>
+                                                <option  value="92">associazioni</option>
+                                                <option  value="93">amministrazione e politica</option>
+                                                <option  value="94">leggi, reati, giustizia</option>
+                                                <option  value="95">esercito</option>
+                                                <option  value="96">armi</option>
+                                                <option  value="97">religione</option>
+                                                <option  value="98">santi</option>
+                                                <option  value="99">esseri soprannaturali</option>
+                                                <option  value="100">feste</option>
+                                                <option  value="101">giochi infantili</option>
+                                                <option  value="102">giochi svolti dagli adulti</option>
+                                                <option  value="103">narrazione, teatro, musica, danza</option>
+                                                <option  value="104">scherzi</option>
+                                                <option  value="105">voci di gergo</option>
+                                                <option  value="106">voci infantili</option>
+                                                <option  value="107">latinismi ecclesiastici</option>
+                                                <option  value="108">personaggi storici e letterari</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4 border-bottom">
+
+                        <div class="form-check form-switch">
+                            <input type="checkbox"  class="form-check-input" id="chkliteralsearch" name="chkliteralsearch" value="literal" />
+                            <label class="form-check-label" for="chkliteralsearch">Esegui una ricerca letterale (la ricerca predefinita è ASCII)</label>
+                        </div>
+                        <br />
+                        <button type="submit" class="btn btn-secondary">Aggiorna</button>
+                    </div>
+                </form>
+            </div>
+
+
+
+
+
+
+    <div class="row mt-4">
+        <!-- article output table -->
+                <table id="TblArticles" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Lemma</th>
+                            <th>Data ultima modifica</th>
+                            <th>Stato</th>
+                            <th>Tag</th>
+                            <th><!-- print pdf  --></th>
+                            <th><!-- working pdf --></th>
+                            <th>Funzioni</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" id="ArtBox_36768" data-articleid="36768" onclick="CheckArtSelection(36768, this)" class="form-check-input" />
+                                    </td>
+                                    <td data-order="g1g1g1g1" style="font-family:CDE2020;">
+
+
+                                        gggg
+
+
+                                    </td>
+                                    <td data-order='2022-03-22-11:05:37'>
+
+                                        22.03.2022 @ 11:05
+                                    </td>
+                                    <td>
+
+
+
+                                                <select id="ArtikelStatus" onchange="UpdateArtikelStatus(this, 36768);" class="form-select" style="min-width:150px;">
+                                                                <option selected value="1">in redazione</option>
+                                                                <option  value="2">concluso</option>
+                                                                <option  value="3">rivisto 1</option>
+                                                                <option  value="4">corretto 1</option>
+                                                                <option  value="5">rivisto 2</option>
+                                                                <option  value="6">corretto 2</option>
+                                                                <option  value="7">pronto per CF</option>
+                                                                <option  value="8">pronto per futura CF</option>
+                                                                <option  value="9">corretto 3 (CF)</option>
+                                                                <option  value="10">in prestampa</option>
+                                                                <option  value="11">a stampa</option>
+                                                                <option  value="12">per futura stampa</option>
+                                                                <option  value="13">da redigere</option>
+                                                                <option  value="14">vecchio sistema</option>
+
+                                                </select>
+
+                                    </td>
+                                    <td>
+
+
+                                                <select multiple id="ArtikelTags" class="form-control tagschange" style="min-width:200px;" onchange="UpdateArtikelTags(this, 36768);">
+                                                            <option  value="9">articolo &#232; online</option>
+                                                            <option  value="10">cosmo</option>
+                                                            <option  value="11">tempo</option>
+                                                            <option  value="12">atmosfera e clima</option>
+                                                            <option  value="13">acqua</option>
+                                                            <option  value="14">fuoco, calore, luce</option>
+                                                            <option  value="15">materiali</option>
+                                                            <option  value="16">colori</option>
+                                                            <option  value="17">flora</option>
+                                                            <option  value="18">funghi</option>
+                                                            <option  value="19">vegetali medicinali</option>
+                                                            <option  value="20">fauna</option>
+                                                            <option  value="21">fauna magica</option>
+                                                            <option  value="22">territorio</option>
+                                                            <option  value="23">trasporto</option>
+                                                            <option  value="24">edifici</option>
+                                                            <option  value="25">mobili, arredi e suppellettili</option>
+                                                            <option  value="26">corpo umano</option>
+                                                            <option  value="27">mente e anima</option>
+                                                            <option  value="28">anomalie e malattie</option>
+                                                            <option  value="29">alimentazione</option>
+                                                            <option  value="30">tabacco</option>
+                                                            <option  value="31">abbigliamento, accessori, ornamenti</option>
+                                                            <option  value="32">nascita e infanzia</option>
+                                                            <option  value="33">giovinezza, et&#224; adulta, vecchiaia</option>
+                                                            <option  value="34">fidanzamento e matrimonio</option>
+                                                            <option  value="35">famiglia</option>
+                                                            <option  value="36">morte</option>
+                                                            <option  value="37">scuola</option>
+                                                            <option  value="38">mestieri</option>
+                                                            <option  value="39">cucina</option>
+                                                            <option  value="40">bucato e stiratura</option>
+                                                            <option  value="41">filatura e tessitura</option>
+                                                            <option  value="42">maglieria</option>
+                                                            <option  value="43">altre attivit&#224; domestiche</option>
+                                                            <option  value="44">cerealicoltura</option>
+                                                            <option  value="45">macinazione</option>
+                                                            <option  value="46">panificazione</option>
+                                                            <option  value="47">orticoltura</option>
+                                                            <option  value="48">frutticoltura</option>
+                                                            <option  value="49">viticoltura, vinificazione e disitillazione</option>
+                                                            <option  value="50">piante per fibre tessili</option>
+                                                            <option  value="51">altre attivit&#224; agricole</option>
+                                                            <option  value="52">fiori e frutti selvatici</option>
+                                                            <option  value="53">strame</option>
+                                                            <option  value="54">legno</option>
+                                                            <option  value="55">altri prodotti del bosco</option>
+                                                            <option  value="56">castanicoltura</option>
+                                                            <option  value="57">vacca</option>
+                                                            <option  value="58">capra</option>
+                                                            <option  value="59">pecora</option>
+                                                            <option  value="60">latte e latticini</option>
+                                                            <option  value="61">maiale</option>
+                                                            <option  value="62">conigli</option>
+                                                            <option  value="63">galline e altri volatili</option>
+                                                            <option  value="64">altri animali d&#39;allevamento</option>
+                                                            <option  value="65">fieno e foraggio</option>
+                                                            <option  value="66">apicoltura</option>
+                                                            <option  value="67">bachicoltura</option>
+                                                            <option  value="68">caccia</option>
+                                                            <option  value="69">pesca</option>
+                                                            <option  value="70">art. e ind. metalli</option>
+                                                            <option  value="71">art. e ind. legno</option>
+                                                            <option  value="72">art. e ind. carta</option>
+                                                            <option  value="73">art. e ind. pellami</option>
+                                                            <option  value="74">art. e ind. alimenti e bevande</option>
+                                                            <option  value="75">art. e ind. tabacchi</option>
+                                                            <option  value="76">art. e ind. seta</option>
+                                                            <option  value="77">art. e ind. paglia</option>
+                                                            <option  value="78">art. e ind. abbigliamento e accessori</option>
+                                                            <option  value="79">art. e ind. orologi</option>
+                                                            <option  value="80">art. e ind. edilizia</option>
+                                                            <option  value="81">art. e ind. vetro</option>
+                                                            <option  value="82">art. e ind. arredi e suppellettili</option>
+                                                            <option  value="83">art. e ind. altri settori</option>
+                                                            <option  value="84">medicina e veterinaria</option>
+                                                            <option  value="85">comunicazione e trasporti</option>
+                                                            <option  value="86">commercio e servizi</option>
+                                                            <option  value="87">ristorazione e alloggio</option>
+                                                            <option  value="88">lavoro collettivo</option>
+                                                            <option  value="89">emigrazione e immigrazione</option>
+                                                            <option  value="90">strumenti</option>
+                                                            <option  value="91">misure e monete</option>
+                                                            <option  value="92">associazioni</option>
+                                                            <option  value="93">amministrazione e politica</option>
+                                                            <option  value="94">leggi, reati, giustizia</option>
+                                                            <option  value="95">esercito</option>
+                                                            <option  value="96">armi</option>
+                                                            <option  value="97">religione</option>
+                                                            <option  value="98">santi</option>
+                                                            <option  value="99">esseri soprannaturali</option>
+                                                            <option  value="100">feste</option>
+                                                            <option  value="101">giochi infantili</option>
+                                                            <option  value="102">giochi svolti dagli adulti</option>
+                                                            <option  value="103">narrazione, teatro, musica, danza</option>
+                                                            <option  value="104">scherzi</option>
+                                                            <option  value="105">voci di gergo</option>
+                                                            <option  value="106">voci infantili</option>
+                                                            <option  value="107">latinismi ecclesiastici</option>
+                                                            <option  value="108">personaggi storici e letterari</option>
+
+                                                </select>
+
+
+                                    </td>
+                                    <td>
+                                                <a target="_blank" href="/pdf.aspx?artikelid=36768&editmode=false&workingview=false&title=gggg" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="Mostra il PDF nella versione finale di stampa" role="button">PDF di stampa</a>
+
+                                    </td>
+                                    <td>
+                                                <a target="_blank" href="/pdf.aspx?artikelid=36768&editmode=false&workingview=true&title=gggg" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="Mostra il PDF con tutti i tuoi commenti, markup e metadati" role="button">PDF di lavoro</a>
+
+
+                                    </td>
+
+                                    <td>
+                                        <select onchange="ArticleFunction(36768, this, 'gggg');" id="Functions" class="form-select">
+                                            <option value="none">Seleziona</option>
+
+                                                <option value="edit">Apri</option>
+
+                                            <option value="export">Esporta in file zip</option>
+                                            <option value="import">Importa file zip</option>
+                                            <option value="indesign">Esporta InDesign</option>
+                                                <option value="delete">Elimina</option>
+
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" id="ArtBox_36844" data-articleid="36844" onclick="CheckArtSelection(36844, this)" class="form-check-input" />
+                                    </td>
+                                    <td data-order="L1e1m1m1a1" style="font-family:CDE2020;">
+
+
+                                        <a class='' data-toggle='tooltip' title='Stai lavorando su questo articolo. Clicca per continuare a modificare ora e inviare le tue modifiche a DB!' style='color:red;' href='/editArticle?articleID=36844'><i class='fas fa-edit'></i>&nbsp;</a>
+
+
+                                    </td>
+                                    <td data-order='2022-08-10-10:51:06'>
+
+                                        10.08.2022 @ 10:51
+                                    </td>
+                                    <td>
+
+
+
+                                                <select id="ArtikelStatus" onchange="UpdateArtikelStatus(this, 36844);" class="form-select" style="min-width:150px;">
+                                                                <option selected value="1">in redazione</option>
+                                                                <option  value="2">concluso</option>
+                                                                <option  value="3">rivisto 1</option>
+                                                                <option  value="4">corretto 1</option>
+                                                                <option  value="5">rivisto 2</option>
+                                                                <option  value="6">corretto 2</option>
+                                                                <option  value="7">pronto per CF</option>
+                                                                <option  value="8">pronto per futura CF</option>
+                                                                <option  value="9">corretto 3 (CF)</option>
+                                                                <option  value="10">in prestampa</option>
+                                                                <option  value="11">a stampa</option>
+                                                                <option  value="12">per futura stampa</option>
+                                                                <option  value="13">da redigere</option>
+                                                                <option  value="14">vecchio sistema</option>
+
+                                                </select>
+
+                                    </td>
+                                    <td>
+
+
+                                                <select multiple id="ArtikelTags" class="form-control tagschange" style="min-width:200px;" onchange="UpdateArtikelTags(this, 36844);">
+                                                            <option  value="9">articolo &#232; online</option>
+                                                            <option  value="10">cosmo</option>
+                                                            <option  value="11">tempo</option>
+                                                            <option  value="12">atmosfera e clima</option>
+                                                            <option  value="13">acqua</option>
+                                                            <option  value="14">fuoco, calore, luce</option>
+                                                            <option  value="15">materiali</option>
+                                                            <option  value="16">colori</option>
+                                                            <option  value="17">flora</option>
+                                                            <option  value="18">funghi</option>
+                                                            <option  value="19">vegetali medicinali</option>
+                                                            <option  value="20">fauna</option>
+                                                            <option  value="21">fauna magica</option>
+                                                            <option  value="22">territorio</option>
+                                                            <option  value="23">trasporto</option>
+                                                            <option  value="24">edifici</option>
+                                                            <option  value="25">mobili, arredi e suppellettili</option>
+                                                            <option  value="26">corpo umano</option>
+                                                            <option  value="27">mente e anima</option>
+                                                            <option  value="28">anomalie e malattie</option>
+                                                            <option  value="29">alimentazione</option>
+                                                            <option  value="30">tabacco</option>
+                                                            <option  value="31">abbigliamento, accessori, ornamenti</option>
+                                                            <option  value="32">nascita e infanzia</option>
+                                                            <option  value="33">giovinezza, et&#224; adulta, vecchiaia</option>
+                                                            <option  value="34">fidanzamento e matrimonio</option>
+                                                            <option  value="35">famiglia</option>
+                                                            <option  value="36">morte</option>
+                                                            <option  value="37">scuola</option>
+                                                            <option  value="38">mestieri</option>
+                                                            <option  value="39">cucina</option>
+                                                            <option  value="40">bucato e stiratura</option>
+                                                            <option  value="41">filatura e tessitura</option>
+                                                            <option  value="42">maglieria</option>
+                                                            <option  value="43">altre attivit&#224; domestiche</option>
+                                                            <option  value="44">cerealicoltura</option>
+                                                            <option  value="45">macinazione</option>
+                                                            <option  value="46">panificazione</option>
+                                                            <option  value="47">orticoltura</option>
+                                                            <option  value="48">frutticoltura</option>
+                                                            <option  value="49">viticoltura, vinificazione e disitillazione</option>
+                                                            <option  value="50">piante per fibre tessili</option>
+                                                            <option  value="51">altre attivit&#224; agricole</option>
+                                                            <option  value="52">fiori e frutti selvatici</option>
+                                                            <option  value="53">strame</option>
+                                                            <option  value="54">legno</option>
+                                                            <option  value="55">altri prodotti del bosco</option>
+                                                            <option  value="56">castanicoltura</option>
+                                                            <option  value="57">vacca</option>
+                                                            <option  value="58">capra</option>
+                                                            <option  value="59">pecora</option>
+                                                            <option  value="60">latte e latticini</option>
+                                                            <option  value="61">maiale</option>
+                                                            <option  value="62">conigli</option>
+                                                            <option  value="63">galline e altri volatili</option>
+                                                            <option  value="64">altri animali d&#39;allevamento</option>
+                                                            <option  value="65">fieno e foraggio</option>
+                                                            <option  value="66">apicoltura</option>
+                                                            <option  value="67">bachicoltura</option>
+                                                            <option  value="68">caccia</option>
+                                                            <option  value="69">pesca</option>
+                                                            <option  value="70">art. e ind. metalli</option>
+                                                            <option  value="71">art. e ind. legno</option>
+                                                            <option  value="72">art. e ind. carta</option>
+                                                            <option  value="73">art. e ind. pellami</option>
+                                                            <option  value="74">art. e ind. alimenti e bevande</option>
+                                                            <option  value="75">art. e ind. tabacchi</option>
+                                                            <option  value="76">art. e ind. seta</option>
+                                                            <option  value="77">art. e ind. paglia</option>
+                                                            <option  value="78">art. e ind. abbigliamento e accessori</option>
+                                                            <option  value="79">art. e ind. orologi</option>
+                                                            <option  value="80">art. e ind. edilizia</option>
+                                                            <option  value="81">art. e ind. vetro</option>
+                                                            <option  value="82">art. e ind. arredi e suppellettili</option>
+                                                            <option  value="83">art. e ind. altri settori</option>
+                                                            <option  value="84">medicina e veterinaria</option>
+                                                            <option  value="85">comunicazione e trasporti</option>
+                                                            <option  value="86">commercio e servizi</option>
+                                                            <option  value="87">ristorazione e alloggio</option>
+                                                            <option  value="88">lavoro collettivo</option>
+                                                            <option  value="89">emigrazione e immigrazione</option>
+                                                            <option  value="90">strumenti</option>
+                                                            <option  value="91">misure e monete</option>
+                                                            <option  value="92">associazioni</option>
+                                                            <option  value="93">amministrazione e politica</option>
+                                                            <option  value="94">leggi, reati, giustizia</option>
+                                                            <option  value="95">esercito</option>
+                                                            <option  value="96">armi</option>
+                                                            <option  value="97">religione</option>
+                                                            <option  value="98">santi</option>
+                                                            <option  value="99">esseri soprannaturali</option>
+                                                            <option  value="100">feste</option>
+                                                            <option  value="101">giochi infantili</option>
+                                                            <option  value="102">giochi svolti dagli adulti</option>
+                                                            <option  value="103">narrazione, teatro, musica, danza</option>
+                                                            <option  value="104">scherzi</option>
+                                                            <option  value="105">voci di gergo</option>
+                                                            <option  value="106">voci infantili</option>
+                                                            <option  value="107">latinismi ecclesiastici</option>
+                                                            <option  value="108">personaggi storici e letterari</option>
+
+                                                </select>
+
+
+                                    </td>
+                                    <td>
+                                                <a target="_blank" href="/pdf.aspx?artikelid=36844&editmode=false&workingview=false&title=Lemma" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="Mostra il PDF nella versione finale di stampa. Vedrai la versione dal database e non dal tuo stato di lavoro. Invia prima le tue modifiche al DB." role="button">PDF di stampa</a>
+
+                                    </td>
+                                    <td>
+                                                <a target="_blank" href="/pdf.aspx?artikelid=36844&editmode=false&workingview=true&title=Lemma" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="Mostra il PDF con tutti i tuoi commenti, markup e metadati. Vedrai la versione dal database e non dal tuo stato di lavoro. Invia prima le tue modifiche al DB." role="button">PDF di lavoro</a>
+
+
+                                    </td>
+
+                                    <td>
+                                        <select onchange="ArticleFunction(36844, this, 'Lemma');" id="Functions" class="form-select">
+                                            <option value="none">Seleziona</option>
+
+                                                <option value="edit">Apri</option>
+
+                                            <option value="export">Esporta in file zip</option>
+                                            <option value="import">Importa file zip</option>
+                                            <option value="indesign">Esporta InDesign</option>
+                                                <option value="delete">Elimina</option>
+
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" id="ArtBox_36769" data-articleid="36769" onclick="CheckArtSelection(36769, this)" class="form-check-input" />
+                                    </td>
+                                    <td data-order="L1e1m1m1a1 2" style="font-family:CDE2020;">
+
+
+                                        Lemma 2
+
+
+                                    </td>
+                                    <td data-order='2022-03-17-08:42:43'>
+
+                                        17.03.2022 @ 08:42
+                                    </td>
+                                    <td>
+
+
+
+                                                <select id="ArtikelStatus" onchange="UpdateArtikelStatus(this, 36769);" class="form-select" style="min-width:150px;">
+                                                                <option selected value="1">in redazione</option>
+                                                                <option  value="2">concluso</option>
+                                                                <option  value="3">rivisto 1</option>
+                                                                <option  value="4">corretto 1</option>
+                                                                <option  value="5">rivisto 2</option>
+                                                                <option  value="6">corretto 2</option>
+                                                                <option  value="7">pronto per CF</option>
+                                                                <option  value="8">pronto per futura CF</option>
+                                                                <option  value="9">corretto 3 (CF)</option>
+                                                                <option  value="10">in prestampa</option>
+                                                                <option  value="11">a stampa</option>
+                                                                <option  value="12">per futura stampa</option>
+                                                                <option  value="13">da redigere</option>
+                                                                <option  value="14">vecchio sistema</option>
+
+                                                </select>
+
+                                    </td>
+                                    <td>
+
+
+                                                <select multiple id="ArtikelTags" class="form-control tagschange" style="min-width:200px;" onchange="UpdateArtikelTags(this, 36769);">
+                                                            <option  value="9">articolo &#232; online</option>
+                                                            <option  value="10">cosmo</option>
+                                                            <option  value="11">tempo</option>
+                                                            <option  value="12">atmosfera e clima</option>
+                                                            <option  value="13">acqua</option>
+                                                            <option  value="14">fuoco, calore, luce</option>
+                                                            <option  value="15">materiali</option>
+                                                            <option  value="16">colori</option>
+                                                            <option  value="17">flora</option>
+                                                            <option  value="18">funghi</option>
+                                                            <option  value="19">vegetali medicinali</option>
+                                                            <option  value="20">fauna</option>
+                                                            <option  value="21">fauna magica</option>
+                                                            <option  value="22">territorio</option>
+                                                            <option  value="23">trasporto</option>
+                                                            <option  value="24">edifici</option>
+                                                            <option  value="25">mobili, arredi e suppellettili</option>
+                                                            <option  value="26">corpo umano</option>
+                                                            <option  value="27">mente e anima</option>
+                                                            <option  value="28">anomalie e malattie</option>
+                                                            <option  value="29">alimentazione</option>
+                                                            <option  value="30">tabacco</option>
+                                                            <option  value="31">abbigliamento, accessori, ornamenti</option>
+                                                            <option  value="32">nascita e infanzia</option>
+                                                            <option  value="33">giovinezza, et&#224; adulta, vecchiaia</option>
+                                                            <option  value="34">fidanzamento e matrimonio</option>
+                                                            <option  value="35">famiglia</option>
+                                                            <option  value="36">morte</option>
+                                                            <option  value="37">scuola</option>
+                                                            <option  value="38">mestieri</option>
+                                                            <option  value="39">cucina</option>
+                                                            <option  value="40">bucato e stiratura</option>
+                                                            <option  value="41">filatura e tessitura</option>
+                                                            <option  value="42">maglieria</option>
+                                                            <option  value="43">altre attivit&#224; domestiche</option>
+                                                            <option  value="44">cerealicoltura</option>
+                                                            <option  value="45">macinazione</option>
+                                                            <option  value="46">panificazione</option>
+                                                            <option  value="47">orticoltura</option>
+                                                            <option  value="48">frutticoltura</option>
+                                                            <option  value="49">viticoltura, vinificazione e disitillazione</option>
+                                                            <option  value="50">piante per fibre tessili</option>
+                                                            <option  value="51">altre attivit&#224; agricole</option>
+                                                            <option  value="52">fiori e frutti selvatici</option>
+                                                            <option  value="53">strame</option>
+                                                            <option  value="54">legno</option>
+                                                            <option  value="55">altri prodotti del bosco</option>
+                                                            <option  value="56">castanicoltura</option>
+                                                            <option  value="57">vacca</option>
+                                                            <option  value="58">capra</option>
+                                                            <option  value="59">pecora</option>
+                                                            <option  value="60">latte e latticini</option>
+                                                            <option  value="61">maiale</option>
+                                                            <option  value="62">conigli</option>
+                                                            <option  value="63">galline e altri volatili</option>
+                                                            <option  value="64">altri animali d&#39;allevamento</option>
+                                                            <option  value="65">fieno e foraggio</option>
+                                                            <option  value="66">apicoltura</option>
+                                                            <option  value="67">bachicoltura</option>
+                                                            <option  value="68">caccia</option>
+                                                            <option  value="69">pesca</option>
+                                                            <option  value="70">art. e ind. metalli</option>
+                                                            <option  value="71">art. e ind. legno</option>
+                                                            <option  value="72">art. e ind. carta</option>
+                                                            <option  value="73">art. e ind. pellami</option>
+                                                            <option  value="74">art. e ind. alimenti e bevande</option>
+                                                            <option  value="75">art. e ind. tabacchi</option>
+                                                            <option  value="76">art. e ind. seta</option>
+                                                            <option  value="77">art. e ind. paglia</option>
+                                                            <option  value="78">art. e ind. abbigliamento e accessori</option>
+                                                            <option  value="79">art. e ind. orologi</option>
+                                                            <option  value="80">art. e ind. edilizia</option>
+                                                            <option  value="81">art. e ind. vetro</option>
+                                                            <option  value="82">art. e ind. arredi e suppellettili</option>
+                                                            <option  value="83">art. e ind. altri settori</option>
+                                                            <option  value="84">medicina e veterinaria</option>
+                                                            <option  value="85">comunicazione e trasporti</option>
+                                                            <option  value="86">commercio e servizi</option>
+                                                            <option  value="87">ristorazione e alloggio</option>
+                                                            <option  value="88">lavoro collettivo</option>
+                                                            <option  value="89">emigrazione e immigrazione</option>
+                                                            <option  value="90">strumenti</option>
+                                                            <option  value="91">misure e monete</option>
+                                                            <option  value="92">associazioni</option>
+                                                            <option  value="93">amministrazione e politica</option>
+                                                            <option  value="94">leggi, reati, giustizia</option>
+                                                            <option  value="95">esercito</option>
+                                                            <option  value="96">armi</option>
+                                                            <option  value="97">religione</option>
+                                                            <option  value="98">santi</option>
+                                                            <option  value="99">esseri soprannaturali</option>
+                                                            <option  value="100">feste</option>
+                                                            <option  value="101">giochi infantili</option>
+                                                            <option  value="102">giochi svolti dagli adulti</option>
+                                                            <option  value="103">narrazione, teatro, musica, danza</option>
+                                                            <option  value="104">scherzi</option>
+                                                            <option  value="105">voci di gergo</option>
+                                                            <option  value="106">voci infantili</option>
+                                                            <option  value="107">latinismi ecclesiastici</option>
+                                                            <option  value="108">personaggi storici e letterari</option>
+
+                                                </select>
+
+
+                                    </td>
+                                    <td>
+                                                <a target="_blank" href="/pdf.aspx?artikelid=36769&editmode=false&workingview=false&title=Lemma 2" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="Mostra il PDF nella versione finale di stampa" role="button">PDF di stampa</a>
+
+                                    </td>
+                                    <td>
+                                                <a target="_blank" href="/pdf.aspx?artikelid=36769&editmode=false&workingview=true&title=Lemma 2" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="Mostra il PDF con tutti i tuoi commenti, markup e metadati" role="button">PDF di lavoro</a>
+
+
+                                    </td>
+
+                                    <td>
+                                        <select onchange="ArticleFunction(36769, this, 'Lemma 2');" id="Functions" class="form-select">
+                                            <option value="none">Seleziona</option>
+
+                                                <option value="edit">Apri</option>
+
+                                            <option value="export">Esporta in file zip</option>
+                                            <option value="import">Importa file zip</option>
+                                            <option value="indesign">Esporta InDesign</option>
+                                                <option value="delete">Elimina</option>
+
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" id="ArtBox_36867" data-articleid="36867" onclick="CheckArtSelection(36867, this)" class="form-check-input" />
+                                    </td>
+                                    <td data-order="N1E1S1T1E1D1 M1O1D1U1L1E1S1" style="font-family:CDE2020;">
+
+
+                                        <a class='' data-toggle='tooltip' title='Stai lavorando su questo articolo. Clicca per continuare a modificare ora e inviare le tue modifiche a DB!' style='color:red;' href='/editArticle?articleID=36867'><i class='fas fa-edit'></i>&nbsp;NESTED MODULES</a>
+
+
+                                    </td>
+                                    <td data-order='2022-07-05-09:32:23'>
+
+                                        05.07.2022 @ 09:32
+                                    </td>
+                                    <td>
+
+
+
+                                                <select id="ArtikelStatus" onchange="UpdateArtikelStatus(this, 36867);" class="form-select" style="min-width:150px;">
+                                                                <option selected value="1">in redazione</option>
+                                                                <option  value="2">concluso</option>
+                                                                <option  value="3">rivisto 1</option>
+                                                                <option  value="4">corretto 1</option>
+                                                                <option  value="5">rivisto 2</option>
+                                                                <option  value="6">corretto 2</option>
+                                                                <option  value="7">pronto per CF</option>
+                                                                <option  value="8">pronto per futura CF</option>
+                                                                <option  value="9">corretto 3 (CF)</option>
+                                                                <option  value="10">in prestampa</option>
+                                                                <option  value="11">a stampa</option>
+                                                                <option  value="12">per futura stampa</option>
+                                                                <option  value="13">da redigere</option>
+                                                                <option  value="14">vecchio sistema</option>
+
+                                                </select>
+
+                                    </td>
+                                    <td>
+
+
+                                                <select multiple id="ArtikelTags" class="form-control tagschange" style="min-width:200px;" onchange="UpdateArtikelTags(this, 36867);">
+                                                            <option  value="9">articolo &#232; online</option>
+                                                            <option  value="10">cosmo</option>
+                                                            <option  value="11">tempo</option>
+                                                            <option  value="12">atmosfera e clima</option>
+                                                            <option  value="13">acqua</option>
+                                                            <option  value="14">fuoco, calore, luce</option>
+                                                            <option  value="15">materiali</option>
+                                                            <option  value="16">colori</option>
+                                                            <option  value="17">flora</option>
+                                                            <option  value="18">funghi</option>
+                                                            <option  value="19">vegetali medicinali</option>
+                                                            <option  value="20">fauna</option>
+                                                            <option  value="21">fauna magica</option>
+                                                            <option  value="22">territorio</option>
+                                                            <option  value="23">trasporto</option>
+                                                            <option  value="24">edifici</option>
+                                                            <option  value="25">mobili, arredi e suppellettili</option>
+                                                            <option  value="26">corpo umano</option>
+                                                            <option  value="27">mente e anima</option>
+                                                            <option  value="28">anomalie e malattie</option>
+                                                            <option  value="29">alimentazione</option>
+                                                            <option  value="30">tabacco</option>
+                                                            <option  value="31">abbigliamento, accessori, ornamenti</option>
+                                                            <option  value="32">nascita e infanzia</option>
+                                                            <option  value="33">giovinezza, et&#224; adulta, vecchiaia</option>
+                                                            <option  value="34">fidanzamento e matrimonio</option>
+                                                            <option  value="35">famiglia</option>
+                                                            <option  value="36">morte</option>
+                                                            <option  value="37">scuola</option>
+                                                            <option  value="38">mestieri</option>
+                                                            <option  value="39">cucina</option>
+                                                            <option  value="40">bucato e stiratura</option>
+                                                            <option  value="41">filatura e tessitura</option>
+                                                            <option  value="42">maglieria</option>
+                                                            <option  value="43">altre attivit&#224; domestiche</option>
+                                                            <option  value="44">cerealicoltura</option>
+                                                            <option  value="45">macinazione</option>
+                                                            <option  value="46">panificazione</option>
+                                                            <option  value="47">orticoltura</option>
+                                                            <option  value="48">frutticoltura</option>
+                                                            <option  value="49">viticoltura, vinificazione e disitillazione</option>
+                                                            <option  value="50">piante per fibre tessili</option>
+                                                            <option  value="51">altre attivit&#224; agricole</option>
+                                                            <option  value="52">fiori e frutti selvatici</option>
+                                                            <option  value="53">strame</option>
+                                                            <option  value="54">legno</option>
+                                                            <option  value="55">altri prodotti del bosco</option>
+                                                            <option  value="56">castanicoltura</option>
+                                                            <option  value="57">vacca</option>
+                                                            <option  value="58">capra</option>
+                                                            <option  value="59">pecora</option>
+                                                            <option  value="60">latte e latticini</option>
+                                                            <option  value="61">maiale</option>
+                                                            <option  value="62">conigli</option>
+                                                            <option  value="63">galline e altri volatili</option>
+                                                            <option  value="64">altri animali d&#39;allevamento</option>
+                                                            <option  value="65">fieno e foraggio</option>
+                                                            <option  value="66">apicoltura</option>
+                                                            <option  value="67">bachicoltura</option>
+                                                            <option  value="68">caccia</option>
+                                                            <option  value="69">pesca</option>
+                                                            <option  value="70">art. e ind. metalli</option>
+                                                            <option  value="71">art. e ind. legno</option>
+                                                            <option  value="72">art. e ind. carta</option>
+                                                            <option  value="73">art. e ind. pellami</option>
+                                                            <option  value="74">art. e ind. alimenti e bevande</option>
+                                                            <option  value="75">art. e ind. tabacchi</option>
+                                                            <option  value="76">art. e ind. seta</option>
+                                                            <option  value="77">art. e ind. paglia</option>
+                                                            <option  value="78">art. e ind. abbigliamento e accessori</option>
+                                                            <option  value="79">art. e ind. orologi</option>
+                                                            <option  value="80">art. e ind. edilizia</option>
+                                                            <option  value="81">art. e ind. vetro</option>
+                                                            <option  value="82">art. e ind. arredi e suppellettili</option>
+                                                            <option  value="83">art. e ind. altri settori</option>
+                                                            <option  value="84">medicina e veterinaria</option>
+                                                            <option  value="85">comunicazione e trasporti</option>
+                                                            <option  value="86">commercio e servizi</option>
+                                                            <option  value="87">ristorazione e alloggio</option>
+                                                            <option  value="88">lavoro collettivo</option>
+                                                            <option  value="89">emigrazione e immigrazione</option>
+                                                            <option  value="90">strumenti</option>
+                                                            <option  value="91">misure e monete</option>
+                                                            <option  value="92">associazioni</option>
+                                                            <option  value="93">amministrazione e politica</option>
+                                                            <option  value="94">leggi, reati, giustizia</option>
+                                                            <option  value="95">esercito</option>
+                                                            <option  value="96">armi</option>
+                                                            <option  value="97">religione</option>
+                                                            <option  value="98">santi</option>
+                                                            <option  value="99">esseri soprannaturali</option>
+                                                            <option  value="100">feste</option>
+                                                            <option  value="101">giochi infantili</option>
+                                                            <option  value="102">giochi svolti dagli adulti</option>
+                                                            <option  value="103">narrazione, teatro, musica, danza</option>
+                                                            <option  value="104">scherzi</option>
+                                                            <option  value="105">voci di gergo</option>
+                                                            <option  value="106">voci infantili</option>
+                                                            <option  value="107">latinismi ecclesiastici</option>
+                                                            <option  value="108">personaggi storici e letterari</option>
+
+                                                </select>
+
+
+                                    </td>
+                                    <td>
+                                                <a target="_blank" href="/pdf.aspx?artikelid=36867&editmode=false&workingview=false&title=NESTED MODULES" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="Mostra il PDF nella versione finale di stampa. Vedrai la versione dal database e non dal tuo stato di lavoro. Invia prima le tue modifiche al DB." role="button">PDF di stampa</a>
+
+                                    </td>
+                                    <td>
+                                                <a target="_blank" href="/pdf.aspx?artikelid=36867&editmode=false&workingview=true&title=NESTED MODULES" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="Mostra il PDF con tutti i tuoi commenti, markup e metadati. Vedrai la versione dal database e non dal tuo stato di lavoro. Invia prima le tue modifiche al DB." role="button">PDF di lavoro</a>
+
+
+                                    </td>
+
+                                    <td>
+                                        <select onchange="ArticleFunction(36867, this, 'NESTED MODULES');" id="Functions" class="form-select">
+                                            <option value="none">Seleziona</option>
+
+                                                <option value="edit">Apri</option>
+
+                                            <option value="export">Esporta in file zip</option>
+                                            <option value="import">Importa file zip</option>
+                                            <option value="indesign">Esporta InDesign</option>
+                                                <option value="delete">Elimina</option>
+
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" id="ArtBox_36772" data-articleid="36772" onclick="CheckArtSelection(36772, this)" class="form-check-input" />
+                                    </td>
+                                    <td data-order="p1r1o1v1a1" style="font-family:CDE2020;">
+
+
+                                        <span data-toggle='tooltip' title='david.kocher ha questo articolo in modalità di modifica - non è possibile modificarlo' style='color:red;'>prova<span>
+
+
+                                    </td>
+                                    <td data-order='2022-08-09-11:14:56'>
+
+                                        09.08.2022 @ 11:14
+                                    </td>
+                                    <td>
+
+
+
+                                                <select id="ArtikelStatus" onchange="UpdateArtikelStatus(this, 36772);" class="form-select" style="min-width:150px;">
+                                                                <option selected value="1">in redazione</option>
+                                                                <option  value="2">concluso</option>
+                                                                <option  value="3">rivisto 1</option>
+                                                                <option  value="4">corretto 1</option>
+                                                                <option  value="5">rivisto 2</option>
+                                                                <option  value="6">corretto 2</option>
+                                                                <option  value="7">pronto per CF</option>
+                                                                <option  value="8">pronto per futura CF</option>
+                                                                <option  value="9">corretto 3 (CF)</option>
+                                                                <option  value="10">in prestampa</option>
+                                                                <option  value="11">a stampa</option>
+                                                                <option  value="12">per futura stampa</option>
+                                                                <option  value="13">da redigere</option>
+                                                                <option  value="14">vecchio sistema</option>
+
+                                                </select>
+
+                                    </td>
+                                    <td>
+
+
+                                                <select multiple id="ArtikelTags" class="form-control tagschange" style="min-width:200px;" onchange="UpdateArtikelTags(this, 36772);">
+                                                            <option  value="9">articolo &#232; online</option>
+                                                            <option  value="10">cosmo</option>
+                                                            <option  value="11">tempo</option>
+                                                            <option  value="12">atmosfera e clima</option>
+                                                            <option  value="13">acqua</option>
+                                                            <option  value="14">fuoco, calore, luce</option>
+                                                            <option  value="15">materiali</option>
+                                                            <option  value="16">colori</option>
+                                                            <option  value="17">flora</option>
+                                                            <option  value="18">funghi</option>
+                                                            <option  value="19">vegetali medicinali</option>
+                                                            <option  value="20">fauna</option>
+                                                            <option  value="21">fauna magica</option>
+                                                            <option  value="22">territorio</option>
+                                                            <option  value="23">trasporto</option>
+                                                            <option  value="24">edifici</option>
+                                                            <option  value="25">mobili, arredi e suppellettili</option>
+                                                            <option  value="26">corpo umano</option>
+                                                            <option  value="27">mente e anima</option>
+                                                            <option  value="28">anomalie e malattie</option>
+                                                            <option  value="29">alimentazione</option>
+                                                            <option  value="30">tabacco</option>
+                                                            <option  value="31">abbigliamento, accessori, ornamenti</option>
+                                                            <option  value="32">nascita e infanzia</option>
+                                                            <option  value="33">giovinezza, et&#224; adulta, vecchiaia</option>
+                                                            <option  value="34">fidanzamento e matrimonio</option>
+                                                            <option  value="35">famiglia</option>
+                                                            <option  value="36">morte</option>
+                                                            <option  value="37">scuola</option>
+                                                            <option  value="38">mestieri</option>
+                                                            <option  value="39">cucina</option>
+                                                            <option  value="40">bucato e stiratura</option>
+                                                            <option  value="41">filatura e tessitura</option>
+                                                            <option  value="42">maglieria</option>
+                                                            <option  value="43">altre attivit&#224; domestiche</option>
+                                                            <option  value="44">cerealicoltura</option>
+                                                            <option  value="45">macinazione</option>
+                                                            <option  value="46">panificazione</option>
+                                                            <option  value="47">orticoltura</option>
+                                                            <option  value="48">frutticoltura</option>
+                                                            <option  value="49">viticoltura, vinificazione e disitillazione</option>
+                                                            <option  value="50">piante per fibre tessili</option>
+                                                            <option  value="51">altre attivit&#224; agricole</option>
+                                                            <option  value="52">fiori e frutti selvatici</option>
+                                                            <option  value="53">strame</option>
+                                                            <option  value="54">legno</option>
+                                                            <option  value="55">altri prodotti del bosco</option>
+                                                            <option  value="56">castanicoltura</option>
+                                                            <option  value="57">vacca</option>
+                                                            <option  value="58">capra</option>
+                                                            <option  value="59">pecora</option>
+                                                            <option  value="60">latte e latticini</option>
+                                                            <option  value="61">maiale</option>
+                                                            <option  value="62">conigli</option>
+                                                            <option  value="63">galline e altri volatili</option>
+                                                            <option  value="64">altri animali d&#39;allevamento</option>
+                                                            <option  value="65">fieno e foraggio</option>
+                                                            <option  value="66">apicoltura</option>
+                                                            <option  value="67">bachicoltura</option>
+                                                            <option  value="68">caccia</option>
+                                                            <option  value="69">pesca</option>
+                                                            <option  value="70">art. e ind. metalli</option>
+                                                            <option  value="71">art. e ind. legno</option>
+                                                            <option  value="72">art. e ind. carta</option>
+                                                            <option  value="73">art. e ind. pellami</option>
+                                                            <option  value="74">art. e ind. alimenti e bevande</option>
+                                                            <option  value="75">art. e ind. tabacchi</option>
+                                                            <option  value="76">art. e ind. seta</option>
+                                                            <option  value="77">art. e ind. paglia</option>
+                                                            <option  value="78">art. e ind. abbigliamento e accessori</option>
+                                                            <option  value="79">art. e ind. orologi</option>
+                                                            <option  value="80">art. e ind. edilizia</option>
+                                                            <option  value="81">art. e ind. vetro</option>
+                                                            <option  value="82">art. e ind. arredi e suppellettili</option>
+                                                            <option  value="83">art. e ind. altri settori</option>
+                                                            <option  value="84">medicina e veterinaria</option>
+                                                            <option  value="85">comunicazione e trasporti</option>
+                                                            <option  value="86">commercio e servizi</option>
+                                                            <option  value="87">ristorazione e alloggio</option>
+                                                            <option  value="88">lavoro collettivo</option>
+                                                            <option  value="89">emigrazione e immigrazione</option>
+                                                            <option  value="90">strumenti</option>
+                                                            <option  value="91">misure e monete</option>
+                                                            <option  value="92">associazioni</option>
+                                                            <option  value="93">amministrazione e politica</option>
+                                                            <option  value="94">leggi, reati, giustizia</option>
+                                                            <option  value="95">esercito</option>
+                                                            <option  value="96">armi</option>
+                                                            <option  value="97">religione</option>
+                                                            <option  value="98">santi</option>
+                                                            <option  value="99">esseri soprannaturali</option>
+                                                            <option  value="100">feste</option>
+                                                            <option  value="101">giochi infantili</option>
+                                                            <option  value="102">giochi svolti dagli adulti</option>
+                                                            <option  value="103">narrazione, teatro, musica, danza</option>
+                                                            <option  value="104">scherzi</option>
+                                                            <option  value="105">voci di gergo</option>
+                                                            <option  value="106">voci infantili</option>
+                                                            <option  value="107">latinismi ecclesiastici</option>
+                                                            <option  value="108">personaggi storici e letterari</option>
+
+                                                </select>
+
+
+                                    </td>
+                                    <td>
+                                                <a target="_blank" href="/pdf.aspx?artikelid=36772&editmode=false&workingview=false&title=prova" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="Mostra il PDF nella versione finale di stampa" role="button">PDF di stampa</a>
+
+                                    </td>
+                                    <td>
+                                                <a target="_blank" href="/pdf.aspx?artikelid=36772&editmode=false&workingview=true&title=prova" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="Mostra il PDF con tutti i tuoi commenti, markup e metadati" role="button">PDF di lavoro</a>
+
+
+                                    </td>
+
+                                    <td>
+                                        <select onchange="ArticleFunction(36772, this, 'prova');" id="Functions" class="form-select">
+                                            <option value="none">Seleziona</option>
+
+
+                                            <option value="export">Esporta in file zip</option>
+                                            <option value="import">Importa file zip</option>
+                                            <option value="indesign">Esporta InDesign</option>
+
+                                        </select>
+                                    </td>
+                                </tr>
+
+
+                    </tbody>
+
+                </table>
+                <div id="colvis" style="margin-bottom:5px;"></div>
+
+
+
+
+
+
+    </div>
+    <div class="row mt-5">
+        <!-- spacing -->&nbsp;
+    </div>
+</div>
+
+
+<!-- modals -->
+<!-- more to come -->
+<div class="modal fade" id="mdMore" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">More Functions to come</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Soon... ;-)
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- delete -->
+<div class="modal fade" id="mdDeleteArticle" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Cancellare l'articolo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Sei sicuro di voler cancellare il <span style="font-weight:bold;" id="spdelartitle"></span> nel database?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Annulla</button>
+                <button type="button" class="btn btn-secondary" onclick="DeleteArticle(this);">Sì</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- import snapshot -->
+<div class="modal fade" id="mdImportSnapshot" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Importa file zip</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Scegli un file zip valido da importare nell'articolo.
+                <br /><br />
+                <b>Nota:</b> Dopo aver importato con successo l'istantanea, l'articolo verrà automaticamente aperto nella vista bozza. Poi si può controllare di nuovo se il file di importazione è ok. Finché l'articolo non viene salvato nel DB, rimane quello vecchio.
+                <br /><br />
+                <form id="FMImportSnapshot" action="/articles" method="post" enctype="multipart/form-data">
+                    <input type="hidden" id="articleied" name="articleid" />
+                    <input type="file" name="imzip" id="imzip" class="form-control" />
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Annulla</button>
+                <button type="button" class="btn btn-secondary" onclick="ImportSnapshot(this);">Importazione ora</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var t_ArticleSeletion = [];
+    var allSelectionWasDone = false;
+
+    $(document).ready(function () {
+        $('#TblArticles').DataTable({
+            "responsive": false,
+            "scrollX": false,
+            "order": [[2, 'desc']],
+            "stateSave": false, // NEVER EVER SET TO TRUE
+            "paging": true,
+            "retrieve": true,
+            "paging": true,
+            "ordering": true,
+            "language": {
+                "lengthMenu": "Visualizza _MENU_ record per pagina",
+                "zeroRecords": "Niente trovato - spiacente",
+                "search": "Cerca:",
+                "paginate": {
+                    "first": "Prima",
+                    "last": "Ultimo",
+                    "next": "Successiva",
+                    "previous": "Precedente"
+                },
+                "info": "Mostra la pagina _PAGE_ of _PAGES_",
+                "infoEmpty": "Nessun documento disponibile",
+                "infoFiltered": "(filtrato da _MAX_ total records)"
+            },
+            "info": false,
+            "pageLength": 30,
+            "lengthChange": false,
+            "drawCallback": function (settings) {
+                $('.tagschange').multiselect({
+                    columns: 1,
+                    placeholder: "Cambiare Tag"
+                });
+                $('.tagsread').multiselect({
+                    columns: 1,
+                    placeholder: "Seleziona  Tags"
+                });
+            }
+        });
+
+        $('.tagschange').multiselect({
+            columns: 1,
+            placeholder: "Cambiare Tags"
+        });
+        $('.tagsread').multiselect({
+            columns: 1,
+            placeholder: "Seleziona Tags"
+        });
+        $('.ms-options li').css('list-style', 'none');
+
+        // hide columns
+        $("#colvis").html("");
+        $("#TblArticles thead th").each(function (i) {
+            var table = $('#TblArticles').DataTable();
+            var name = table.column(i).header();
+            var spanelt = document.createElement("button");
+            spanelt.innerHTML = name.innerHTML;
+
+            //console.log("found column: " + name.innerHTML);
+            if (name.innerHTML != "" && name.innerHTML.indexOf("<!-") == -1) {
+                $(spanelt).addClass("btn");
+                $(spanelt).addClass("btn-light");
+                $(spanelt).attr("colidx", i);		// store the column idx on the button
+
+                $(spanelt).on('click', function (e) {
+                    e.preventDefault();
+                    // Get the column API object
+                    var column = table.column($(this).attr('colidx'));
+                    // Toggle the visibility
+                    column.visible(!column.visible());
+
+                    // set style
+                    if (!column.visible()) {
+                        $(this).attr("title", $(this).html());
+                        $(this).html("<span style='color:white;'>" + $(this).html() + "</span>");
+                    }
+                    else {
+                        $(this).html($(this).attr("title"));
+                    }
+                });
+                $("#colvis").append($(spanelt));
+            }
+        });
+
+    });
+
+
+    function ImportSnapshot(saveButton) {
+        $(saveButton).html("<i class='fas fa-spinner fa-spin'></i> Aspetta...");
+        $(saveButton).prop("disabled", true);
+        $("#articleied").val(t_artID);
+        $("#FMImportSnapshot").submit();
+    }
+
+
+    function UpdateArtikelTags(drpTags, artid) {
+        
+            $('#overlay').fadeIn();
+        
+
+        $.get("./api.aspx?action=UpdateArtikelTags&tags=" + $(drpTags).val() + "&articleid=" + artid, function (jsonObj) {
+            // reload
+            $('#overlay').fadeOut();
+            $.get("./api_s.aspx?action=UpdateOnlineArtikel&articleid=" + artid, function (jsonObj) {
+            });
+        });
+    }
+
+    function UpdateArtikelStatus(drpstatus, artid) {
+        var artids = "";
+        for (var i = 0; i < t_ArticleSeletion.length; i++) {
+            artids += t_ArticleSeletion[i] + ",";
+        }
+        artids = artids.substring(0, artids.length - 1);
+
+
+
+        if (t_ArticleSeletion.length > 0) {
+            if (confirm("Volete davvero cambiare lo stato in " + t_ArticleSeletion.length + " Articoli?")) {
+                $.get("./api.aspx?action=UpdateArtikelStatus&statusid=" + $(drpstatus).val() + "&multiselect=true&articleid=" + artids, function (jsonObj) {
+                    // reload
+                    $("#FMFilter").submit();
+                });
+            }
+        }
+        else {
+            $.get("./api.aspx?action=UpdateArtikelStatus&statusid=" + $(drpstatus).val() + "&articleid=" + artid, function (jsonObj) {
+                // reload
+                $("#FMFilter").submit();
+            });
+        }
+    }
+
+    function CreatePrintPDFLink(myLink) {
+        var artids = "";
+        for (var i = 0; i < t_ArticleSeletion.length; i++) {
+            artids += t_ArticleSeletion[i] + ",";
+        }
+        artids = artids.substring(0, artids.length - 1);
+        var newLink = $(myLink).attr("href");
+        if (newLink.indexOf("&artikelid") >= 0) {
+            // remove already artikelids
+            newLink = newLink.substring(0, newLink.indexOf("&artikelid"));
+        }
+        newLink += "&artikelid=" + artids + "&allSelectionWasDone=" + allSelectionWasDone;
+        console.log(newLink);
+        $(myLink).attr("href", newLink);
+    }
+
+    function SeletAllArticles() {
+        if (allSelectionWasDone) {
+            // disable all
+            t_ArticleSeletion = [];
+            $("input:checkbox").each(function (index) {
+                if ($(this).attr("id").indexOf("ArtBox") >= 0) {
+                    const index = t_ArticleSeletion.indexOf($(this).data("articleid"));
+                    if (index > -1) {
+                        t_ArticleSeletion.splice(index, 1);
+                    }
+
+                    $(this).prop("checked", false);
+                }
+            });
+
+            // switch button
+            $("#aSelectAll").show();
+            $("#aDeselectAll").hide();
+            allSelectionWasDone = false;
+        }
+        else {
+            // select all
+            t_ArticleSeletion = [];
+            $("input:checkbox").each(function (index) {
+                //console.log($(this).attr("id"));
+                if ($(this).attr("id").indexOf("ArtBox") >= 0) {
+                    t_ArticleSeletion.push($(this).data("articleid"));
+                    $(this).prop("checked", true);
+                }
+            });
+
+            // switch button
+            $("#aDeselectAll").show();
+            $("#aSelectAll").hide();
+            allSelectionWasDone = true;
+        }
+        CheckButtons();
+    }
+
+    function CheckArtSelection(artID, artBox) {
+        if ($(artBox).prop("checked")) {
+            t_ArticleSeletion.push(artID);
+        }
+        else {
+            const index = t_ArticleSeletion.indexOf(artID);
+            if (index > -1) {
+                t_ArticleSeletion.splice(index, 1);
+            }
+        }
+        CheckButtons();
+    }
+
+    function CheckButtons() {
+        if (t_ArticleSeletion.length > 1) {
+            $("#aPrintPDF").show();
+            $("#aWorkingPDF").show();
+            $("#aInDesign").show();
+        }
+        else {
+            $("#aPrintPDF").hide();
+            $("#aWorkingPDF").hide();
+            $("#aInDesign").hide();
+        }
+    }
+
+    function DeleteArticle() {
+        $.get("./api.aspx?action=DeleteArticle&articleid=" + t_artID, function (jsonObj) {
+            // reload
+            $("#FMFilter").submit();
+        });
+    }
+
+    var t_artID;
+    function ArticleFunction(artID, fBox, artTitle) {
+        t_artID = artID;
+        switch ($(fBox).val()) {
+            case "edit":
+                document.location.href = "/editArticle?articleID=" + artID;
+
+                break;
+
+            case "export":
+                document.location.href = "/snapshot.aspx?artikelid=" + artID;
+
+                break;
+
+            case "import":
+                $("#mdImportSnapshot").modal('show');
+
+                break;
+
+            case "delete":
+                $("#spdelartitle").html(artTitle);
+                $("#mdDeleteArticle").modal('show');
+
+                break;
+
+            case "indesign":
+                document.location.href = "/indesign.aspx?artikelid=" + artID + "&editmode=false&workingview=false&title=" + artTitle;
+
+                break;
+
+            default:
+                $("#mdMore").modal('show');
+
+                break;
+
+            case "none":
+
+                break;
+        }
+
+        $(fBox).val("none");
+    }
+
+
+
+    $('body').on('keydown', 'input', function (e) {
+        if (e.keyCode === 13) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            //Do your stuff...
+            document.forms[0].submit();
+        }
+    });
+</script>
+            </main>
+        </div>
+    </div>
+
+
+    <!-- modals -->
+    <!-- log out -->
+    <div class="modal fade" id="mdLogOut" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Esci</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Sei sicuro?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Chiudi</button>
+                    <a href="/signout" class="btn btn-secondary" role="button">Sì</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- datatables -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.23/b-1.6.5/b-colvis-1.6.5/b-html5-1.6.5/b-print-1.6.5/fh-3.1.7/r-2.2.6/sp-1.2.2/datatables.min.js"></script>
+
+
+    <!-- froala -->
+    <!--
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@3.2.0/js/froala_editor.pkgd.min.js'></script>
+        -->
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@4.0.1/js/froala_editor.pkgd.min.js'></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/3.2.0/js/plugins/special_characters.min.js"></script>
+
+    <!-- multiselect -->
+    <script src="/jquery.multiselect.js"></script>
+
+    <!-- auto completer -->
+    <script src="/jquery.autocomplete.js"></script>
+
+    <!-- sortable -->
+    <script src="/html5sortable.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+
+
+            <script>
+                $(document).ready(function () {
+                    // session checker
+                    var teststate = setInterval(function () {
+                        $.get("./api.aspx?action=state", function (jsonObj) {
+                            if (!jsonObj.state) {
+                                clearInterval(teststate);
+                                alert("Attenzione: La tua sessione è scaduta.");
+
+                            }
+                        });
+                    }, 60000);
+                });
+            </script>
+
+</body>
+</html>
+<script>
+    // main scripts
+    $(document).ready(function () {
+        $.ajaxSetup({ cache: false });
+
+        document.body.addEventListener('dblclick', function (e) {
+            console.log("double click");
+            e.preventDefault();
+        })
+
+        $('[data-toggle="tooltip"]').tooltip();
+
+
+
+    });
+
+
+    function ToggleFilter() {
+        try {
+            if ($("#FMFilter").is(":visible")) {
+                $("#FMFilter").hide();
+            }
+            else {
+                $("#FMFilter").show();
+            }
+        }
+        catch (e) {
+
+        }
+    }
+
+    function getURLParameter(name) {
+        return decodeURI(
+            (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search) || [, null])[1]
+        );
+    }
+
+    function NewMasterArticle() {
+        //var artorterID = window.prompt("Please enter a OrderID or leave blank.\n\n Administrators can edit OrderID in ManageArticles all the time.", "");
+        document.location.href = "/editArticle?new=true&orderID=";
+    }
+
+
+</script>

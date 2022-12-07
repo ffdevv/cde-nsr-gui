@@ -1,0 +1,2874 @@
+
+
+
+<!doctype html>
+<html lang="de-ch">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="VSI Redactionsystem">
+    <meta name="author" content="VSI">
+    <meta name="generator" content="edp">
+    <title>VSI Sistema redazionale - Gestione moduli (193.246.191.126 - ok)</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="main.css" rel="stylesheet">
+
+    <!-- datatables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.23/b-1.6.5/b-colvis-1.6.5/b-html5-1.6.5/b-print-1.6.5/fh-3.1.7/r-2.2.6/sp-1.2.2/datatables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" />
+
+    <!-- font aweseom -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css'>
+
+    <!-- froalala -->
+    <!--
+    <link href='https://cdn.jsdelivr.net/npm/froala-editor@3.2.0/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
+        -->
+    <link href='https://cdn.jsdelivr.net/npm/froala-editor@4.0.1/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
+
+    <!-- dropdown css -->
+    <link href="/jquery.multiselect.css" rel="stylesheet" media="all" />
+
+
+
+
+
+
+
+
+    <!-- scrolling fix -->
+    <script src="/scrollingFix.js" type="module"></script>
+
+</head>
+<body>
+
+    <div id="overlay" style="display:none;">
+        <div class="spinner"></div>
+        <b><span id="spovleraymessage"></span></b>
+    </div>
+
+    <header class="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow" style="background-color:#565294;">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 bg-white" href="/dashboard?showNavi=true">
+            <img alt="Vocabolario dei dialetti della Svizzera italiana" title="Vocabolario dei dialetti della Svizzera italiana" src="/images/logo.jpg" style="width:80%;" />
+        </a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!--message box  -->
+            <span class="text-white w-100" style="border:0px solid red; font-style:italic; padding-left:10px;">
+
+            </span>
+        <ul class="navbar-nav px-3">
+                <li class="nav-item text-nowrap">
+                    <a class="nav-link" data-bs-toggle="modal" href="#mdLogOut">Esci</a>
+                </li>
+        </ul>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <!--navi -->
+
+
+
+                    <nav id="sidebarMenu" class="col-md-3 col-lg-2 mt-4 d-md-block bg-light sidebar collapse navbar-expand" style="border:0px solid red; overflow:auto; ">
+
+                            <div class="position-sticky pt-3">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link" title="Nascondi navigazione" href="/dashboard?showNavi=false">
+                                            [x]
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                            <a class="nav-link" href="/dashboard">
+                                                <i class="fas fa-home"></i>
+                                                In redazione
+                                            </a>
+                                    </li>
+                                    <li class="nav-item">
+                                            <a class="nav-link" href="/articles">
+                                                <i class="far fa-list-alt"></i>
+                                                I miei articoli
+                                            </a>
+                                    </li>
+                                    <li class="nav-item">
+                                            <a class="nav-link" href="/articlesRead">
+                                                <i class="fas fa-book"></i>
+                                                Tutti gli articoli
+                                            </a>
+
+                                    </li>
+
+                                </ul>
+
+                                <!--admin navi -->
+                                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                                        <span>Amministrazione</span>
+                                    </h6>
+                                    <ul class="nav flex-column mb-2">
+
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="/articlesAll">
+                                                    <i class="far fa-list-alt"></i>
+                                                    Gestione articoli
+                                                </a>
+
+                                        </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="/tags">
+                                                    <i class="fas fa-tags"></i>
+                                                    Tag
+                                                </a>
+                                        </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="/users">
+                                                    <i class="fas fa-users"></i>
+                                                    Utenti
+                                                </a>
+                                        </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="/exports">
+                                                    <i class="fas fa-database"></i>
+                                                    Statistiche
+                                                </a>
+                                        </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="/csvexport">
+                                                    <i class="fas fa-file-export"></i>
+                                                    Export
+                                                </a>
+                                        </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="/areferences">
+                                                    <i class="fas fa-retweet"></i>
+                                                    Rimandi
+                                                </a>
+                                        </li>
+
+
+
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="/excel">
+                                                    <i class="fas fa-file-excel"></i>
+                                                    Gestione Excel
+                                                </a>
+                                        </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link active" aria-current="page" href="#">
+                                                    <i class="fas fa-th"></i>
+                                                    Gestione moduli
+                                                </a>
+                                        </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="/modules">
+                                                    <i class="fas fa-file-code"></i>
+                                                    Gestione stili moduli
+                                                </a>
+                                        </li>
+                                        <li class="nav-item">
+
+                                            <a class="nav-link" target="_blank" href="/api.aspx?action=updateonline">
+                                                <i class="fas fa-sync"></i>
+                                                Aggiorna VSI Online
+                                            </a>
+                                            <br /><br /><br />
+                                        </li>
+
+
+                                    </ul>
+                            </div>
+                        <span class="border-top w-100 fixed-bottom" style="max-width:150px;">
+                            &nbsp;&copy; 2022 by VSI
+                        </span>
+
+                    </nav>
+
+
+            <!-- content body -->
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <!-- page error -->
+
+                <!-- page info -->
+
+
+
+
+                <!-- important script for use in pages body -->
+                <!-- Bootstrap 5 Bundle -->
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+                <script>
+                    const main = document.getElementsByTagName('main')[0];
+
+                    const style = document.createElement('style');
+
+                    style.innerHTML = "html{scroll-behavior:initial !important;}";
+
+                    main.appendChild(style);
+
+                    setTimeout(() => { style.remove(); }, 1000);
+                </script>
+                <!-- jquery 3.5.1 -->
+                <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+                <!-- finally render page body-->
+                
+
+
+
+<!-- title wiht subline -->
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">
+        Gestione moduli
+    </h1>
+
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <p class="lead">
+            <b>
+                Importante:
+            </b> Dal momento che un modulo viene usato in un articolo, non è più possibile aggiungervi o eliminarvi campi, né eliminare il modulo stesso. È tuttavia possibile nasconderlo agli utenti. Usare la gestione moduli con cautela.
+        </p>
+    </div>
+
+    <div class="row">
+
+        <table id="TblModules" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>OrderID</th>
+                    <th>Visualizza</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                        <tr>
+                            <td>
+                                40
+                            </td>
+                            <td>
+                                <span style="display:none;">Osservazioni redazionali</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(40, this)" value="Osservazioni redazionali" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(40, this)" value="10" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(40, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(40, 'Osservazioni redazionali')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                47
+                            </td>
+                            <td>
+                                <span style="display:none;">Testo libero </span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(47, this)" value="Testo libero " />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(47, this)" value="20" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(47, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(47, 'Testo libero ')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                155
+                            </td>
+                            <td>
+                                <span style="display:none;">Significato</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(155, this)" value="Significato" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(155, this)" value="30" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(155, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(155, 'Significato')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                156
+                            </td>
+                            <td>
+                                <span style="display:none;">Frase dialettale</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(156, this)" value="Frase dialettale" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(156, this)" value="40" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(156, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(156, 'Frase dialettale')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                157
+                            </td>
+                            <td>
+                                <span style="display:none;">Frasi dialettali concatenate</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(157, this)" value="Frasi dialettali concatenate" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(157, this)" value="50" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(157, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(157, 'Frasi dialettali concatenate')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                121
+                            </td>
+                            <td>
+                                <span style="display:none;">Numero paragrafo 1.</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(121, this)" value="Numero paragrafo 1." />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(121, this)" value="60" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(121, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(121, 'Numero paragrafo 1.')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                122
+                            </td>
+                            <td>
+                                <span style="display:none;">Numero paragrafo 1.1.</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(122, this)" value="Numero paragrafo 1.1." />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(122, this)" value="70" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(122, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(122, 'Numero paragrafo 1.1.')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                123
+                            </td>
+                            <td>
+                                <span style="display:none;">Numero paragrafo 1.1.1.</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(123, this)" value="Numero paragrafo 1.1.1." />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(123, this)" value="80" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(123, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(123, 'Numero paragrafo 1.1.1.')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                124
+                            </td>
+                            <td>
+                                <span style="display:none;">Numero paragrafo 1.1.1.1.</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(124, this)" value="Numero paragrafo 1.1.1.1." />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(124, this)" value="90" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(124, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(124, 'Numero paragrafo 1.1.1.1.')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                138
+                            </td>
+                            <td>
+                                <span style="display:none;">A capo</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(138, this)" value="A capo" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(138, this)" value="95" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(138, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(138, 'A capo')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                158
+                            </td>
+                            <td>
+                                <span style="display:none;">Doppio a capo</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(158, this)" value="Doppio a capo" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(158, this)" value="98" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(158, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(158, 'Doppio a capo')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                159
+                            </td>
+                            <td>
+                                <span style="display:none;">Rimando a lemma/sottolemma</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(159, this)" value="Rimando a lemma/sottolemma" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(159, this)" value="100" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(159, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(159, 'Rimando a lemma/sottolemma')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                160
+                            </td>
+                            <td>
+                                <span style="display:none;">Documento</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(160, this)" value="Documento" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(160, this)" value="110" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(160, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(160, 'Documento')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                161
+                            </td>
+                            <td>
+                                <span style="display:none;">Lemma</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(161, this)" value="Lemma" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(161, this)" value="130" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(161, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(161, 'Lemma')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                64
+                            </td>
+                            <td>
+                                <span style="display:none;">Sottolemma (= secondo neretto)</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(64, this)" value="Sottolemma (= secondo neretto)" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(64, this)" value="140" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(64, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(64, 'Sottolemma (= secondo neretto)')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                106
+                            </td>
+                            <td>
+                                <span style="display:none;">Sottolemma Derivato</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(106, this)" value="Sottolemma Derivato" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(106, this)" value="150" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(106, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(106, 'Sottolemma Derivato')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                107
+                            </td>
+                            <td>
+                                <span style="display:none;">Sottolemma Composto</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(107, this)" value="Sottolemma Composto" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(107, this)" value="160" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(107, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(107, 'Sottolemma Composto')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                66
+                            </td>
+                            <td>
+                                <span style="display:none;">Variante/i</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(66, this)" value="Variante/i" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(66, this)" value="170" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(66, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(66, 'Variante/i')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                162
+                            </td>
+                            <td>
+                                <span style="display:none;">Variante/i con cambiamento grammaticale</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(162, this)" value="Variante/i con cambiamento grammaticale" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(162, this)" value="180" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(162, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(162, 'Variante/i con cambiamento grammaticale')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                177
+                            </td>
+                            <td>
+                                <span style="display:none;">Locuzione di lemma/sottol. e significato</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(177, this)" value="Locuzione di lemma/sottol. e significato" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(177, this)" value="200" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(177, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(177, 'Locuzione di lemma/sottol. e significato')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                175
+                            </td>
+                            <td>
+                                <span style="display:none;">Locuzione di lemma/sottol. con pi&#249; significati</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(175, this)" value="Locuzione di lemma/sottol. con pi&#249; significati" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(175, this)" value="210" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(175, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(175, 'Locuzione di lemma/sottol. con pi&#249; significati')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                176
+                            </td>
+                            <td>
+                                <span style="display:none;">Significato di locuz. di lemma/sottol.</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(176, this)" value="Significato di locuz. di lemma/sottol." />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(176, this)" value="215" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(176, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(176, 'Significato di locuz. di lemma/sottol.')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                140
+                            </td>
+                            <td>
+                                <span style="display:none;">Racconti e leggende</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(140, this)" value="Racconti e leggende" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(140, this)" value="225" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(140, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(140, 'Racconti e leggende')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                163
+                            </td>
+                            <td>
+                                <span style="display:none;">Toponimo</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(163, this)" value="Toponimo" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(163, this)" value="230" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(163, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(163, 'Toponimo')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                164
+                            </td>
+                            <td>
+                                <span style="display:none;">Toponimo doc.</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(164, this)" value="Toponimo doc." />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(164, this)" value="240" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(164, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(164, 'Toponimo doc.')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                165
+                            </td>
+                            <td>
+                                <span style="display:none;">Antroponimo dial.</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(165, this)" value="Antroponimo dial." />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(165, this)" value="250" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(165, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(165, 'Antroponimo dial.')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                166
+                            </td>
+                            <td>
+                                <span style="display:none;">Antroponimo it.</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(166, this)" value="Antroponimo it." />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(166, this)" value="260" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(166, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(166, 'Antroponimo it.')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                167
+                            </td>
+                            <td>
+                                <span style="display:none;">Antroponimo doc.</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(167, this)" value="Antroponimo doc." />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(167, this)" value="270" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(167, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(167, 'Antroponimo doc.')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                168
+                            </td>
+                            <td>
+                                <span style="display:none;">Nome proprio di animale</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(168, this)" value="Nome proprio di animale" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(168, this)" value="280" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(168, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(168, 'Nome proprio di animale')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                178
+                            </td>
+                            <td>
+                                <span style="display:none;">Etimo</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(178, this)" value="Etimo" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(178, this)" value="290" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(178, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(178, 'Etimo')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                179
+                            </td>
+                            <td>
+                                <span style="display:none;">Etimo rimando</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(179, this)" value="Etimo rimando" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(179, this)" value="320" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(179, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(179, 'Etimo rimando')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                180
+                            </td>
+                            <td>
+                                <span style="display:none;">Etimo nascosto</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(180, this)" value="Etimo nascosto" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(180, this)" value="330" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(180, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(180, 'Etimo nascosto')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                181
+                            </td>
+                            <td>
+                                <span style="display:none;">Pref./ Suff./ Interf.</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(181, this)" value="Pref./ Suff./ Interf." />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(181, this)" value="340" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(181, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(181, 'Pref./ Suff./ Interf.')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                99
+                            </td>
+                            <td>
+                                <span style="display:none;">Commento interpretativo</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(99, this)" value="Commento interpretativo" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(99, this)" value="370" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(99, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(99, 'Commento interpretativo')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                103
+                            </td>
+                            <td>
+                                <span style="display:none;">Rimando/i Bibliografico/i</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(103, this)" value="Rimando/i Bibliografico/i" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(103, this)" value="380" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(103, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(103, 'Rimando/i Bibliografico/i')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                104
+                            </td>
+                            <td>
+                                <span style="display:none;">Nuovo Rimando Bibliografico</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(104, this)" value="Nuovo Rimando Bibliografico" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(104, this)" value="390" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(104, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(104, 'Nuovo Rimando Bibliografico')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                65
+                            </td>
+                            <td>
+                                <span style="display:none;">Var. spaz. intr. [V a r.:]</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(65, this)" value="Var. spaz. intr. [V a r.:]" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(65, this)" value="400" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(65, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(65, 'Var. spaz. intr. [V a r.:]')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                119
+                            </td>
+                            <td>
+                                <span style="display:none;">Doc. spaz. intr. [D o c.:]</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(119, this)" value="Doc. spaz. intr. [D o c.:]" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(119, this)" value="410" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(119, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(119, 'Doc. spaz. intr. [D o c.:]')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                135
+                            </td>
+                            <td>
+                                <span style="display:none;">Cfr. spaz. intr. [C f r.:]</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(135, this)" value="Cfr. spaz. intr. [C f r.:]" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(135, this)" value="420" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(135, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(135, 'Cfr. spaz. intr. [C f r.:]')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                134
+                            </td>
+                            <td>
+                                <span style="display:none;">Note spaz. intr. [N o t e:]</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(134, this)" value="Note spaz. intr. [N o t e:]" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(134, this)" value="430" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(134, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(134, 'Note spaz. intr. [N o t e:]')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                52
+                            </td>
+                            <td>
+                                <span style="display:none;">Autore</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(52, this)" value="Autore" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(52, this)" value="440" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(52, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(52, 'Autore')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                142
+                            </td>
+                            <td>
+                                <span style="display:none;">Immagine</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(142, this)" value="Immagine" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(142, this)" value="901" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  checked data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(142, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(142, 'Immagine')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                145
+                            </td>
+                            <td>
+                                <span style="display:none;">Significato - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(145, this)" value="Significato - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(145, this)" value="30" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(145, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(145, 'Significato - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                146
+                            </td>
+                            <td>
+                                <span style="display:none;">Frase dialettale - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(146, this)" value="Frase dialettale - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(146, this)" value="40" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(146, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(146, 'Frase dialettale - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                147
+                            </td>
+                            <td>
+                                <span style="display:none;">Frasi dialettali concatenate - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(147, this)" value="Frasi dialettali concatenate - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(147, this)" value="50" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(147, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(147, 'Frasi dialettali concatenate - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                101
+                            </td>
+                            <td>
+                                <span style="display:none;">Rimando a lemma/sottolemma -  DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(101, this)" value="Rimando a lemma/sottolemma -  DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(101, this)" value="100" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(101, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(101, 'Rimando a lemma/sottolemma -  DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                144
+                            </td>
+                            <td>
+                                <span style="display:none;">Documento - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(144, this)" value="Documento - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(144, this)" value="110" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(144, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(144, 'Documento - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                63
+                            </td>
+                            <td>
+                                <span style="display:none;">Lemma - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(63, this)" value="Lemma - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(63, this)" value="130" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(63, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(63, 'Lemma - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                67
+                            </td>
+                            <td>
+                                <span style="display:none;">Variante/i con cambiamento grammaticale - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(67, this)" value="Variante/i con cambiamento grammaticale - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(67, this)" value="180" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(67, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(67, 'Variante/i con cambiamento grammaticale - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                68
+                            </td>
+                            <td>
+                                <span style="display:none;">Qgr - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(68, this)" value="Qgr - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(68, this)" value="190" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(68, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(68, 'Qgr - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                117
+                            </td>
+                            <td>
+                                <span style="display:none;">Locuzione di lemma/di sottolemma - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(117, this)" value="Locuzione di lemma/di sottolemma - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(117, this)" value="200" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(117, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(117, 'Locuzione di lemma/di sottolemma - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                173
+                            </td>
+                            <td>
+                                <span style="display:none;">-</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(173, this)" value="-" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(173, this)" value="200" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(173, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(173, '-')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                174
+                            </td>
+                            <td>
+                                <span style="display:none;">Locuzione di lemma/sottol. e significato - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(174, this)" value="Locuzione di lemma/sottol. e significato - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(174, this)" value="200" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(174, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(174, 'Locuzione di lemma/sottol. e significato - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                143
+                            </td>
+                            <td>
+                                <span style="display:none;">Significato di locuz. di lemma/sottol. - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(143, this)" value="Significato di locuz. di lemma/sottol. - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(143, this)" value="215" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(143, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(143, 'Significato di locuz. di lemma/sottol. - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                77
+                            </td>
+                            <td>
+                                <span style="display:none;">Corrisp. It. di Antrop. - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(77, this)" value="Corrisp. It. di Antrop. - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(77, this)" value="220" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(77, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(77, 'Corrisp. It. di Antrop. - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                148
+                            </td>
+                            <td>
+                                <span style="display:none;">Toponimo - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(148, this)" value="Toponimo - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(148, this)" value="230" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(148, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(148, 'Toponimo - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                149
+                            </td>
+                            <td>
+                                <span style="display:none;">Toponimo doc. - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(149, this)" value="Toponimo doc. - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(149, this)" value="240" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(149, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(149, 'Toponimo doc. - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                150
+                            </td>
+                            <td>
+                                <span style="display:none;">Antroponimo dial. - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(150, this)" value="Antroponimo dial. - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(150, this)" value="250" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(150, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(150, 'Antroponimo dial. - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                151
+                            </td>
+                            <td>
+                                <span style="display:none;">Antroponimo it. - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(151, this)" value="Antroponimo it. - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(151, this)" value="260" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(151, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(151, 'Antroponimo it. - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                152
+                            </td>
+                            <td>
+                                <span style="display:none;">Antroponimo doc. - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(152, this)" value="Antroponimo doc. - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(152, this)" value="270" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(152, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(152, 'Antroponimo doc. - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                153
+                            </td>
+                            <td>
+                                <span style="display:none;">Nome proprio di animale - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(153, this)" value="Nome proprio di animale - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(153, this)" value="280" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(153, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(153, 'Nome proprio di animale - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                90
+                            </td>
+                            <td>
+                                <span style="display:none;">Etimo - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(90, this)" value="Etimo - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(90, this)" value="290" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(90, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(90, 'Etimo - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                170
+                            </td>
+                            <td>
+                                <span style="display:none;">Etimo - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(170, this)" value="Etimo - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(170, this)" value="290" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(170, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(170, 'Etimo - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                91
+                            </td>
+                            <td>
+                                <span style="display:none;">Etimo (Incrocio, Paretimologia) - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(91, this)" value="Etimo (Incrocio, Paretimologia) - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(91, this)" value="300" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(91, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(91, 'Etimo (Incrocio, Paretimologia) - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                92
+                            </td>
+                            <td>
+                                <span style="display:none;">Etimo (Respinto) - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(92, this)" value="Etimo (Respinto) - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(92, this)" value="310" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(92, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(92, 'Etimo (Respinto) - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                94
+                            </td>
+                            <td>
+                                <span style="display:none;">Etimo (Rimando) - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(94, this)" value="Etimo (Rimando) - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(94, this)" value="320" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(94, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(94, 'Etimo (Rimando) - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                171
+                            </td>
+                            <td>
+                                <span style="display:none;">Etimo rimando - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(171, this)" value="Etimo rimando - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(171, this)" value="320" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(171, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(171, 'Etimo rimando - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                95
+                            </td>
+                            <td>
+                                <span style="display:none;">Etimo (Incerto, Oscuro) - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(95, this)" value="Etimo (Incerto, Oscuro) - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(95, this)" value="330" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(95, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(95, 'Etimo (Incerto, Oscuro) - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                172
+                            </td>
+                            <td>
+                                <span style="display:none;">Etimo nascosto - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(172, this)" value="Etimo nascosto - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(172, this)" value="330" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(172, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(172, 'Etimo nascosto - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                96
+                            </td>
+                            <td>
+                                <span style="display:none;">Prefisso - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(96, this)" value="Prefisso - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(96, this)" value="340" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(96, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(96, 'Prefisso - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                97
+                            </td>
+                            <td>
+                                <span style="display:none;">Suffisso - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(97, this)" value="Suffisso - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(97, this)" value="350" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(97, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(97, 'Suffisso - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                98
+                            </td>
+                            <td>
+                                <span style="display:none;">Interfisso - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(98, this)" value="Interfisso - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(98, this)" value="360" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(98, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(98, 'Interfisso - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                154
+                            </td>
+                            <td>
+                                <span style="display:none;">test - deleted</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(154, this)" value="test - deleted" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(154, this)" value="666" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(154, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(154, 'test - deleted')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                141
+                            </td>
+                            <td>
+                                <span style="display:none;">Nota Defaulttext - deleted</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(141, this)" value="Nota Defaulttext - deleted" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(141, this)" value="900" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(141, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(141, 'Nota Defaulttext - deleted')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+                        <tr>
+                            <td>
+                                169
+                            </td>
+                            <td>
+                                <span style="display:none;">EtimoNUOVO - DELETED</span>
+                                        <input type="text" style="min-width:250px;" data-toggle="tooltip" maxlength="250" title="" class="form-control" onchange="UpdateModulBezeichnung(169, this)" value="EtimoNUOVO - DELETED" />
+
+                            </td>
+                            <td>
+                                    <input type="text" style="min-width:150px;" data-toggle="tooltip" maxlength="3" title="" class="form-control" onchange="UpdateModulOrderID(169, this)" value="999" />
+
+                            </td>
+                            <td>
+                                    <input type="checkbox" style=""  data-toggle="tooltip"  title="" class="form-check-input" onclick="UpdateModulDisplay(169, this)" />
+
+                            </td>
+                            <td>
+
+
+
+
+                                <a href="javascript:EditTextboxes(169, 'EtimoNUOVO - DELETED')" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">
+                                    Modifica campi
+                                </a>
+                            </td>
+                        
+                      
+                        </tr>
+
+
+            </tbody>
+        </table>
+
+
+    </div>
+
+
+    <hr />
+
+    <form id="FMModul" action="/modulesAdmin?new=true" method="post" enctype="multipart/form-data">
+
+        <div class="row">
+            <h5>
+                Crea un nuovo modulo
+            </h5>
+        </div>
+        <div class="row">
+            <p class="lead">
+                Puoi configurare i campi del nuovo modulo dopo averne creato uno.
+            </p>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label for="Excelname">Nome:</label>
+                <input type="text" class="form-control" value="" minlength="3" maxlength="150" required placeholder="" id="Modulname" name="Modulname">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label for="Excelname">OrderID:</label>
+                <input type="text" class="form-control" value=""  maxlength="3" required placeholder="" id="ModulOrderID" name="ModulOrderID">
+            </div>
+        </div>
+        <div class="row mt-4">
+            <button type="submit" class="btn btn-secondary">Crea</button>
+        </div>
+    </form>
+
+
+
+
+    <div class="row mt-5">
+        <!-- spacing -->&nbsp;
+    </div>
+
+</div>
+
+
+<!-- modals -->
+<!-- edit textboxes -->
+<div class="modal fade" id="mdEditTextboxes" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">
+                    Modifica campi di
+                    <span id="SPEditBausteinTitle"></span>
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- dynamic form -->
+                <form id="FMEditTexboxes">
+                   
+                </form>
+
+                <!-- add form if module is not in used -->
+                <form id="FMAddTexbox" onsubmit="return AddTextbox();" method="post" style="display:none;">
+                    <hr />
+                    <div class="row">
+                        <h5>Creare una nuova casella di testo</h5>
+                    </div>                   
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="Excelname">Nome:</label>
+                            <input type="text" class="form-control" value="" minlength="3" maxlength="150" required placeholder="" id="TextboxTitle" name="TextboxTitle">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="Excelname">OrderID:</label>
+                            <input type="text" class="form-control" value="" maxlength="3" required placeholder="" id="TextboxOrderID" name="TextboxOrderID">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <input type="checkbox" class="form-check-input" value="true" id="TextboxMultiline" name="TextboxMultiline" />
+                            <label for="Excelname">
+                                È un campo multiriga
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <input type="checkbox" class="form-check-input" value="true" id="TextboxReference" name="TextboxReference" />
+                            <label for="Excelname">
+                                È un campo rimando
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <input type="checkbox" class="form-check-input" value="true" id="TextboxHidden" name="TextboxHidden" />
+                            <label for="Excelname">
+                                È un campo nascosto
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <button type="submit"  class="btn btn-secondary">Crea</button>
+                    </div>
+
+                </form>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">
+                    Chiudi
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $(document).ready(function () {
+            $('#TblModules').DataTable({
+                "responsive": true,
+                "scrollX": false,
+                "stateSave": false, // NEVER EVER SET TO TRUE
+                "paging": false,
+                "retrieve": true,
+                "paging": false,
+                "ordering": false,
+                "info": false,
+                "responsive": true,
+                "pageLength": 50,
+                "language": {
+                    "lengthMenu": "Visualizza _MENU_ record per pagina",
+                    "zeroRecords": "Niente trovato - spiacente",
+                    "search": "Cerca:",
+                    "paginate": {
+                        "first": "Prima",
+                        "last": "Ultimo",
+                        "next": "Successiva",
+                        "previous": "Precedente"
+                    },
+                    "info": "Mostra la pagina _PAGE_ of _PAGES_",
+                    "infoEmpty": "Nessun disponibile",
+                    "infoFiltered": "(filtrato da _MAX_ total records)"
+                },
+                "lengthChange": false
+            });
+        });
+    });
+
+    function UpdateModulBezeichnung(bausteinid, textelement) {
+        $.get("./api.aspx?action=UpdateModulBezeichnung&bausteinid=" + bausteinid + "&val=" + $(textelement).val(), function (jsonObj) {
+        });
+    }
+
+    function UpdateModulOrderID(bausteinid, textelement) {
+        $.get("./api.aspx?action=UpdateModulOrderID&bausteinid=" + bausteinid + "&val=" + $(textelement).val(), function (jsonObj) {
+            // refresh
+            document.location.reload(true);
+        });
+    }
+
+    function UpdateModulDisplay(bausteinid, boxelement) {
+        var theValue = "true";
+        if ($(boxelement).prop("checked")) {
+            theValue = "false";
+        }
+        $.get("./api.aspx?action=UpdateModulDisplay&bausteinid=" + bausteinid + "&val=" + theValue, function (jsonObj) {
+            // refresh
+            document.location.reload(true);
+        });
+    }
+
+
+    var t_bausteinid;
+    var t_bausteintitle;
+    function EditTextboxes(bausteinid, bausteintitle) {
+        t_bausteinid = bausteinid;
+        t_bausteintitle = bausteintitle;
+
+        $("#SPEditBausteinTitle").html(bausteintitle);
+        // get texboxes
+        $.get("./api.aspx?action=getEditTextelementeFromBaustein&bausteinid=" + bausteinid, function (jsonObj) {
+            // create boxes
+            $("#FMEditTexboxes").html("");
+            var formHTML = "";
+            var ModuleIsInUse = jsonObj.ModuleIsInUse;
+            $.each(jsonObj.Textelemente, function (key, myTextObj) {
+                var isMultiline = "";
+                if (myTextObj.fVolltext) {
+                    isMultiline = " checked";
+                }
+                var isTwoLine = "";
+                if (myTextObj.fTwoLine) {
+                    isTwoLine = " checked";
+                }
+                var isReference = "";
+                if (myTextObj.fVerweis) {
+                    isReference = " checked";
+                }
+                var isHidden = "";
+                if (myTextObj.fHidden) {
+                    isHidden = " checked";
+                }
+                formHTML += "<div class='row'><div class='form-group col-md-4'><label for='Textbox'><b>Title</b></label><input type='text' value='" + myTextObj.fBezeichnung + "' class='form-control' placeholder='Set a title' onChange='UpdateEditTextbox(this," + myTextObj.fTextelementID + ");' id='' name=''/></div><div class='form-group col-md-2'><label for='Textbox'><b>OrderID</b></label><input type='text' maxlength='2' style='width:50px;' placeholder='Set a OrderID' onChange='UpdateEditTextboxOrderID(this," + myTextObj.fTextelementID + ");'  value='" + myTextObj.fReihenfolge + "' class='form-control' id='' name=''/></div>"
+                    
+                formHTML += "<div class='col-md-6' style='border: 0px solid red; padding-top:25px;'>";
+                
+                formHTML += "<input type='checkbox' placeholder='' onChange='UpdateEditTextboxMultiline(this," + myTextObj.fTextelementID + ");'  value='true' class='form-check-input' " + isMultiline + " id='' name=''/>&nbsp;<b>Multiriga</b>";
+                formHTML += "<input type='checkbox' placeholder='' onChange='UpdateEditTextboxTwoLine(this," + myTextObj.fTextelementID + ");'  value='true' class='form-check-input' " + isTwoLine + " id='' name=''/>&nbsp;<b>2Linee</b>"; 
+                formHTML += "&nbsp;&nbsp;&nbsp;&nbsp;<input type='checkbox' placeholder='' onChange='UpdateEditTextboxReference(this," + myTextObj.fTextelementID + ");'  value='true' class='form-check-input' " + isReference + " id='' name=''/>&nbsp;<b>Rimando</b>";
+                formHTML += "&nbsp;&nbsp;&nbsp;&nbsp;<input type='checkbox' placeholder='' onChange='UpdateEditTextboxHidden(this," + myTextObj.fTextelementID + ");'  value='true' class='form-check-input' " + isHidden + " id='' name=''/>&nbsp;<b>Nascosto</b>";
+                if (!ModuleIsInUse) {
+                    formHTML += "&nbsp;&nbsp;&nbsp;&nbsp;<button onClick='DeleteTextbox(" + myTextObj.fTextelementID + ");' class='btn btn-sm btn-outline-secondary'>Eliminare</button>";
+                }
+                else {
+                    formHTML += "";
+                }
+                formHTML += "</div></div>";
+            });
+            $("#FMEditTexboxes").append(formHTML);
+
+
+            // add new
+            $("#FMAddTexbox").hide();
+            if (!ModuleIsInUse) {
+                $("#FMAddTexbox").show();
+            }
+
+
+            // open modal
+            $("#mdEditTextboxes").modal('show');
+        });
+
+    }
+
+    function UpdateEditTextbox(myTexbox, textboxid) {
+        $.get("./api.aspx?action=UpdateEditTextbox&textboxid=" + textboxid + "&val=" + $(myTexbox).val(), function (jsonObj) {
+
+        });
+    }
+
+  
+
+
+    function UpdateEditTextboxOrderID(myTexbox, textboxid) {
+        // update call
+        $.get("./api.aspx?action=UpdateEditTextboxOrderID&textboxid=" + textboxid + "&val=" + $(myTexbox).val(), function (jsonObj) {
+            // hide
+            $("#mdEditTextboxes").modal('hide');
+            // and refresh
+            setTimeout(function () {
+                EditTextboxes(t_bausteinid, t_bausteintitle);
+            }, 500);
+        }); 
+    }
+
+    function UpdateEditTextboxMultiline(myTexbox, textboxid) {
+        var theValue = "false";
+        if ($(myTexbox).prop("checked")) {
+            theValue = "true";
+        }
+        $.get("./api.aspx?action=UpdateEditTextboxMultiline&textboxid=" + textboxid + "&val=" + theValue, function (jsonObj) {
+        });
+    }
+
+    function UpdateEditTextboxTwoLine(myTexbox, textboxid) {
+        var theValue = "false";
+        if ($(myTexbox).prop("checked")) {
+            theValue = "true";
+        }
+        $.get("./api.aspx?action=UpdateEditTextboxTwoLine&textboxid=" + textboxid + "&val=" + theValue, function (jsonObj) {
+        });
+    }
+
+    
+    function UpdateEditTextboxReference(myTexbox, textboxid) {
+        var theValue = "false";
+        if ($(myTexbox).prop("checked")) {
+            theValue = "true";
+        }
+        $.get("./api.aspx?action=UpdateEditTextboxReference&textboxid=" + textboxid + "&val=" + theValue, function (jsonObj) {
+        });
+    }
+
+    function UpdateEditTextboxHidden(myTexbox, textboxid) {
+        var theValue = "false";
+        if ($(myTexbox).prop("checked")) {
+            theValue = "true";
+        }
+        $.get("./api.aspx?action=UpdateEditTextboxHidden&textboxid=" + textboxid + "&val=" + theValue, function (jsonObj) {
+        });
+    }
+
+    function DeleteTextbox(textboxid) {
+        if (confirm("Really delete this Textbox?")) {
+            // delete call
+            $.get("./api.aspx?action=DeleteTextbox&textboxid=" + textboxid, function (jsonObj) {
+                // hide
+                $("#mdEditTextboxes").modal('hide');
+                // and refresh
+                setTimeout(function () {
+                    EditTextboxes(t_bausteinid, t_bausteintitle);
+                }, 500);
+            });
+        }
+        else {
+            return false;
+        }
+    }
+
+    function AddTextbox() {
+        // new call 
+        $.get("./api.aspx?action=AddTextbox&bausteinid=" + t_bausteinid, $("#FMAddTexbox").serialize(), function (jsonObj) {
+            // hide
+            $("#mdEditTextboxes").modal('hide');
+            // and refresh
+            setTimeout(function () {
+                EditTextboxes(t_bausteinid, t_bausteintitle);
+            }, 500);
+        });
+        return false;
+    }
+</script>
+            </main>
+        </div>
+    </div>
+
+
+    <!-- modals -->
+    <!-- log out -->
+    <div class="modal fade" id="mdLogOut" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Esci</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Sei sicuro?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Chiudi</button>
+                    <a href="/signout" class="btn btn-secondary" role="button">Sì</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- datatables -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.23/b-1.6.5/b-colvis-1.6.5/b-html5-1.6.5/b-print-1.6.5/fh-3.1.7/r-2.2.6/sp-1.2.2/datatables.min.js"></script>
+
+
+    <!-- froala -->
+    <!--
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@3.2.0/js/froala_editor.pkgd.min.js'></script>
+        -->
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@4.0.1/js/froala_editor.pkgd.min.js'></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/3.2.0/js/plugins/special_characters.min.js"></script>
+
+    <!-- multiselect -->
+    <script src="/jquery.multiselect.js"></script>
+
+    <!-- auto completer -->
+    <script src="/jquery.autocomplete.js"></script>
+
+    <!-- sortable -->
+    <script src="/html5sortable.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+
+
+            <script>
+                $(document).ready(function () {
+                    // session checker
+                    var teststate = setInterval(function () {
+                        $.get("./api.aspx?action=state", function (jsonObj) {
+                            if (!jsonObj.state) {
+                                clearInterval(teststate);
+                                alert("Attenzione: La tua sessione è scaduta.");
+
+                            }
+                        });
+                    }, 60000);
+                });
+            </script>
+
+</body>
+</html>
+<script>
+    // main scripts
+    $(document).ready(function () {
+        $.ajaxSetup({ cache: false });
+
+        document.body.addEventListener('dblclick', function (e) {
+            console.log("double click");
+            e.preventDefault();
+        })
+
+        $('[data-toggle="tooltip"]').tooltip();
+
+
+
+    });
+
+
+    function ToggleFilter() {
+        try {
+            if ($("#FMFilter").is(":visible")) {
+                $("#FMFilter").hide();
+            }
+            else {
+                $("#FMFilter").show();
+            }
+        }
+        catch (e) {
+
+        }
+    }
+
+    function getURLParameter(name) {
+        return decodeURI(
+            (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search) || [, null])[1]
+        );
+    }
+
+    function NewMasterArticle() {
+        //var artorterID = window.prompt("Please enter a OrderID or leave blank.\n\n Administrators can edit OrderID in ManageArticles all the time.", "");
+        document.location.href = "/editArticle?new=true&orderID=";
+    }
+
+
+</script>
