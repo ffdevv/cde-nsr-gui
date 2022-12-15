@@ -90,6 +90,16 @@
                             </a>
 
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">
+                                <i class="fas fa-database"></i> Ricerche
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/csvexport">
+                                <i class="fas fa-file-export"></i> Export
+                            </a>
+                        </li>
 
                     </ul>
 
@@ -113,16 +123,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/users">
                                 <i class="fas fa-users"></i> Utenti
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">
-                                <i class="fas fa-database"></i> Statistiche
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/csvexport">
-                                <i class="fas fa-file-export"></i> Export
                             </a>
                         </li>
                         <li class="nav-item">
@@ -192,10 +192,10 @@
 
                     <!-- new rule -->
                     <form id="FMAddRule" action="/exports?action=addRule&amp;useOr=" method="post">
-                        <h3 class="mt-3">Elabora un nuovo sistema</h3>
+                        <h3 class="mt-3">Elabora un sistema di ricerca</h3>
                         <div class="row">
                             <div class="col-4">
-                                Contenente questo modulo:
+                                Cerca i lemmi contenenti questo modulo:
                             </div>
                             <div class="col-8">
                                 <select class="form-select" onchange="CheckOptions(this);" id="BausteinID" name="BausteinID">
@@ -260,7 +260,7 @@
 
                         <div class="row">
                             <div class="col-4">
-                                O contenente questo campo:
+                                o contenenti questo campo:
                             </div>
                             <div class="col-8">
                                 <select onchange="CheckTextFieldText(this);" class="form-select" id="TextelementID" name="TextelementID">
@@ -434,20 +434,20 @@
                         </div>
                         <div class="row" id="TextFieldTextRow" style="display:none;">
                             <div class="col-4">
-                                Text must contain:
+                                Il campo deve contenere il testo (opzionale):
                             </div>
                             <div class="col-8">
-                                <input type="text" id="TextelementText" name="TextelementText" class="form-control" placeholder="Containing Text" />
+                                <input type="text" id="TextelementText" name="TextelementText" class="form-control" placeholder="" />
                             </div>
                         </div>
                         <div class="row" id="OtherOptions" style="display:none;">
                             <div class="col-4">
-                                Choose optional more Rule Options:
+                                 Inserisci un ulteriore criterio:
                             </div>
                             <div class="col-8">
                                 <select id="SecondModulChoose" name="SecondModulChoose" class="form-select" onchange="CheckSecond(this);">
-                    <option value="0">Se la regola precedente corrisponde, allora:</option>
-                    <option value="N">Il modulo successivo deve contenere uno dei seguenti campi di testo --></option>
+                    <option value="0"></option>
+                    <option value="N">Il modulo successivo deve contenere uno dei seguenti campi:</option>
                     <!--
                     <option value="B">(Not working yet!) The previous Module must be contain one of this Textfield </option>  -->                      
                     -->
@@ -623,7 +623,7 @@
                     </select>
                     <br />
                    
-                      <input id="TextelementTextSecond" placeholder="Optional contains this text" name="TextelementTextSecond" class="form-control" type="text" />
+                      <input id="TextelementTextSecond" placeholder="Il campo deve contenere il testo (opzionale):" name="TextelementTextSecond" class="form-control" type="text" />
                     
                 </span>
 
@@ -632,7 +632,7 @@
 
                         <div class="row">
                             <div class="col-6">
-                                <button type="submit" class="btn btn-secondary">+ Aggiungi regola</button>
+                                <button type="submit" class="btn btn-secondary">Mostra i risultati o aggiungi un criterio di ricerca</button>
                             </div>
                             <div class="col-6">
 
@@ -647,7 +647,7 @@
                     <!-- article output -->
                     <hr />
                     <div class="row mt-3 mb-3">
-                        <h3 id="tbltitle">Result</h3>
+                        <h3 id="tbltitle"></h3>
                     </div>
                     <div class="row mt-4">
                         <!-- article output table -->
