@@ -90,6 +90,16 @@
                             </a>
 
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/exports">
+                                <i class="fas fa-database"></i> Ricerche
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/csvexport">
+                                <i class="fas fa-file-export"></i> Export
+                            </a>
+                        </li>
 
                     </ul>
 
@@ -113,16 +123,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/users">
                                 <i class="fas fa-users"></i> Utenti
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/exports">
-                                <i class="fas fa-database"></i> Statistiche
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/csvexport">
-                                <i class="fas fa-file-export"></i> Export
                             </a>
                         </li>
                         <li class="nav-item">
@@ -1800,7 +1800,7 @@
                         </table>
                         <br />
                         <button type="button" onclick="document.location.reload(true);" class="btn btn-secondary">
-            Aggiorna la visualizzazione
+            Aggiorna
         </button>
                     </div>
 
@@ -1809,17 +1809,17 @@
                     <form id="FMTag" action="/tags?new=true" method="post">
 
                         <div class="row">
-                            <h5>Creare un nuovo tag</h5>
+                            <h5>Crea un nuovo tag</h5>
                             <div class="row">
                                 <div class="form-group">
                                     <label for="Displayname">Tag:</label>
-                                    <input type="text" class="form-control" value="" minlength="3" maxlength="150" required placeholder="" id="Tagname" name="Tagname">
+                                    <input type="text" class="form-control" value="" minlength="3" maxlength="150" required placeholder="Inserisci qui il nome del tag" id="Tagname" name="Tagname">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group">
                                     <label for="UsernameA">OrderID:</label>
-                                    <input type="text" class="form-control" value="" placeholder="L'ordine predefinito è il nome dei tag. Ma è possibile inserire un proprio OrderID per portare questi tag in cima alla lista." id="TagOrderID" name="TagOrderID">
+                                    <input type="text" class="form-control" value="" placeholder="Inserisci qui l'orderID per modificare l'ordinamento alfabetico automatico" id="TagOrderID" name="TagOrderID">
                                 </div>
                             </div>
 
@@ -1871,7 +1871,7 @@
                             "pageLength": 50,
                             "language": {
                                 "lengthMenu": "Visualizza _MENU_ record per pagina",
-                                "zeroRecords": "Niente trovato - spiacente",
+                                "zeroRecords": "La ricerca non ha dato risultati",
                                 "search": "Cerca:",
                                 "paginate": {
                                     "first": "Prima",
