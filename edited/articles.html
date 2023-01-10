@@ -197,12 +197,12 @@
                     <!-- toolbar-->
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group me-2">
-                            <a href="javascript:NewMasterArticle();" data-toggle="tooltip" title="" class="btn btn-sm btn-outline-secondary">Nuovo articolo</a>
-                            <a id="aPrintPDF" onclick="CreatePrintPDFLink(this);" style="display:none;" target="_blank" href="/pdf.aspx?multiselect=true&amp;editmode=false&amp;workingview=false" data-toggle="tooltip" title="" class="btn btn-sm btn-outline-secondary">PDF di stampa</a>
+                            <a id="aNewArticle" href="javascript:NewMasterArticle();" data-toggle="tooltip" title="" class="btn btn-sm btn-outline-secondary">Nuovo articolo</a>
                             <a id="aWorkingPDF" onclick="CreatePrintPDFLink(this);" style="display:none;" target="_blank" href="/pdf.aspx?multiselect=true&amp;editmode=false&amp;workingview=true" data-toggle="tooltip" title="" class="btn btn-sm btn-outline-secondary">PDF di lavoro</a>
+                            <a id="aPrintPDF" onclick="CreatePrintPDFLink(this);" style="display:none;" target="_blank" href="/pdf.aspx?multiselect=true&amp;editmode=false&amp;workingview=false" data-toggle="tooltip" title="" class="btn btn-sm btn-outline-secondary">PDF di stampa</a>
                             <a id="aInDesign" onclick="CreatePrintPDFLink(this);" style="display:none;" href="/indesign.aspx?multiselect=true&amp;editmode=false&amp;workingview=false" target="_blank" data-toggle="tooltip" title="" class="btn btn-sm btn-outline-secondary">InDesign XML</a>
-                            <a id="aSelectAll" href="javascript:SeletAllArticles();" class="btn btn-sm btn-outline-secondary">Seleziona tutti gli articoli</a>
-                            <a id="aDeselectAll" style="display:none;" href="javascript:SeletAllArticles();" class="btn btn-sm btn-outline-secondary">Annulla la selezione</a>
+                            <a id="aSelectAll" href="javascript:SelectAllArticles();" class="btn btn-sm btn-outline-secondary">Seleziona tutti gli articoli</a>
+                            <a id="aDeselectAll" style="display:none;" href="javascript:SelectAllArticles(true);" class="btn btn-sm btn-outline-secondary">Annulla la selezione</a>
                         </div>
                     </div>
                 </div>
@@ -388,10 +388,10 @@
                                     <th>Stato</th>
                                     <th>Tag</th>
                                     <th>
-                                        <!-- print pdf  -->
+                                        <!-- working pdf -->
                                     </th>
                                     <th>
-                                        <!-- working pdf -->
+                                        <!-- print pdf  -->
                                     </th>
                                     <th>
                                         <!-- functions -->
@@ -541,11 +541,11 @@
 
                                     </td>
                                     <td>
-                                        <a target="_blank" href="/pdf.aspx?artikelid=36768&editmode=false&workingview=false&title=gggg" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">PDF di stampa</a>
+                                        <a target="_blank" href="/pdf.aspx?artikelid=36768&editmode=false&workingview=true&title=gggg" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">PDF di lavoro</a>
 
                                     </td>
                                     <td>
-                                        <a target="_blank" href="/pdf.aspx?artikelid=36768&editmode=false&workingview=true&title=gggg" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">PDF di lavoro</a>
+                                        <a target="_blank" href="/pdf.aspx?artikelid=36768&editmode=false&workingview=false&title=gggg" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">PDF di stampa</a>
 
                                     </td>
 
@@ -705,11 +705,11 @@
 
                                     </td>
                                     <td>
-                                        <a target="_blank" href="/pdf.aspx?artikelid=36844&editmode=false&workingview=false&title=Lemma" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">PDF di stampa</a>
+                                        <a target="_blank" href="/pdf.aspx?artikelid=36844&editmode=false&workingview=true&title=Lemma" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">PDF di lavoro</a>
 
                                     </td>
                                     <td>
-                                        <a target="_blank" href="/pdf.aspx?artikelid=36844&editmode=false&workingview=true&title=Lemma" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">PDF di lavoro</a>
+                                        <a target="_blank" href="/pdf.aspx?artikelid=36844&editmode=false&workingview=false&title=Lemma" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">PDF di stampa</a>
 
                                     </td>
 
@@ -869,11 +869,11 @@
 
                                     </td>
                                     <td>
-                                        <a target="_blank" href="/pdf.aspx?artikelid=36769&editmode=false&workingview=false&title=Lemma 2" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">PDF di stampa</a>
+                                        <a target="_blank" href="/pdf.aspx?artikelid=36769&editmode=false&workingview=true&title=Lemma 2" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">PDF di lavoro</a>
 
                                     </td>
                                     <td>
-                                        <a target="_blank" href="/pdf.aspx?artikelid=36769&editmode=false&workingview=true&title=Lemma 2" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">PDF di lavoro</a>
+                                        <a target="_blank" href="/pdf.aspx?artikelid=36769&editmode=false&workingview=false&title=Lemma 2" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">PDF di stampa</a>
 
                                     </td>
 
@@ -1033,11 +1033,11 @@
 
                                     </td>
                                     <td>
-                                        <a target="_blank" href="/pdf.aspx?artikelid=36867&editmode=false&workingview=false&title=NESTED MODULES" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">PDF di stampa</a>
+                                        <a target="_blank" href="/pdf.aspx?artikelid=36867&editmode=false&workingview=true&title=NESTED MODULES" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">PDF di lavoro</a>
 
                                     </td>
                                     <td>
-                                        <a target="_blank" href="/pdf.aspx?artikelid=36867&editmode=false&workingview=true&title=NESTED MODULES" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">PDF di lavoro</a>
+                                        <a target="_blank" href="/pdf.aspx?artikelid=36867&editmode=false&workingview=false&title=NESTED MODULES" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">PDF di stampa</a>
 
                                     </td>
 
@@ -1202,11 +1202,11 @@
 
                                     </td>
                                     <td>
-                                                <a target="_blank" href="/pdf.aspx?artikelid=36772&editmode=false&workingview=false&title=prova" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">PDF di stampa</a>
+                                                <a target="_blank" href="/pdf.aspx?artikelid=36772&editmode=false&workingview=true&title=prova" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">PDF di lavoro</a>
 
                                     </td>
                                     <td>
-                                                <a target="_blank" href="/pdf.aspx?artikelid=36772&editmode=false&workingview=true&title=prova" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">PDF di lavoro</a>
+                                                <a target="_blank" href="/pdf.aspx?artikelid=36772&editmode=false&workingview=false&title=prova" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="" role="button">PDF di stampa</a>
 
 
                                     </td>
@@ -1307,7 +1307,7 @@
     </div>
 
     <script>
-        var t_ArticleSeletion = [];
+        var t_ArticleSelection = [];
         var allSelectionWasDone = false;
     
         $(document).ready(function () {
@@ -1419,15 +1419,15 @@
     
         function UpdateArtikelStatus(drpstatus, artid) {
             var artids = "";
-            for (var i = 0; i < t_ArticleSeletion.length; i++) {
-                artids += t_ArticleSeletion[i] + ",";
+            for (var i = 0; i < t_ArticleSelection.length; i++) {
+                artids += t_ArticleSelection[i] + ",";
             }
             artids = artids.substring(0, artids.length - 1);
     
     
     
-            if (t_ArticleSeletion.length > 0) {
-                if (confirm("Volete davvero cambiare lo stato in " + t_ArticleSeletion.length + " Articoli?")) {
+            if (t_ArticleSelection.length > 0) {
+                if (confirm("Volete davvero cambiare lo stato in " + t_ArticleSelection.length + " Articoli?")) {
                     $.get("./api.aspx?action=UpdateArtikelStatus&statusid=" + $(drpstatus).val() + "&multiselect=true&articleid=" + artids, function (jsonObj) {
                         // reload
                         $("#FMFilter").submit();
@@ -1444,8 +1444,8 @@
     
         function CreatePrintPDFLink(myLink) {
             var artids = "";
-            for (var i = 0; i < t_ArticleSeletion.length; i++) {
-                artids += t_ArticleSeletion[i] + ",";
+            for (var i = 0; i < t_ArticleSelection.length; i++) {
+                artids += t_ArticleSelection[i] + ",";
             }
             artids = artids.substring(0, artids.length - 1);
             var newLink = $(myLink).attr("href");
@@ -1458,15 +1458,15 @@
             $(myLink).attr("href", newLink);
         }
     
-        function SeletAllArticles() {
-            if (allSelectionWasDone) {
+        function SelectAllArticles(isUnselect) {
+            if (allSelectionWasDone || isUnselect) {
                 // disable all
-                t_ArticleSeletion = [];
+                t_ArticleSelection = [];
                 $("input:checkbox").each(function (index) {
                     if ($(this).attr("id").indexOf("ArtBox") >= 0) {
-                        const index = t_ArticleSeletion.indexOf($(this).data("articleid"));
+                        const index = t_ArticleSelection.indexOf($(this).data("articleid"));
                         if (index > -1) {
-                            t_ArticleSeletion.splice(index, 1);
+                            t_ArticleSelection.splice(index, 1);
                         }
     
                         $(this).prop("checked", false);
@@ -1480,11 +1480,11 @@
             }
             else {
                 // select all
-                t_ArticleSeletion = [];
+                t_ArticleSelection = [];
                 $("input:checkbox").each(function (index) {
                     //console.log($(this).attr("id"));
                     if ($(this).attr("id").indexOf("ArtBox") >= 0) {
-                        t_ArticleSeletion.push($(this).data("articleid"));
+                        t_ArticleSelection.push($(this).data("articleid"));
                         $(this).prop("checked", true);
                     }
                 });
@@ -1499,27 +1499,38 @@
     
         function CheckArtSelection(artID, artBox) {
             if ($(artBox).prop("checked")) {
-                t_ArticleSeletion.push(artID);
+                t_ArticleSelection.push(artID);
             }
             else {
-                const index = t_ArticleSeletion.indexOf(artID);
+                const index = t_ArticleSelection.indexOf(artID);
                 if (index > -1) {
-                    t_ArticleSeletion.splice(index, 1);
+                    t_ArticleSelection.splice(index, 1);
                 }
             }
             CheckButtons();
         }
     
         function CheckButtons() {
-            if (t_ArticleSeletion.length > 1) {
-                $("#aPrintPDF").show();
-                $("#aWorkingPDF").show();
-                $("#aInDesign").show();
-            }
-            else {
-                $("#aPrintPDF").hide();
-                $("#aWorkingPDF").hide();
-                $("#aInDesign").hide();
+            const pPdf = $("#aPrintPDF"), 
+                  wPdf = $("#aWorkingPDF"),
+                  inDesign = $("#aInDesign"), 
+                  newArticle = $("#aNewArticle"),
+                  selectAll = $("#aSelectAll"),
+                  deselectAll = $("#aDeselectAll"),
+                  numberSelected = t_ArticleSelection.length;
+            
+            if (numberSelected) {
+                deselectAll.show()
+                pPdf.show();
+                wPdf.show();
+                inDesign.show();
+                newArticle.hide();
+            } else {
+                deselectAll.hide();
+                pPdf.hide();
+                wPdf.hide();
+                inDesign.hide();
+                newArticle.show();
             }
         }
     
