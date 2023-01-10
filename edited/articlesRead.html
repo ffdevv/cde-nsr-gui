@@ -197,8 +197,8 @@
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group me-2">
                             <a id="aPrintPDF" onclick="CreatePrintPDFLink(this);" style="display:none;" target="_blank" href="/pdf.aspx?multiselect=true&amp;editmode=false&amp;workingview=false" data-toggle="tooltip" title="PDF di tutti gli articoli selezionati" class="btn btn-sm btn-outline-secondary">PDF di stampa</a>
-                            <a id="aSelectAll" href="javascript:SeletAllArticles();" class="btn btn-sm btn-outline-secondary">Seleziona tutti gli articoli</a>
-                            <a id="aDeselectAll" style="display:none;" href="javascript:SeletAllArticles();" class="btn btn-sm btn-outline-secondary">Annulla la selezione</a>
+                            <a id="aSelectAll" href="javascript:SelectAllArticles();" class="btn btn-sm btn-outline-secondary">Seleziona tutti gli articoli</a>
+                            <a id="aDeselectAll" style="display:none;" href="javascript:SelectAllArticles(true);" class="btn btn-sm btn-outline-secondary">Annulla la selezione</a>
                         </div>
                     </div>
                 </div>
@@ -508,7 +508,7 @@
                 </div>
 
                 <script>
-                    var t_ArticleSeletion = [];
+                    var t_ArticleSelection = [];
                     var allSelectionWasDone = false;
                 
                     $(document).ready(function () {
@@ -606,15 +606,15 @@
                 
                     function UpdateArtikelStatus(drpstatus, artid) {
                         var artids = "";
-                        for (var i = 0; i < t_ArticleSeletion.length; i++) {
-                            artids += t_ArticleSeletion[i] + ",";
+                        for (var i = 0; i < t_ArticleSelection.length; i++) {
+                            artids += t_ArticleSelection[i] + ",";
                         }
                         artids = artids.substring(0, artids.length - 1);
                 
                 
                 
-                        if (t_ArticleSeletion.length > 0) {
-                            if (confirm("Volete davvero cambiare lo stato in " + t_ArticleSeletion.length + " Articles?")) {
+                        if (t_ArticleSelection.length > 0) {
+                            if (confirm("Volete davvero cambiare lo stato in " + t_ArticleSelection.length + " Articles?")) {
                                 $.get("./api.aspx?action=UpdateArtikelStatus&statusid=" + $(drpstatus).val() + "&multiselect=true&articleid=" + artids, function (jsonObj) {
                                     // reload
                                     $("#FMFilter").submit();
@@ -631,8 +631,8 @@
                 
                     function CreatePrintPDFLink(myLink) {
                         var artids = "";
-                        for (var i = 0; i < t_ArticleSeletion.length; i++) {
-                            artids += t_ArticleSeletion[i] + ",";
+                        for (var i = 0; i < t_ArticleSelection.length; i++) {
+                            artids += t_ArticleSelection[i] + ",";
                         }
                         artids = artids.substring(0, artids.length - 1);
                         var newLink = $(myLink).attr("href");
@@ -640,73 +640,81 @@
                             // remove already artikelids
                             newLink = newLink.substring(0, newLink.indexOf("&artikelid"));
                         }
-                        newLink += "&artikelid=" + artids + "&allSelectionWasDone=" + allSelectionWasDone;
+                        newLink += "&artikelid=" + artids + "&allSelectionWasDone=" + AllArticlesAreSelected();
                         console.log(newLink);
                         $(myLink).attr("href", newLink);
                     }
                 
-                    function SeletAllArticles() {
-                        if (allSelectionWasDone) {
+                    function SelectAllArticles(isUnselect) {
+                        if (isUnselect) {
                             // disable all
-                            t_ArticleSeletion = [];
+                            t_ArticleSelection = [];
                             $("input:checkbox").each(function (index) {
                                 if ($(this).attr("id").indexOf("ArtBox") >= 0) {
-                                    const index = t_ArticleSeletion.indexOf($(this).data("articleid"));
+                                    const index = t_ArticleSelection.indexOf($(this).data("articleid"));
                                     if (index > -1) {
-                                        t_ArticleSeletion.splice(index, 1);
+                                        t_ArticleSelection.splice(index, 1);
                                     }
                 
                                     $(this).prop("checked", false);
                                 }
                             });
-                
-                            // switch button
-                            $("#aSelectAll").show();
-                            $("#aDeselectAll").hide();
-                            allSelectionWasDone = false;
                         }
                         else {
                             // select all
-                            t_ArticleSeletion = [];
+                            t_ArticleSelection = [];
                             $("input:checkbox").each(function (index) {
                                 //console.log($(this).attr("id"));
                                 if ($(this).attr("id").indexOf("ArtBox") >= 0) {
-                                    t_ArticleSeletion.push($(this).data("articleid"));
+                                    t_ArticleSelection.push($(this).data("articleid"));
                                     $(this).prop("checked", true);
                                 }
                             });
-                
-                            // switch button
-                            $("#aDeselectAll").show();
-                            $("#aSelectAll").hide();
-                            allSelectionWasDone = true;
                         }
                         CheckButtons();
                     }
                 
                     function CheckArtSelection(artID, artBox) {
                         if ($(artBox).prop("checked")) {
-                            t_ArticleSeletion.push(artID);
+                            t_ArticleSelection.push(artID);
                         }
                         else {
-                            const index = t_ArticleSeletion.indexOf(artID);
+                            const index = t_ArticleSelection.indexOf(artID);
                             if (index > -1) {
-                                t_ArticleSeletion.splice(index, 1);
+                                t_ArticleSelection.splice(index, 1);
                             }
                         }
                         CheckButtons();
                     }
                 
+                    function AllArticlesAreSelected(){
+                        return t_ArticleSelection.length < $("#TblArticles").find('tbody > tr').length;
+                    }
+                
                     function CheckButtons() {
-                        if (t_ArticleSeletion.length > 1) {
-                            $("#aPrintPDF").show();
-                            $("#aWorkingPDF").show();
-                            $("#aInDesign").show();
+                        const pPdf = $("#aPrintPDF"), 
+                            wPdf = $("#aWorkingPDF"),
+                            inDesign = $("#aInDesign"), 
+                            selectAll = $("#aSelectAll"),
+                            deselectAll = $("#aDeselectAll"),
+                            numberSelected = t_ArticleSelection.length;
+                        
+                        if (AllArticlesAreSelected()){
+                            selectAll.show();
+                        } else {
+                            selectAll.hide();
                         }
-                        else {
-                            $("#aPrintPDF").hide();
-                            $("#aWorkingPDF").hide();
-                            $("#aInDesign").hide();
+                        
+                        if (numberSelected) {
+                            deselectAll.show()
+                            pPdf.show();
+                            wPdf.show();
+                            inDesign.show();
+                        } else {
+                            deselectAll.hide();
+                            pPdf.hide();
+                            wPdf.hide();
+                            inDesign.hide();
                         }
                     }
                 

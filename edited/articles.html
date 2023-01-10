@@ -1453,13 +1453,13 @@
                 // remove already artikelids
                 newLink = newLink.substring(0, newLink.indexOf("&artikelid"));
             }
-            newLink += "&artikelid=" + artids + "&allSelectionWasDone=" + allSelectionWasDone;
+            newLink += "&artikelid=" + artids + "&allSelectionWasDone=" + AllArticlesAreSelected();
             console.log(newLink);
             $(myLink).attr("href", newLink);
         }
     
         function SelectAllArticles(isUnselect) {
-            if (allSelectionWasDone || isUnselect) {
+            if (isUnselect) {
                 // disable all
                 t_ArticleSelection = [];
                 $("input:checkbox").each(function (index) {
@@ -1472,11 +1472,6 @@
                         $(this).prop("checked", false);
                     }
                 });
-    
-                // switch button
-                $("#aSelectAll").show();
-                $("#aDeselectAll").hide();
-                allSelectionWasDone = false;
             }
             else {
                 // select all
@@ -1488,11 +1483,6 @@
                         $(this).prop("checked", true);
                     }
                 });
-    
-                // switch button
-                $("#aDeselectAll").show();
-                $("#aSelectAll").hide();
-                allSelectionWasDone = true;
             }
             CheckButtons();
         }
@@ -1510,6 +1500,10 @@
             CheckButtons();
         }
     
+        function AllArticlesAreSelected(){
+            return t_ArticleSelection.length < $("#TblArticles").find('tbody > tr').length;
+        }
+    
         function CheckButtons() {
             const pPdf = $("#aPrintPDF"), 
                   wPdf = $("#aWorkingPDF"),
@@ -1518,6 +1512,12 @@
                   selectAll = $("#aSelectAll"),
                   deselectAll = $("#aDeselectAll"),
                   numberSelected = t_ArticleSelection.length;
+            
+            if (AllArticlesAreSelected()){
+                selectAll.show();
+            } else {
+                selectAll.hide();
+            }
             
             if (numberSelected) {
                 deselectAll.show()
