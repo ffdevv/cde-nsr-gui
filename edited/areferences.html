@@ -230,8 +230,7 @@
                     <!-- toolbar-->
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group me-2">
-                            <a href="javascript:document.location.reload();" data-toggle="tooltip" title="Aggiorna la pagina" class="btn btn-sm btn-outline-secondary">Aggiorna la pagina</a>
-                            <a href="javascript:RefreshVerweise();" data-toggle="tooltip" title="Importazione / Aggiornamento di nuovi riferimenti ora" class="btn btn-sm btn-outline-secondary">Importazione / Aggiornamento</a>
+                            <a href="javascript:RefreshVerweise();" data-toggle="tooltip" title="Importa i nuovi rimandi e aggiorna la pagina" class="btn btn-sm btn-outline-secondary">Aggiorna</a>
 
                         </div>
                     </div>
@@ -240,7 +239,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <p class="lead">
-                            Premere Import / Update per aggiornare o mostrare nuovi riferimenti. Se vuoi cambiare l'ordine dei riferimenti, cambia la vista in Vista ordine.
+                            Clicca su Aggiorna per importare i nuovi rimandi. 
                         </p>
                         <table id="TblReferences" class="table table-striped table-bordered" style="width:100%">
                             <thead>
@@ -263,7 +262,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FER&#201;E2">batferéi</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FER&#201;E2&editmode=false&workingview=false&title=FER&#201;E2">FER&#201;E2</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45137, 'FER&#201;E2', 'batfer&#233;i', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45137, 'FER&#201;E2', 'batfer&#233;i', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -273,7 +272,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FASTIDI test">capfastidi&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASTIDI test&editmode=false&workingview=false&title=FASTIDI test">FASTIDI test</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45113, 'FASTIDI test', 'capfastidi&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45113, 'FASTIDI test', 'capfastidi&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -283,7 +282,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FASTIDI (vecchio)">capfastidi&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASTIDI (vecchio)&editmode=false&workingview=false&title=FASTIDI (vecchio)">FASTIDI (vecchio)</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45098, 'FASTIDI (vecchio)', 'capfastidi&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45098, 'FASTIDI (vecchio)', 'capfastidi&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -293,7 +292,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=F&#200;STA PROVA">cisk</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=F&#200;STA PROVA&editmode=false&workingview=false&title=F&#200;STA PROVA">F&#200;STA PROVA</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45125, 'F&#200;STA PROVA', 'cisk', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45125, 'F&#200;STA PROVA', 'cisk', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -303,7 +302,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=DORM&#205;">dormentá&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=DORM&#205;&editmode=false&workingview=false&title=DORM&#205;">DORM&#205;</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45133, 'DORM&#205;', 'dorment&#225;&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45133, 'DORM&#205;', 'dorment&#225;&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -313,7 +312,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=DORM&#205;">dorménta&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=DORM&#205;&editmode=false&workingview=false&title=DORM&#205;">DORM&#205;</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45134, 'DORM&#205;', 'dorm&#233;nta&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45134, 'DORM&#205;', 'dorm&#233;nta&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -323,7 +322,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=DORM&#205;">dormentò&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=DORM&#205;&editmode=false&workingview=false&title=DORM&#205;">DORM&#205;</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45135, 'DORM&#205;', 'dorment&#242;&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45135, 'DORM&#205;', 'dorment&#242;&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -333,7 +332,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=DORM&#205;">dormina</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=DORM&#205;&editmode=false&workingview=false&title=DORM&#205;">DORM&#205;</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45136, 'DORM&#205;', 'dormina', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45136, 'DORM&#205;', 'dormina', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -343,7 +342,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=DONŻ&#201;NA1">dozinant&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=DONŻ&#201;NA1&editmode=false&workingview=false&title=DONŻ&#201;NA1">DONŻ&#201;NA1</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45099, 'DONŻ&#201;NA1', 'dozinant&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45099, 'DONŻ&#201;NA1', 'dozinant&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -353,7 +352,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=DR&#200;SS">DRÈSCH&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=DR&#200;SS&editmode=false&workingview=false&title=DR&#200;SS">DR&#200;SS</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45120, 'DR&#200;SS', 'DR&#200;SCH&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45120, 'DR&#200;SS', 'DR&#200;SCH&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -363,7 +362,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=DR&#200;SS">dreschètt&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=DR&#200;SS&editmode=false&workingview=false&title=DR&#200;SS">DR&#200;SS</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45121, 'DR&#200;SS', 'dresch&#232;tt&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45121, 'DR&#200;SS', 'dresch&#232;tt&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -373,7 +372,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=DR&#200;SS">dressín&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=DR&#200;SS&editmode=false&workingview=false&title=DR&#200;SS">DR&#200;SS</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45122, 'DR&#200;SS', 'dress&#237;n&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45122, 'DR&#200;SS', 'dress&#237;n&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -383,7 +382,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=DR&#200;SS">dressón&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=DR&#200;SS&editmode=false&workingview=false&title=DR&#200;SS">DR&#200;SS</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45123, 'DR&#200;SS', 'dress&#243;n&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45123, 'DR&#200;SS', 'dress&#243;n&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -393,7 +392,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FACIL">facilézza&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FACIL&editmode=false&workingview=false&title=FACIL">FACIL</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45127, 'FACIL', 'facil&#233;zza&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45127, 'FACIL', 'facil&#233;zza&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -403,7 +402,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FACIL">facilitá&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FACIL&editmode=false&workingview=false&title=FACIL">FACIL</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45128, 'FACIL', 'facilit&#225;&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45128, 'FACIL', 'facilit&#225;&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -413,7 +412,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FAN&#201;TT">FANÍN&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FAN&#201;TT&editmode=false&workingview=false&title=FAN&#201;TT">FAN&#201;TT</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45129, 'FAN&#201;TT', 'FAN&#205;N&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45129, 'FAN&#201;TT', 'FAN&#205;N&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -423,7 +422,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FASTIDI test">fastidiá&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASTIDI test&editmode=false&workingview=false&title=FASTIDI test">FASTIDI test</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45116, 'FASTIDI test', 'fastidi&#225;&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45116, 'FASTIDI test', 'fastidi&#225;&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -433,7 +432,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FASTIDI test">fastidiaa&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASTIDI test&editmode=false&workingview=false&title=FASTIDI test">FASTIDI test</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45117, 'FASTIDI test', 'fastidiaa&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45117, 'FASTIDI test', 'fastidiaa&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -443,7 +442,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FASTIDI test">fastidiós&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASTIDI test&editmode=false&workingview=false&title=FASTIDI test">FASTIDI test</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45118, 'FASTIDI test', 'fastidi&#243;s&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45118, 'FASTIDI test', 'fastidi&#243;s&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -453,7 +452,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FATT">fatada&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FATT&editmode=false&workingview=false&title=FATT">FATT</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45103, 'FATT', 'fatada&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45103, 'FATT', 'fatada&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -463,7 +462,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FATT">fatería&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FATT&editmode=false&workingview=false&title=FATT">FATT</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45105, 'FATT', 'fater&#237;a&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45105, 'FATT', 'fater&#237;a&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -473,7 +472,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FATT">fatézze&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FATT&editmode=false&workingview=false&title=FATT">FATT</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45106, 'FATT', 'fat&#233;zze&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45106, 'FATT', 'fat&#233;zze&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -483,7 +482,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FATT">fatísc&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FATT&editmode=false&workingview=false&title=FATT">FATT</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45107, 'FATT', 'fat&#237;sc&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45107, 'FATT', 'fat&#237;sc&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -493,7 +492,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FATT">fatögna&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FATT&editmode=false&workingview=false&title=FATT">FATT</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45108, 'FATT', 'fat&#246;gna&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45108, 'FATT', 'fat&#246;gna&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -503,7 +502,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FATT">fatón&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FATT&editmode=false&workingview=false&title=FATT">FATT</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45109, 'FATT', 'fat&#243;n&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45109, 'FATT', 'fat&#243;n&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -513,7 +512,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FATT">fatözza&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FATT&editmode=false&workingview=false&title=FATT">FATT</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45110, 'FATT', 'fat&#246;zza&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45110, 'FATT', 'fat&#246;zza&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -523,7 +522,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FAZZL (vecchio)">fazzölada&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FAZZL (vecchio)&editmode=false&workingview=false&title=FAZZL (vecchio)">FAZZL (vecchio)</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45111, 'FAZZL (vecchio)', 'fazz&#246;lada&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45111, 'FAZZL (vecchio)', 'fazz&#246;lada&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -533,7 +532,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=zzzprovaFER&#201;E1">fererín</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=zzzprovaFER&#201;E1&editmode=false&workingview=false&title=zzzprovaFER&#201;E1">zzzprovaFER&#201;E1</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45138, 'zzzprovaFER&#201;E1', 'ferer&#237;n', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45138, 'zzzprovaFER&#201;E1', 'ferer&#237;n', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -543,7 +542,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=Lemma">fererín&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=Lemma&editmode=false&workingview=false&title=Lemma">Lemma</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45139, 'Lemma', 'ferer&#237;n&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45139, 'Lemma', 'ferer&#237;n&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -553,7 +552,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FI&#201;LL (vecchio)">fielada&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FI&#201;LL (vecchio)&editmode=false&workingview=false&title=FI&#201;LL (vecchio)">FI&#201;LL (vecchio)</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45124, 'FI&#201;LL (vecchio)', 'fielada&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45124, 'FI&#201;LL (vecchio)', 'fielada&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -563,7 +562,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FACIL">perfacil&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FACIL&editmode=false&workingview=false&title=FACIL">FACIL</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45130, 'FACIL', 'perfacil&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45130, 'FACIL', 'perfacil&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -573,7 +572,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=EP&#205;STOLA ANTEA">pistolari&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=EP&#205;STOLA ANTEA&editmode=false&workingview=false&title=EP&#205;STOLA ANTEA">EP&#205;STOLA ANTEA</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45131, 'EP&#205;STOLA ANTEA', 'pistolari&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45131, 'EP&#205;STOLA ANTEA', 'pistolari&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -583,7 +582,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FEST&#205;N">scovefestín&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FEST&#205;N&editmode=false&workingview=false&title=FEST&#205;N">FEST&#205;N</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45140, 'FEST&#205;N', 'scovefest&#237;n&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45140, 'FEST&#205;N', 'scovefest&#237;n&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -593,7 +592,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FASTIDI (vecchio)">senzafastidi&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASTIDI (vecchio)&editmode=false&workingview=false&title=FASTIDI (vecchio)">FASTIDI (vecchio)</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45112, 'FASTIDI (vecchio)', 'senzafastidi&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45112, 'FASTIDI (vecchio)', 'senzafastidi&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -603,7 +602,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FASTIDI test">senzafastidi&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASTIDI test&editmode=false&workingview=false&title=FASTIDI test">FASTIDI test</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45119, 'FASTIDI test', 'senzafastidi&amp;nbsp;', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45119, 'FASTIDI test', 'senzafastidi&amp;nbsp;', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -613,7 +612,7 @@
                                     </td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=PROVA">test</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=PROVA&editmode=false&workingview=false&title=PROVA">PROVA</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45141, 'PROVA', 'test', '');">Apri</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45141, 'PROVA', 'test', '');">Ordina</button>
 
                                     </td>
                                 </tr>
@@ -621,8 +620,8 @@
                                     <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=cumb&#232;tt&editmode=false&workingview=false&title=cumb&#232;tt">cumb&#232;tt</a></td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=COMBR&#205;COLA">cumbriculá&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=COMBR&#205;COLA&editmode=false&workingview=false&title=COMBR&#205;COLA">COMBR&#205;COLA</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45126, 'COMBR&#205;COLA', 'cumbricul&#225;&amp;nbsp;', 'cumb&#232;tt');">Apri</button>
-                                        <button class="btn btn-secondary" style="font-family:Arial;" onclick="document.location.href='/areferences?changeView=true&dopolemma=cumb&#232;tt';">Ordine di modifica</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45126, 'COMBR&#205;COLA', 'cumbricul&#225;&amp;nbsp;', 'cumb&#232;tt');">Ordina</button>
+                                        <button data-toggle="tooltip" title="Ordina i rimandi fra di loro" class="btn btn-secondary" style="font-family:Arial;" onclick="document.location.href='/areferences?changeView=true&dopolemma=cumb&#232;tt';">Riordina</button>
 
                                     </td>
                                 </tr>
@@ -630,8 +629,8 @@
                                     <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASSǗ&editmode=false&workingview=false&title=FASSǗ">FASSǗ</a></td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FASTIDI (vecchio)">fastidiá&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASTIDI (vecchio)&editmode=false&workingview=false&title=FASTIDI (vecchio)">FASTIDI (vecchio)</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45100, 'FASTIDI (vecchio)', 'fastidi&#225;&amp;nbsp;', 'FASSǗ');">Apri</button>
-                                        <button class="btn btn-secondary" style="font-family:Arial;" onclick="document.location.href='/areferences?changeView=true&dopolemma=FASSǗ';">Ordine di modifica</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45100, 'FASTIDI (vecchio)', 'fastidi&#225;&amp;nbsp;', 'FASSǗ');">Ordina</button>
+                                        <button data-toggle="tooltip" title="Ordina i rimandi fra di loro" class="btn btn-secondary" style="font-family:Arial;" onclick="document.location.href='/areferences?changeView=true&dopolemma=FASSǗ';">Riordina</button>
 
                                     </td>
                                 </tr>
@@ -639,8 +638,8 @@
                                     <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASSǗ&editmode=false&workingview=false&title=FASSǗ">FASSǗ</a></td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FASTIDI (vecchio)">fastidiaa&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASTIDI (vecchio)&editmode=false&workingview=false&title=FASTIDI (vecchio)">FASTIDI (vecchio)</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45101, 'FASTIDI (vecchio)', 'fastidiaa&amp;nbsp;', 'FASSǗ');">Apri</button>
-                                        <button class="btn btn-secondary" style="font-family:Arial;" onclick="document.location.href='/areferences?changeView=true&dopolemma=FASSǗ';">Ordine di modifica</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45101, 'FASTIDI (vecchio)', 'fastidiaa&amp;nbsp;', 'FASSǗ');">Ordina</button>
+                                        <button data-toggle="tooltip" title="Ordina i rimandi fra di loro" class="btn btn-secondary" style="font-family:Arial;" onclick="document.location.href='/areferences?changeView=true&dopolemma=FASSǗ';">Riordina</button>
 
                                     </td>
                                 </tr>
@@ -648,8 +647,8 @@
                                     <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASSǗ&editmode=false&workingview=false&title=FASSǗ">FASSǗ</a></td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FASTIDI (vecchio)">fastidiós&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASTIDI (vecchio)&editmode=false&workingview=false&title=FASTIDI (vecchio)">FASTIDI (vecchio)</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45102, 'FASTIDI (vecchio)', 'fastidi&#243;s&amp;nbsp;', 'FASSǗ');">Apri</button>
-                                        <button class="btn btn-secondary" style="font-family:Arial;" onclick="document.location.href='/areferences?changeView=true&dopolemma=FASSǗ';">Ordine di modifica</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45102, 'FASTIDI (vecchio)', 'fastidi&#243;s&amp;nbsp;', 'FASSǗ');">Ordina</button>
+                                        <button data-toggle="tooltip" title="Ordina i rimandi fra di loro" class="btn btn-secondary" style="font-family:Arial;" onclick="document.location.href='/areferences?changeView=true&dopolemma=FASSǗ';">Riordina</button>
 
                                     </td>
                                 </tr>
@@ -657,8 +656,8 @@
                                     <td><a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FASSǗ&editmode=false&workingview=false&title=FASSǗ">FASSǗ</a></td>
                                     <td style="background-color:white;"><a title="Modifica Articolo" href="/editArticle?articleID=-1&lemma=FATT">fatasciada&nbsp;</a></td>
                                     <td>&rarr; <a title="Apri PDF" target="_blank" href="/pdf.aspx?artikelid=&lemma=FATT&editmode=false&workingview=false&title=FATT">FATT</a></td>
-                                    <td><button type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45104, 'FATT', 'fatasciada&amp;nbsp;', 'FASSǗ');">Apri</button>
-                                        <button class="btn btn-secondary" style="font-family:Arial;" onclick="document.location.href='/areferences?changeView=true&dopolemma=FASSǗ';">Ordine di modifica</button>
+                                    <td><button data-toggle="tooltip" title="Ordina i rimandi fra i lemmi" type="button" class="btn btn-secondary" style="font-family:Arial;" onclick="OpenEditReferenc(45104, 'FATT', 'fatasciada&amp;nbsp;', 'FASSǗ');">Ordina</button>
+                                        <button data-toggle="tooltip" title="Ordina i rimandi fra di loro" class="btn btn-secondary" style="font-family:Arial;" onclick="document.location.href='/areferences?changeView=true&dopolemma=FASSǗ';">Riordina</button>
 
                                     </td>
                                 </tr>
@@ -773,7 +772,7 @@
                             "pageLength": 150,
                             "language": {
                                 "lengthMenu": "Visualizza _MENU_ record per pagina",
-                                "zeroRecords": "Niente trovato - spiacente",
+                                "zeroRecords": "La ricerca non ha dato risultati",
                                 "search": "Cerca:",
                                 "paginate": {
                                     "first": "Prima",
